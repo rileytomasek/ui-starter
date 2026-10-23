@@ -13,6 +13,28 @@ pins installed versions; review upstream changes before migrations.
 - Status: exact content copied from the versioned GitHub API response, without
   local edits. Review upstream changes before updating this file and the pinned skill together.
 
+## Adapted UI review skill
+
+- Upstream: [Rams plugin](https://github.com/rams-design/rams-plugin), revision
+  `aeeafefbb149fe5ed318c9d8e3a4463f41e7dbae`, reviewed October 23, 2026.
+- [Pinned source](https://github.com/rams-design/rams-plugin/blob/aeeafefbb149fe5ed318c9d8e3a4463f41e7dbae/skills/rams/SKILL.md).
+- Local adaptation: [ui-review](../.agents/skills/ui-review/SKILL.md).
+- Copyright (c) 2026 Rams (rams.ai); original [MIT license](../.agents/skills/ui-review/LICENSE)
+  retained verbatim beside the adaptation. Preserve it when copying the skill.
+- Retained: concrete accessibility, layout, typography, color, component-state,
+  and actionable-finding checks.
+- Adapted: named ui-review; interface-design and repository integration conventions
+  define design direction; findings require source/context and rendered evidence.
+  Native/Base UI keyboard behavior, computed accessible names, focus replacements,
+  and WCAG contrast/target-size exceptions are evaluated in context. Severity follows
+  observed impact. Implement/fix and review-only scopes are distinguished.
+- Removed: hosted-tool routing, accounts/uploads, promotions, numeric scores,
+  mandatory report formatting, and blanket severity assignments to code patterns.
+- Updates are intentional: compare the pinned source with the proposed upstream
+  revision, review useful changes against local conventions, then update the
+  adaptation and this record. Do not auto-sync over local decisions. The existing
+  interface-design skill remains unchanged and pinned separately.
+
 ## Foundations and components
 
 | Reference                                                                                                                                                                                   | Role                                                                      |

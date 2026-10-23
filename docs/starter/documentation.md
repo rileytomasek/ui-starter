@@ -55,7 +55,7 @@ with a clear README index and one authoritative explanation for each:
 | UI gallery              | Browsing themes, typography, components, patterns, layouts, and icons; adding an example; production exclusion and removal                                        |
 | Extensions              | Preferred approaches for optional capabilities, starting with shadcn charts and Recharts                                                                          |
 | Quality and testing     | Actual lint/format/typecheck/test commands, when to use each test layer, and rendered review expectations                                                         |
-| Agent guidance          | A concise AGENTS.md entry point and pinned design skill, directing agents to task-specific authoritative guides                                                   |
+| Agent guidance          | A concise AGENTS.md entry point, pinned design skill, and adapted UI review skill, directing agents to task-specific authoritative guides                         |
 
 These are coverage requirements, not a requirement to create a separate file for
 every row. Keep documentation concise and organized around tasks. Link to

@@ -102,6 +102,9 @@ Firefox/WebKit smoke cover navigation and theme; the reference suite also covers
 a representative form when examples are retained.
 
 `pnpm docs:check` checks local file links (not external availability or fragment IDs).
+Follow the two-skill workflow in [AGENTS.md](../AGENTS.md): interface-design guides
+composition; [ui-review](../.agents/skills/ui-review/SKILL.md) checks concrete defects
+in source and rendered context. Both run locally; neither requires a hosted reviewer.
 Rendered review is still required: automated axe checks do not establish full
 accessibility conformance. Review focus, overlays, long content, loading/empty/error
 states, mobile/intermediate/desktop widths, and reduced motion in both themes.

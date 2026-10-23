@@ -60,7 +60,7 @@ translate this priority into repository conventions. Choose implementation detai
 | Component tests  | Vitest Browser Mode, vitest-browser-react, Playwright provider                                        |
 | Logic tests      | Vitest in Node                                                                                        |
 | End-to-end tests | A smaller Playwright suite for application flows                                                      |
-| Agent guidance   | Concise AGENTS.md plus the checked-in interface-design skill                                          |
+| Agent guidance   | Concise AGENTS.md plus interface-design and adapted ui-review skills                                  |
 
 Use Tailwind v4-compatible tooling for the selected shadcn/lint direction.
 Resolve exact compatible package versions during implementation and commit a

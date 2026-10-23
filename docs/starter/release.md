@@ -126,3 +126,20 @@ Verified on October 23, 2026:
 
 Vite's existing bundle-size advisory remains. Grouped-control interaction cases run
 in Chromium; Firefox/WebKit retain the production/theme/form smoke coverage.
+
+## Local UI review skill follow-up
+
+Added the local Rams-derived ui-review skill with pinned upstream revision and
+original MIT license. [Sources](../sources.md#adapted-ui-review-skill) records the
+adaptations. Root and generated AGENTS.md explain how interface-design guides
+authoring, ui-review checks concrete defects, and browser/tests verify the result.
+No hosted service is configured or required.
+
+Verified October 23, 2026: skill-creator's quick validator passes; the original
+interface-design SHA-256 is unchanged; `pnpm check` passes including all 10 Vitest
+tests. `pnpm test:setup` passes all six regressions, including byte-preservation of
+both skills, license, provenance, and generated agent links. A fresh disposable
+consuming copy completed real finalization, full checks, and four E2E cases with
+gallery/examples removed. Skill links are now included in `pnpm docs:check`.
+This change adds agent guidance and setup verification; application UI is unchanged.
+The skill validator checks structure, not the quality of future agent reviews.

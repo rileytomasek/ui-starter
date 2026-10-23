@@ -53,6 +53,8 @@ deployment, server caching, and global state remain application decisions.
 
 Read [AGENTS.md](AGENTS.md) for authoring conventions and the pinned
 [interface-design skill](.agents/skills/interface-design/SKILL.md) before UI work.
+Apply [ui-review](.agents/skills/ui-review/SKILL.md) before completing UI changes;
+AGENTS.md explains their roles and verification workflow.
 
 ## Maintaining the upstream repository
 

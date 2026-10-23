@@ -5,7 +5,7 @@ appropriate for the app. Clone that new repository. The upstream repository is
 not a consuming app: apply refuses its origin. For a disposable/local copy, use
 a separate Git repository with an initial commit and no upstream origin.
 
-1. Read README, AGENTS.md, and the interface-design skill. Install Node 24.10.0,
+1. Read README, AGENTS.md, and its two-skill UI workflow. Install Node 24.10.0,
    pnpm 11.14.0, dependencies (`pnpm install`), and browser binaries
    (`pnpm exec playwright install chromium firefox webkit`). Run `pnpm dev`.
 2. Edit `.starter/config.json`: name, purpose, intended users, npm packageName,
@@ -73,7 +73,7 @@ replacement/deletion, not deletion of arbitrary paths. A changed hash invalidate
 that decision.
 
 `keep` preserves an already app-specific replacement; it must pass final checks and
-retain the configured purpose, design skill, and CLI conventions. To keep example
+retain the configured purpose, both UI skills and their usage, and CLI conventions. To keep example
 files, select the corresponding retention choice. Temporary setup/spec instructions
 cannot remain active: use `migrate` after manually transferring enduring content to
 an existing retained file. Record `to`, `targetSha256`, and the source `sha256` to

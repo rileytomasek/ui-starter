@@ -198,3 +198,21 @@ void test("grouped primitives and recipes survive removal of examples and their 
   assert.match(f.read("docs/components.md"), /## Compact grouped controls/u)
   assert.doesNotMatch(f.read("docs/components.md"), /src\/examples|__gallery/u)
 })
+
+void test("both UI skills, their provenance, and agent links survive finalization", () => {
+  const f = fixture()
+  const paths = [
+    ".agents/skills/interface-design/SKILL.md",
+    ".agents/skills/ui-review/SKILL.md",
+    ".agents/skills/ui-review/LICENSE",
+    "docs/sources.md",
+  ]
+  const before = paths.map((path) => f.read(path))
+  const result = f.run("--apply")
+  assert.equal(result.status, 0, result.stderr)
+  assert.deepEqual(
+    paths.map((path) => f.read(path)),
+    before,
+  )
+  for (const path of paths.slice(0, 2)) assert.ok(f.read("AGENTS.md").includes(`](${path})`))
+})

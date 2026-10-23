@@ -57,7 +57,7 @@ them deliberately when building the distributable starter.
 | One-off setup tooling and cleanup manifest after successful finalization | Normal application development and verification commands                                   |
 | Gallery content not explicitly retained                                  | Useful gallery/examples explicitly retained and described as application development tools |
 
-Keep the interface-design skill and its provenance, plus relevant optional
+Keep both interface-design and ui-review skills, their usage instructions, licenses, and provenance, plus relevant optional
 recipes such as charts. Preserve the MIT license, copyright notice, and needed
 third-party attribution and licensing notices, including those for Carbon icons.
 Move any necessary provenance or enduring conventions out of temporary guides
@@ -85,7 +85,7 @@ The finalizer must:
 - Update affected navigation, imports, scripts, dependencies, and the lockfile.
   Remove a dependency only if retained app code and tooling no longer require it.
 - Retain the chosen foundations and relevant application documentation, including
-  the design skill and its provenance.
+  both UI skills and their provenance.
 - Run the appropriate checks and report remaining work or failures precisely.
 
 Use an explicit cleanup manifest of known paths and transformations. Do not

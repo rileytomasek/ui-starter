@@ -4,7 +4,22 @@ Implementation and acceptance are complete; consult [acceptance evidence](docs/s
 For a new consuming copy, setup is incomplete: follow [Getting started](docs/starter/getting-started.md).
 Read [README.md](README.md) and [Scope and decisions](docs/starter/spec.md) first.
 Use [Development](docs/development.md) for actual commands and source locations.
-Read the design skill at every UI phase and before rendered review.
+Use both skills through the UI workflow below.
+
+## UI workflow
+
+1. Read [interface-design](.agents/skills/interface-design/SKILL.md) before UI work
+   and reread it before rendered review. It owns composition, hierarchy, density,
+   and visual direction; repository guides own integration choices.
+2. Implement with shared tokens and CLI-installed components, then render and
+   exercise affected screens in the relevant themes, viewports, and states.
+3. Apply [ui-review](.agents/skills/ui-review/SKILL.md) to the changed UI plus its
+   primitive/theme context before completion. It adds concrete accessibility and
+   consistency checks; it does not override interface-design or the shared system.
+4. Fix confirmed in-scope defects, run relevant checks, and inspect the result.
+   For review-only requests, report findings without editing. Report unavailable
+   verification explicitly. Scale review to the change; do not use numeric scores
+   as completion gates. Neither skill requires a hosted service.
 
 ## Working agreements
 
@@ -19,8 +34,6 @@ Read the design skill at every UI phase and before rendered review.
 - Track implementation in [Implementation plan](docs/starter/implementation-plan.md).
   Update task checkboxes and phase evidence with each completed change; leave
   incomplete or unverified work unchecked.
-- For UI creation, changes, or reviews, read and apply
-  [.agents/skills/interface-design/SKILL.md](.agents/skills/interface-design/SKILL.md).
 - Follow [Customization](docs/starter/customization.md). Reuse the shared tokens,
   components, variants, icon conventions, and layouts before adding alternatives.
 - Install UI components through the shadcn CLI; do not handwrite replacements
@@ -55,5 +68,6 @@ Run `pnpm check` and `pnpm test:e2e` for applicable changes. The implementation 
 verified coverage and practical limits.
 The design skill is excluded from formatting to retain its pinned contents.
 
-The upstream design skill is pinned. Review its diff before updating it and
-record the new revision in [Sources](docs/sources.md).
+The interface-design skill is pinned unchanged; ui-review is a locally adapted
+Rams skill. Review upstream diffs deliberately, preserve attribution and license,
+and record revisions/adaptations in [Sources](docs/sources.md).

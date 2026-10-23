@@ -19,6 +19,11 @@ function brokenLinks(path: string): string[] {
   }
   return errors
 }
-const errors = ["README.md", "AGENTS.md", ...markdown("docs")].flatMap((path) => brokenLinks(path))
+const errors = [
+  "README.md",
+  "AGENTS.md",
+  ...markdown("docs"),
+  ...markdown(".agents/skills"),
+].flatMap((path) => brokenLinks(path))
 if (errors.length > 0) throw new Error(`Broken local documentation links:\n${errors.join("\n")}`)
 console.log("Local documentation file links resolve")

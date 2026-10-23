@@ -144,7 +144,7 @@ documents own behavior; this file provides observable acceptance checks.
       as a default dependency.
 - [x] The playground and examples can be removed using documented steps while
       preserving the foundations a consuming app needs.
-- [x] AGENTS.md and the pinned design skill are present, concise in their
+- [x] AGENTS.md, the pinned design skill, and the adapted UI review skill are present, concise in their
       respective roles, and consistent with actual behavior and commands.
 - [x] All documentation links resolve; superseded instructions are removed or
       labeled as history; implementation parameters and compatibility gaps are explicit.

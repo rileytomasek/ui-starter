@@ -302,3 +302,13 @@ Evidence: [strict-lint acceptance](release.md#strict-lint-follow-up).
 - [x] Refresh release baseline and commit the verified change.
 
 Evidence: [grouped-control acceptance](release.md#compact-grouped-controls-follow-up).
+
+## Follow-up — Local UI review skill
+
+- [x] Adapt a pinned Rams checklist with original MIT attribution and license.
+- [x] Document design/review responsibilities in root and generated AGENTS.md.
+- [x] Align setup/spec guidance and extend documentation checks to skill links.
+- [x] Validate the skill, unchanged design source, and finalization retention.
+- [x] Record verification, refresh the release baseline, and commit.
+
+Evidence: [local-review skill acceptance](release.md#local-ui-review-skill-follow-up).

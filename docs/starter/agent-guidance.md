@@ -1,7 +1,8 @@
 # Agent guidance
 
-The starter includes a concise root [AGENTS.md](../../AGENTS.md) and one repository
-skill: [interface-design](../../.agents/skills/interface-design/SKILL.md). They should
+The starter includes a concise root [AGENTS.md](../../AGENTS.md) and two repository
+skills: [interface-design](../../.agents/skills/interface-design/SKILL.md) and
+[ui-review](../../.agents/skills/ui-review/SKILL.md). They should
 help agents find and apply the shared system without duplicating its manuals.
 Agent authoring is the primary product workflow, governed by the
 [authoring priority](spec.md#authoring-priority).
@@ -12,6 +13,7 @@ Agent authoring is the primary product workflow, governed by the
 | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
 | `AGENTS.md`                                                                            | Entry point, working agreements, navigation to authoritative docs, verification expectations |
 | `.agents/skills/interface-design/SKILL.md`                                             | Design judgment, composition, density, interaction states, and rendered refinement           |
+| `.agents/skills/ui-review/SKILL.md`                                                    | Evidence-based accessibility, visual consistency, and interaction defect review              |
 | `docs/starter/spec.md`                                                                 | Agreed scope, confirmed choices, and implementation boundaries                               |
 | `docs/starter/implementation-plan.md`                                                  | Phase order, implementation task checklists, and completion evidence                         |
 | `docs/starter/foundations.md`, `docs/starter/components.md`, `docs/starter/layouts.md` | Expected product behavior and composition                                                    |
@@ -31,13 +33,13 @@ points to the temporary setup guide; finalized AGENTS.md describes the actual
 app and links only to retained guidance. Do not leave instructions to read an
 upstream spec that cleanup has removed, or tell a fresh agent to repeat setup.
 Carry forward the authoring priority, CLI-installed shadcn component requirement,
-IBM Carbon icon convention, MIT and third-party notices, design skill,
+IBM Carbon icon convention, MIT and third-party notices, both UI skills and their relationship,
 provenance, and verification expectations
 into app-specific documentation.
 
 ## Design-skill provenance
 
-The checked-in skill is an exact copy of the reviewed gist revision recorded
+The interface-design skill is an exact copy of the reviewed gist revision recorded
 in [Sources](../sources.md). It is available offline and reviewable in Git. Do not
 download and execute a changing remote skill on each task.
 
@@ -50,6 +52,11 @@ upstream provenance after editing it.
 The skill owns design principles. The repository docs own integration choices.
 Do not duplicate the complete skill in AGENTS.md or the specifications. User
 instructions and authorized task scope still govern the work.
+
+The ui-review skill is deliberately adapted from a pinned Rams revision. Keep its
+MIT license and [adaptation record](../sources.md#adapted-ui-review-skill). It adds
+concrete checks without replacing interface-design's visual direction. Both skills
+are local and survive application finalization; no hosted reviewer is required.
 
 ## Agent discovery and extension
 
@@ -70,7 +77,10 @@ brevity alone. Guidance must fit a fresh task with no prior chat history.
 Read the scope and relevant guidance, inspect the existing components, and reuse
 tokens, variants, icons, and layouts. Make the smallest complete change that
 satisfies the task. Review realistic rendered content and applicable interaction
-states, then run the relevant checks. Report compatibility blockers and unavailable verification candidly.
+states, apply ui-review to the changed UI and its context, fix confirmed in-scope
+findings, then run relevant checks and inspect the result. Follow the sequence and
+precedence in [AGENTS.md](../../AGENTS.md). Report compatibility blockers and
+unavailable verification candidly.
 
 When a task changes behavior, configuration, commands, or component APIs, update
 the affected guides, examples, instructions, and acceptance criteria in the same

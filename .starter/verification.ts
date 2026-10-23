@@ -35,9 +35,10 @@ function verifyDocs(config: Configuration) {
   }
   if (
     !read("AGENTS.md").includes("shadcn") ||
-    !read("AGENTS.md").includes("interface-design/SKILL.md")
+    !read("AGENTS.md").includes("interface-design/SKILL.md") ||
+    !read("AGENTS.md").includes("ui-review/SKILL.md")
   )
-    throw new Error("AGENTS.md must retain shadcn installation and design-skill instructions")
+    throw new Error("AGENTS.md must retain shadcn installation and both UI skill instructions")
 }
 export function cleanup(manifest: JsonObject) {
   const pkg = parseObject(read("package.json"))
