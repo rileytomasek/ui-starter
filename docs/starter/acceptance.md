@@ -124,7 +124,7 @@ documents own behavior; this file provides observable acceptance checks.
       provider to cover the interaction risks specified in [Testing](testing.md).
 - [x] A small Playwright suite covers assembled navigation, themes, and a full
       example flow without duplicating the component suite.
-- [ ] CI performs a reproducible pnpm install and runs the main checks in
+- [x] CI performs a reproducible pnpm install and runs the main checks in
       Chromium plus the small Firefox/WebKit smoke suite.
 - [x] Automated accessibility checks and manual keyboard/focus review are
       completed for representative pages and states; any limitations are recorded.

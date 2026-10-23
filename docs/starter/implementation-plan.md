@@ -1,6 +1,6 @@
 # Implementation plan
 
-Status: in progress. Phases 1–6 verified; Phase 7 local acceptance is complete and hosted CI is running. Tasks are checked only
+Status: complete. All seven phases are verified locally; hosted CI passed on the completed implementation. Tasks are checked only
 after implementation, documentation, and verification. Evidence is recorded per phase.
 
 [Scope and decisions](spec.md) owns confirmed requirements and implementation
@@ -253,14 +253,14 @@ release checklist; this phase closes gaps rather than starting documentation.
 - [x] Complete end-to-end navigation/theme/form coverage, accessibility scans,
       manual keyboard/focus review, both-theme responsive review, and browser checks
       for the selected support matrix; add only useful stable visual baselines.
-- [ ] Verify a clean install, CI, production build, and setup-tool/gallery removal
+- [x] Verify a clean install, CI, production build, and setup-tool/gallery removal
       behavior; confirm retained skill provenance and required attribution.
 - [x] Reconcile every acceptance item with evidence; record limitations honestly,
       resolve stale guidance, and leave unverified requirements unchecked.
 - [x] Prepare the GitHub template copy workflow and verify MIT metadata and all
       required third-party notices, including Carbon assets. Enable template status
       for release; retain private visibility unless the user requests publication.
-- [ ] Record the completed revision, validation results, and remaining issues;
+- [x] Record the completed revision, validation results, and remaining issues;
       remove temporary implementation spikes and confirm the intended repository state.
 
 Exit: an agent can produce and maintain a coherent app using the repository
@@ -269,7 +269,8 @@ clearly distinguished from implementation completion.
 
 Evidence: [final acceptance record](release.md). Both fresh-agent exercises passed.
 Ten Vitest tests, eleven E2E cases, four setup regression cases, the full responsive
-review, and the optional chart recipe passed locally. Hosted CI remains pending.
+review, and the optional chart recipe passed locally. Hosted CI passed on
+`cc030fc552f00ad313192cab51ad95d4ef2cb298`; the final acceptance record links the run.
 
 ## Milestones
 

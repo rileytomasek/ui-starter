@@ -1,6 +1,6 @@
 # UI Starter
 
-Implementation and local acceptance are complete; consult [acceptance evidence](docs/starter/release.md) for verification scope.
+Implementation and acceptance are complete; consult [acceptance evidence](docs/starter/release.md) for verification scope.
 For a new consuming copy, setup is incomplete: follow [Getting started](docs/starter/getting-started.md).
 Read [README.md](README.md) and [Scope and decisions](docs/starter/spec.md) first.
 Use [Development](docs/development.md) for actual commands and source locations.
@@ -47,8 +47,8 @@ Read the design skill at every UI phase and before rendered review.
 
 ## Verification
 
-Run `pnpm check` and `pnpm test:e2e` for applicable changes. Tests and source are
-now present; the implementation plan identifies unfinished feature acceptance.
+Run `pnpm check` and `pnpm test:e2e` for applicable changes. The implementation plan records completed phases; the acceptance evidence records
+verified coverage and practical limits.
 The design skill is excluded from formatting to retain its pinned contents.
 
 The upstream design skill is pinned. Review its diff before updating it and

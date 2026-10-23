@@ -1,6 +1,6 @@
 # Acceptance evidence
 
-Verified locally October 23, 2026. The implementation plan records each phase;
+Verified locally and in hosted CI October 23, 2026. The implementation plan records each phase;
 this document records final acceptance and its practical limits.
 
 ## Runtime and UI
@@ -55,8 +55,11 @@ The GitHub repository is private and template-enabled.
 
 ## Hosted checks and limits
 
-Hosted CI verification is in progress; local acceptance is complete. This entry
-will be replaced with the observed result before completion is reported.
+Implementation revision `cc030fc552f00ad313192cab51ad95d4ef2cb298` passed
+[hosted CI](https://github.com/rileytomasek/ui-starter/actions/runs/39983576775):
+frozen-lockfile install, setup regression tests, the complete `pnpm check`, and
+Chromium/Firefox/WebKit E2E tests. All seven phases are verified and committed;
+the final documentation commit records this evidence and refreshes the setup baseline.
 
 Automated accessibility scans are a useful check, not a claim of comprehensive
 accessibility conformance. Reference submissions are local simulations and reset
