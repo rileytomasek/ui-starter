@@ -26,17 +26,20 @@ commands against selected releases during implementation.
 | [Typeset](https://ui.shadcn.com/docs/typeset) | Prose styling and code integration |
 | [Vite dark mode](https://ui.shadcn.com/docs/dark-mode/vite) | Theme-provider starting point |
 | [Code Block](https://ui.shadcn.com/docs/components/code-block) and [Shiki performance](https://shiki.style/guide/best-performance) | Code display and highlighting |
-| [react-markdown](https://github.com/remarkjs/react-markdown) and [remark-gfm](https://github.com/remarkjs/remark-gfm) | Recommended Markdown implementation, still an open choice |
+| [react-markdown](https://github.com/remarkjs/react-markdown) and [remark-gfm](https://github.com/remarkjs/remark-gfm) | Selected Markdown implementation |
 | [Data Table](https://ui.shadcn.com/docs/components/data-table) | TanStack Table composition |
-| [React Hook Form guide](https://ui.shadcn.com/docs/forms/react-hook-form) | Recommended form integration, still an open choice |
+| [React Hook Form guide](https://ui.shadcn.com/docs/forms/react-hook-form) | Selected form integration with React Hook Form and Zod |
 | [Combobox](https://ui.shadcn.com/docs/components/combobox) | Selection and search |
 | [Date Picker](https://ui.shadcn.com/docs/components/date-picker) | Calendar/popover composition |
 | [Sidebar](https://ui.shadcn.com/docs/components/sidebar) and [sidebar-07](https://ui.shadcn.com/blocks/sidebar#sidebar-07) | Responsive sidebar shell starting point |
 | [Command](https://ui.shadcn.com/docs/components/command) | Command palette foundation |
 | [Charts](https://ui.shadcn.com/docs/components/chart) | Optional Recharts recipe, not an installed default |
-| [unplugin-icons](https://github.com/unplugin/unplugin-icons) | Iconify collections compiled as React components |
+| [unplugin-icons](https://github.com/unplugin/unplugin-icons) | IBM Carbon Iconify icons compiled as React components |
+| [Iconify collection metadata](https://github.com/iconify/icon-sets/blob/master/collections.json) and [Carbon collection](https://github.com/iconify/icon-sets/blob/master/json/carbon.json) | Selected `carbon` collection and icon metadata |
+| [Carbon license](https://github.com/carbon-design-system/carbon/blob/main/LICENSE) | Apache-2.0 terms retained for Carbon assets |
+| [MIT license](https://opensource.org/license/mit) | Selected license for starter-owned source and documentation |
 | [Iconify React](https://iconify.design/docs/icon-components/react/) | Runtime alternative considered; static imports are the selected direction |
-| [React Router declarative setup](https://reactrouter.com/start/declarative/installation) | Current router recommendation, still an open choice |
+| [React Router declarative setup](https://reactrouter.com/start/declarative/installation) | Selected declarative router |
 
 ## Quality and tests
 

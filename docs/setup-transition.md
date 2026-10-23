@@ -20,9 +20,9 @@ record that the finalizer can validate; its schema and location are implementati
 choices. Do not derive configuration from scattered prose or chat history.
 
 Distinguish maintained starter defaults from app-specific choices. The starter
-selects the router, package manager, forms, Markdown, and testing stack during
-its implementation. Consuming agents should reuse those decisions unless the
-app has a concrete reason to change them.
+uses the confirmed router, package manager, forms, Markdown, and testing stack
+in [Scope](spec.md#confirmed-implementation-decisions). Consuming agents should
+reuse those decisions unless the app has a concrete reason to change them.
 
 The application setup sequence must cover:
 
@@ -60,7 +60,8 @@ them deliberately when building the distributable starter.
 | Gallery content not explicitly retained | Useful gallery/examples explicitly retained and described as application development tools |
 
 Keep the interface-design skill and its provenance, plus relevant optional
-recipes such as charts. Preserve needed source attribution and licensing notices.
+recipes such as charts. Preserve the MIT license, copyright notice, and needed
+third-party attribution and licensing notices, including those for Carbon icons.
 Move any necessary provenance or enduring conventions out of temporary guides
 before deleting them. No retained instructions may link to removed material.
 
@@ -70,9 +71,9 @@ Avoid scattering starter identity or setup reminders throughout source files.
 
 ## Finalization command
 
-Provide one discoverable command, provisionally `pnpm setup:finalize`, with a
-non-mutating preview and an explicit apply mode. Exact flags and package-manager
-syntax must be documented when implemented. Support non-interactive operation
+Provide one discoverable command, `pnpm setup:finalize`, with a
+non-mutating preview and an explicit apply mode. Define and document the
+preview/apply flags when implemented. Support non-interactive operation
 using the recorded choices and explicit resolutions for any conflicts.
 
 The finalizer must:

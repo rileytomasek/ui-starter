@@ -11,8 +11,9 @@ Do not claim that planned commands, components, or checks already exist.
   Preserve end-user UX and accessibility. Follow the
   [authoring priority](docs/spec.md#authoring-priority).
 
-- Preserve the distinction between agreed scope, recommended choices, and open
-  decisions. Update the decision record when a choice is resolved.
+- Follow the [confirmed stack](docs/spec.md), including IBM Carbon icons and
+  MIT licensing. Select and record delegated implementation details without
+  reopening settled choices. Distinguish required behavior from verified code.
 - Track implementation in [Implementation plan](docs/implementation-plan.md).
   Update task checkboxes and phase evidence with each completed change; leave
   incomplete or unverified work unchecked.

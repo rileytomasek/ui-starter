@@ -4,7 +4,8 @@
 
 Provide two shell examples that share navigation destinations, theme controls,
 command palette, and page-content conventions. Choosing a shell is an explicit
-route-layout decision. Exact router and exported component APIs remain open.
+route-layout decision using React Router declarative routing. Define the small
+exported component APIs during implementation.
 
 Use readable React composition. Candidate names are AppShell, AppSidebar,
 HeaderShell, PageHeader, PageContent, PageSection, and PageToolbar; these are

@@ -55,14 +55,13 @@ Keep watch mode explicit. Document required environment and setup failures so
 an agent can distinguish a code failure from a missing prerequisite. Prefer
 one discoverable command contract to undocumented IDE-only actions.
 
-## Proposed command contract
+## Required command contract
 
-No package manifest or scripts exist in this specification repository. `pnpm`
-is the current recommendation, not a finalized package-manager decision. When
-implemented, update this table to the actual verified commands and link to it
-from other guides.
+No package manifest or scripts exist in this specification repository. pnpm is
+the selected package manager. Implement the commands below, pin the manager
+version, and document their verified behavior. Link here from other guides.
 
-| Proposed command | Responsibility |
+| Required command | Responsibility |
 | --- | --- |
 | `pnpm dev` | Run the Vite development app and UI gallery |
 | `pnpm build` | Produce the production app bundle |
@@ -76,7 +75,7 @@ from other guides.
 | `pnpm test:e2e` | Run the small Playwright application suite |
 | `pnpm check` | Run formatting check, lint, types, Vitest projects, and production build |
 
-The proposed setup finalization command is specified in
+The required setup finalization command is specified in
 [Setup transition](setup-transition.md#finalization-command). It belongs to the
 temporary setup workflow; remove its package script when successful finalization
 removes the tooling. Keep ordinary app checks available afterwards.
@@ -92,8 +91,9 @@ the aggregate checks and the Playwright application suite, installing the
 required browser binaries. Browser component tests are part of Vitest; do not
 accidentally run the same suite twice under separate labels.
 
-Chromium is the proposed initial browser target. The exact supported browser
-matrix is open in [Scope and decisions](spec.md). Retain useful failure output,
+Run the main suites in Chromium, with a small Firefox and WebKit smoke suite
+covering navigation, themes, and a representative form interaction. Retain useful
+failure output,
 including browser traces or screenshots where appropriate. Keep the suite small
 and reliable; do not introduce a blanket coverage percentage as a substitute
 for [meaningful acceptance](acceptance.md).

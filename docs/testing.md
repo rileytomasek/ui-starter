@@ -57,7 +57,9 @@ example flows against an explicit gallery preview build or the development
 server, and state which target was tested. Separately verify that the default
 production build excludes gallery routes and example modules. Keep fixtures
 independent of the production app.
-Commands and CI responsibilities are owned by [Code quality](quality.md).
+Run the main suites in Chromium and a small Firefox/WebKit smoke suite for
+navigation, themes, and a representative form interaction. Commands and CI
+responsibilities are owned by [Code quality](quality.md).
 
 ## Accessibility and visual review
 

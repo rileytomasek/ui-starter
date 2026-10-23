@@ -63,9 +63,8 @@ unnecessary all-language imports.
 
 ## 2. Markdown renderer
 
-Provide a shared renderer with compact and reading Typeset treatments. The
-recommended parser is react-markdown with remark-gfm; this choice is still open
-in [Scope and decisions](spec.md).
+Provide a shared renderer with compact and reading Typeset treatments. Use
+react-markdown with remark-gfm, as selected in [Scope and decisions](spec.md).
 
 Support headings, paragraphs, ordered/unordered and nested lists, blockquotes,
 links, images, inline code, fenced code, tables, task lists, strikethrough, and
@@ -108,8 +107,8 @@ are outside the initial requirement.
 
 ## 4. Full forms example
 
-Provide a complete, realistic settings or record-editing form. React Hook Form
-with Zod is the current recommendation; confirm it before implementation.
+Provide a complete, realistic settings or record-editing form. Use React Hook Form
+with Zod for form state and validation.
 
 The example should include text input, multiline text, a boolean control,
 selection, combobox, and date picker as appropriate to a coherent form. Group

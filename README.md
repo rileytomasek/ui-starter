@@ -13,7 +13,7 @@ defines this priority.
 **Status: specification only.** This repository captures the design discussion
 through October 23, 2026. It contains Markdown specifications and the reviewed
 interface-design skill. There is no app, package manifest, installed toolchain,
-CI workflow, or implemented component yet. Commands in the spec are proposed
+CI workflow, or implemented component yet. Commands in the spec are required future
 interfaces, not commands that work in this checkout.
 
 ## Read the spec
@@ -21,7 +21,7 @@ interfaces, not commands that work in this checkout.
 | Document | Owns |
 | --- | --- |
 | [Implementation plan](docs/implementation-plan.md) | Phased task checklists, completion criteria, and implementation progress |
-| [Scope and decisions](docs/spec.md) | Goals, agreed stack, deferred scope, open choices, and superseded proposals |
+| [Scope and decisions](docs/spec.md) | Goals, confirmed stack, implementation boundaries, and deferred scope |
 | [Setup transition](docs/setup-transition.md) | Initial app choices, finalization, and removal of temporary starter material |
 | [UI foundations](docs/foundations.md) | Tokens, themes, Typeset, icons, and design direction |
 | [Components](docs/components.md) | The eight included components/examples and their behavior |
@@ -43,7 +43,8 @@ the design principles. Implementation details belong in the documents above.
 - Actual shadcn/ui components installed through its CLI, with app-specific
   composition rather than handwritten component replacements.
 - Light, dark, and system modes with live OS switching and persisted overrides.
-- Iconify collections compiled to React SVG components through unplugin-icons.
+- IBM Carbon icons compiled through Iconify and unplugin-icons to React SVG
+  components.
 - shadcn Code Block with Shiki, Markdown with Typeset, a data table, a full
   forms example, combobox, date picker, sidebar, and command palette.
 - A collapsible-sidebar shell and a no-sidebar shell with a fixed header.
@@ -59,19 +60,25 @@ The initial implementation should be easy to understand and adapt. Applications
 own their copied code. Prefer small reusable pieces and realistic examples;
 introduce further abstraction only when repeated needs justify it.
 
-## Decisions before implementation
+## Confirmed choices
 
-Routing, form and Markdown libraries, package manager, the exact visual preset,
-fonts, icon family, primitive base, package versions, and distribution details
-remain open. The recommendations and decision boundaries are recorded in
-[Scope and decisions](docs/spec.md). Do not mistake a recommendation for a
-confirmed dependency.
+Use React Router with declarative routing, React Hook Form + Zod,
+react-markdown + remark-gfm, and pnpm. Use IBM Carbon icons, an MIT license,
+and GitHub template distribution. Run the main CI suites in Chromium with a
+small Firefox/WebKit smoke suite.
+
+The implementing agent selects and records compatible versions and the precise
+shadcn/create preset, primitive base, and fonts within the agreed design direction.
+These are implementation tasks, not unanswered product questions. See
+[Scope and decisions](docs/spec.md#confirmed-implementation-decisions).
 
 ## Repository setup
 
 The specification repository is named `ui-starter` and was created privately on
-GitHub. Those are repository-creation defaults, not a decision to publish a
-public template. No license or production deployment is selected.
+GitHub. It uses the [MIT license](LICENSE); third-party components and assets
+retain their own licenses and notices. Keep the repository private during
+implementation; publication requires a user request. Production deployment is
+outside this starter's scope.
 
 Start future work with [AGENTS.md](AGENTS.md). Creating this specification does
 not start implementation or authorize deployment.

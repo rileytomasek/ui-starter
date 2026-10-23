@@ -9,15 +9,17 @@ coverage and standards for optional extension recipes.
 ## Initialize with shadcn/create
 
 Use [shadcn/create](https://ui.shadcn.com/create) to choose the starting style,
-primitive base, palette, radius, typography, and icons. Resolve these choices
-before generating components. Record the selected options, generated command,
+primitive base, palette, radius, and typography, with IBM Carbon as the selected
+icon family. The implementing agent chooses and records the visual values during
+Phase 1 before generating components. Record the selected options, generated command,
 tool versions, and reproducible preset link or identifier where available.
 
 Retain the generated `components.json` and explain its aliases, stylesheet,
 style, and registry configuration. It guides future additions; editing it alone
 does not restyle already copied components. The actual CSS tokens and component
 source govern the existing UI. Document any integration changes needed to use
-Iconify through unplugin-icons consistently with generated components.
+IBM Carbon through Iconify and unplugin-icons consistently with generated
+components, including narrow import adaptations if the CLI preset uses other icons.
 
 ## Install before composing
 
@@ -41,7 +43,7 @@ or configuration. Avoid a second configuration layer that mirrors shadcn.
 | Fonts | Configure body, heading, and monospace loading, fallbacks, and metrics | Check wrapping, first load, code, and numeric alignment |
 | Prose | Change Typeset compact and reading styles through their shared definitions | Check Markdown headings, lists, tables, links, and code |
 | Theme | Find the provider, first-paint initialization, storage key, and selector | Test System, Light, Dark, reload, and a live OS change |
-| Icons | Install the chosen Iconify collection and use static unplugin-icons imports | Check bundle behavior, sizing, alignment, and accessible names |
+| Icons | Use @iconify-json/carbon and static unplugin-icons imports; document custom SVGs | Check bundle behavior, sizing, alignment, and accessible names |
 | Components | Add through the configured shadcn workflow and adapt through shared variants | Exercise relevant interaction states and design lint |
 | Code highlighting | Add supported languages or change the Shiki theme through the shared integration | Check both modes, fallback text, copy, and loading |
 | Shell and navigation | Select either shell and edit the shared destination definitions | Check direct URLs, active items, mobile navigation, and command actions |

@@ -25,7 +25,8 @@ so components use shared meanings such as background, foreground, muted,
 popover, primary, destructive, border, input, and focus ring.
 
 Establish coordinated typography, spacing, control sizes, radii, surfaces,
-shadows, and layering. The initial preset and exact values are open decisions.
+shadows, and layering. Select and record the initial preset and exact values
+during Phase 1 within the agreed compact, restrained design direction.
 Keep surfaces subtle while preserving distinguishable states. Shared controls
 should use their documented sizes and variants rather than accumulating local
 padding, height, color, and shape overrides.
@@ -82,10 +83,14 @@ components using unplugin-icons and the Vite integration. Standard controls
 must render with the application bundle, without runtime requests to Iconify.
 Include only the icons used; avoid an all-icons runtime lookup registry.
 
-Choose one coherent default UI icon family and align it with the shadcn/create
-preset. Generated shadcn components must be inspected so their icon imports and
-visual style stay consistent with this decision. Brand marks or specialized
-icons can use another collection when justified and documented.
+Use IBM Carbon as the default UI icon family, through Iconify's `carbon`
+collection and `@iconify-json/carbon`. Align the shadcn/create preset with this
+choice. If generation uses another icon family, install the actual shadcn source
+first, then make narrow documented import adaptations to Carbon. Inspect sizing,
+viewBox, fill/stroke behavior, and alignment rather than assuming every generated
+icon class fits Carbon. Brand marks or specialized icons can use another
+collection when justified and documented. Preserve Carbon's upstream license
+and notices as specified in [Scope](spec.md#licensing-and-distribution).
 
 Provide a small Icon helper with shared size presets, stable dimensions,
 currentColor inheritance for monochrome icons, and no unintended flex shrinking.
@@ -100,10 +105,11 @@ than forcing monochrome treatment onto multicolor assets. Document how to find
 an icon, install a collection, add a custom SVG, change size/color, and replace
 the default family.
 
-The following is an API sketch, not an implemented export or chosen icon family:
+The following uses the selected Carbon family; the helper API is a sketch,
+not an implemented export:
 
 ```tsx
-import SearchIcon from "~icons/lucide/search"
+import SearchIcon from "~icons/carbon/search"
 
 <Icon as={SearchIcon} size="sm" />
 <IconButton label="Search" icon={SearchIcon} />
@@ -127,7 +133,7 @@ Use ordinary React example pages, without a separate Storybook installation.
 | Components | Included primitives and compositions, sizes, variants, disabled/loading/error states |
 | Patterns | Full forms, data table, Markdown/code display, command palette |
 | Layouts | Both shells and the four inner-page patterns with realistic content |
-| Icons | Selected family, sizes, alignment, and accessible usage |
+| Icons | IBM Carbon family, sizes, alignment, and accessible usage |
 
 Provide searchable navigation, stable links to examples, Light/Dark/System
 switching, and small copyable usage snippets. Link examples to relevant source

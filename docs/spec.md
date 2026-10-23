@@ -42,8 +42,7 @@ add automation or abstraction when it demonstrably helps agents perform real
 starter tasks, rather than assuming that more machinery is better.
 
 [Documentation requirements](documentation.md) and [Agent guidance](agent-guidance.md)
-translate this priority into repository conventions. Resolve open implementation
-choices using this criterion and record consequential tradeoffs in this document.
+translate this priority into repository conventions. Choose implementation details using this criterion and record consequential tradeoffs in this document.
 
 ## Agreed foundation
 
@@ -53,7 +52,7 @@ choices using this criterion and record consequential tradeoffs in this document
 | Styling | Tailwind CSS and shadcn/ui; use shadcn/create for the preset and the shadcn CLI to install components |
 | Typography | shadcn Typeset for rendered prose, with compact and reading presets |
 | Theme | Light / Dark / System; System default; live OS updates and persisted override |
-| Icons | Iconify collections through unplugin-icons; compiled React SVG components |
+| Icons | IBM Carbon icons through Iconify and unplugin-icons; compiled React SVG components |
 | Code display | shadcn Code Block and its Shiki integration |
 | Tables | A shadcn-based TanStack Table example |
 | Lint | Oxlint with targeted @shadcn/lint rules |
@@ -93,28 +92,51 @@ material from retained foundations; finalization produces app-specific guidance
 and removes obsolete setup context so future agents work on the application.
 
 The starter should be a small repository whose code consuming apps own. A
-GitHub template is the leading distribution proposal; exact template setup is
-still open. A shared runtime component package or generator is not required.
+GitHub template is the selected distribution format, with an MIT license for
+starter-owned source. A shared runtime component package or generator is not required.
 
-## Open choices and current recommendations
+## Confirmed implementation decisions
 
-| Choice | Current recommendation | Still to resolve |
-| --- | --- | --- |
-| Router | React Router, starting with declarative routing | React Router versus TanStack Router |
-| Forms | React Hook Form + Zod | Confirm library and validation approach |
-| Markdown | react-markdown + remark-gfm | Confirm parser; assess streaming only if required |
-| Package manager | pnpm | Confirm manager and version |
-| shadcn configuration | Select visually in shadcn/create | Style, primitive base, colors, radii, fonts, and icon family |
-| UI icon family | One coherent family matching the preset | Choose the family; Lucide was an example, not a selection |
-| Fonts | Coordinated body/heading and monospace choices | Font selection, loading, and distribution |
-| Runtime versions | Compatible stable versions at implementation | Node, React, Vite, Tailwind, and dependent packages |
-| Distribution | GitHub template | When to enable template status, visibility, and licensing |
-| Browser coverage | Chromium in CI, small Firefox/WebKit smoke coverage | Final support and CI matrix |
-| Commands and CI | See quality.md for the proposed command interface | Final script names, pipeline, and hosting configuration |
+The recommendations below were accepted on October 23, 2026, with IBM Carbon
+selected for icons and MIT selected for the starter license. They are decisions,
+not alternatives awaiting another selection round.
 
-`ui-starter`, its private visibility, and the local `~/projects/ui-starter`
-location are setup choices made to fulfill the request to create this spec
-repository. They do not resolve the broader publication and licensing decisions.
+| Area | Decision |
+| --- | --- |
+| Router | React Router with declarative routing |
+| Forms | React Hook Form + Zod |
+| Markdown | react-markdown + remark-gfm |
+| Package manager | pnpm, with a committed lockfile and pinned manager version |
+| UI icon family | IBM Carbon through Iconify's `carbon` collection and unplugin-icons; use `@iconify-json/carbon` and static `~icons/carbon/...` imports |
+| shadcn configuration | Use shadcn/create; select and record a coherent compact preset and compatible primitive base during Phase 1, following the design skill |
+| Fonts | Choose coordinated body/heading and monospace fonts during Phase 1; document loading, fallbacks, and applicable licenses |
+| Runtime versions | Select compatible stable versions during Phase 1, using a supported Node LTS release; pin the toolchain and lock dependencies |
+| Distribution | GitHub template repository; retain current private visibility unless the user requests publication |
+| License | MIT for starter-owned source and documentation; preserve third-party licenses and notices |
+| Browser coverage | Chromium for the main CI suites, with a small Firefox and WebKit smoke suite |
+| Commands and CI | Use the pnpm command contract in quality.md, with reproducible CI and explicit watch modes |
+
+There are no outstanding product-choice questions. Exact versions, visual preset
+values, font assets, exported APIs, setup-record schema, and CI wiring are
+implementation details delegated to the implementing agent. Select and document
+them within these constraints and verify compatibility; do not reopen the agreed
+stack. A demonstrated incompatibility must be reported and resolved explicitly,
+without substituting handwritten shadcn components.
+
+## Licensing and distribution
+
+The repository uses the [MIT license](../LICENSE). Add `license: "MIT"` to the
+package manifest when the app is initialized. Keep the copyright and permission
+notice in consuming copies. The starter's license does not replace third-party
+licenses: IBM Carbon icons are Apache-2.0, and installed components, fonts, and
+other assets retain their applicable notices. Record and ship the notices needed
+for the selected sources, including distributed icon assets; preserve them during
+setup finalization. [Sources](sources.md) records the upstream references.
+
+The repository remains private during implementation. GitHub template status is
+a release task; selecting this distribution format does not itself publish the
+repository or authorize a visibility change. No production deployment is part
+of the starter implementation.
 
 ## Scope boundaries
 

@@ -4,7 +4,8 @@ Status: not started. This is the implementation task checklist for the upstream
 starter. All boxes below are intentionally unchecked. Creating this plan does
 not mean app implementation or verification has begun.
 
-[Scope and decisions](spec.md) owns requirements and unresolved choices;
+[Scope and decisions](spec.md) owns confirmed requirements and implementation
+boundaries;
 [Acceptance](acceptance.md) owns the final observable criteria. This plan owns
 work order and implementation progress. Refer to the detailed specifications
 instead of treating this checklist as a replacement for them.
@@ -27,26 +28,29 @@ instead of treating this checklist as a replacement for them.
   consumers. This plan is temporary starter material in consuming app copies
   and is removed by finalization; retain it in the upstream starter repository.
 
-## Phase 1 — Resolve initialization choices and compatibility
+## Phase 1 — Configure the agreed stack and verify compatibility
 
 Goal: establish a reproducible foundation before committing to integrations.
 See [Scope](spec.md), [Customization](customization.md), and [Sources](sources.md).
 
-- [ ] Confirm package manager, Node version, router, and compatible core versions.
-- [ ] Select the shadcn/create preset, primitive base, fonts, and icon family;
-  record the preset, generation command, and customization boundaries.
-- [ ] Confirm forms/validation and Markdown libraries before their feature work.
+- [ ] Pin pnpm, a supported Node LTS version, React Router declarative routing,
+  and compatible core versions; use the confirmed stack without reopening choices.
+- [ ] Select the shadcn/create preset, primitive base, and fonts within the design
+  direction, using IBM Carbon icons; record generation and customization details.
+- [ ] Verify compatible React Hook Form/Zod and react-markdown/remark-gfm
+  versions before their feature work.
 - [ ] Verify CLI availability for required shadcn components/blocks under the
   selected preset/base; resolve gaps without handwritten substitutes.
 - [ ] Prove CLI-installed shadcn Code Block, Shiki, and Typeset work together
   in a minimal spike.
-- [ ] Prove static Iconify/unplugin-icons React imports and custom SVG support.
+- [ ] Prove static IBM Carbon imports via @iconify-json/carbon and unplugin-icons,
+  custom SVG support, and narrow icon adaptations to CLI-installed components.
 - [ ] Verify Oxlint with the chosen shadcn rules and Oxfmt Tailwind sorting;
   record supported versions and any narrowly justified exceptions.
-- [ ] Set the initial browser/CI targets and distinguish initial app choices
-  from stack defaults that consuming agents should normally reuse.
-- [ ] Update the decision record and resolve blockers; keep publication and
-  licensing explicitly deferred until their release gate if still undecided.
+- [ ] Configure Chromium as the main browser target with Firefox/WebKit smoke
+  coverage; distinguish app choices from the confirmed reusable stack defaults.
+- [ ] Record verified versions and parameters, resolve compatibility blockers,
+  and identify required third-party notices under the MIT-licensed starter.
 
 Exit: initialization is reproducible and the unusual integrations have been
 executed successfully. Spikes can be reused or removed after their evidence is
@@ -60,7 +64,7 @@ Depends on Phase 1. See [Quality](quality.md), [Testing](testing.md), and
 [Agent guidance](agent-guidance.md).
 
 - [ ] Initialize Vite, React, strict TypeScript, Tailwind, and shadcn with the
-  selected versions, aliases, and a committed lockfile.
+  selected versions, aliases, MIT package metadata, and a committed pnpm lockfile.
 - [ ] Establish predictable directories for app code, shared UI, gallery/examples,
   temporary setup material, and retained documentation; define ownership clearly.
 - [ ] Configure Oxlint, shadcn rules, Oxfmt class sorting, and separate typechecking.
@@ -220,7 +224,8 @@ release checklist; this phase closes gaps rather than starting documentation.
 - [ ] Complete the retained setup-independent usage/architecture/customization
   guides and verify their exact paths, imports, examples, commands, and links.
 - [ ] Validate the optional shadcn/Recharts recipe in a disposable copy; keep
-  charts out of the default dependencies and distinguish open optional choices.
+  charts out of the default dependencies and distinguish optional app-specific
+  choices.
 - [ ] Run an agent with no prior conversation context through a consuming copy's
   setup/finalization, then use a fresh task to extend the finalized app from its
   retained instructions; fix problems and recheck the affected steps.
@@ -231,9 +236,9 @@ release checklist; this phase closes gaps rather than starting documentation.
   behavior; confirm retained skill provenance and required attribution.
 - [ ] Reconcile every acceptance item with evidence; record limitations honestly,
   resolve stale guidance, and leave unverified requirements unchecked.
-- [ ] Resolve distribution/licensing decisions and prepare the documented copy
-  workflow. Change visibility, template status, or publication only within the
-  user's authorized scope; otherwise record release as deferred.
+- [ ] Prepare the GitHub template copy workflow and verify MIT metadata and all
+  required third-party notices, including Carbon assets. Enable template status
+  for release; retain private visibility unless the user requests publication.
 - [ ] Record the completed revision, validation results, and remaining issues;
   remove temporary implementation spikes and confirm the intended repository state.
 

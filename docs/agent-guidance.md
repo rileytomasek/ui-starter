@@ -12,7 +12,7 @@ Agent authoring is the primary product workflow, governed by the
 | --- | --- |
 | `AGENTS.md` | Entry point, working agreements, navigation to authoritative docs, verification expectations |
 | `.agents/skills/interface-design/SKILL.md` | Design judgment, composition, density, interaction states, and rendered refinement |
-| `docs/spec.md` | Agreed scope and unresolved decisions |
+| `docs/spec.md` | Agreed scope, confirmed choices, and implementation boundaries |
 | `docs/implementation-plan.md` | Phase order, implementation task checklists, and completion evidence |
 | `docs/foundations.md`, `docs/components.md`, `docs/layouts.md` | Expected product behavior and composition |
 | `docs/documentation.md` | Required usage guides, optional recipes, and their maintenance |
@@ -21,7 +21,7 @@ Agent authoring is the primary product workflow, governed by the
 
 Keep AGENTS.md short enough to remain useful on every task. As implementation
 lands, add a small map of the actual source directories and link to the command
-contract. Do not leave proposed commands described as working commands.
+contract. Do not describe required future commands as working commands before verification.
 
 ## Setup and application instructions
 
@@ -31,7 +31,8 @@ points to the temporary setup guide; finalized AGENTS.md describes the actual
 app and links only to retained guidance. Do not leave instructions to read an
 upstream spec that cleanup has removed, or tell a fresh agent to repeat setup.
 Carry forward the authoring priority, CLI-installed shadcn component requirement,
-applicable conventions, design skill, provenance, and verification expectations
+IBM Carbon icon convention, MIT and third-party notices, design skill,
+provenance, and verification expectations
 into app-specific documentation.
 
 ## Design-skill provenance
@@ -69,8 +70,7 @@ brevity alone. Guidance must fit a fresh task with no prior chat history.
 Read the scope and relevant guidance, inspect the existing components, and reuse
 tokens, variants, icons, and layouts. Make the smallest complete change that
 satisfies the task. Review realistic rendered content and applicable interaction
-states, then run the relevant checks. Report unresolved decisions and unavailable
-verification candidly.
+states, then run the relevant checks. Report compatibility blockers and unavailable verification candidly.
 
 When a task changes behavior, configuration, commands, or component APIs, update
 the affected guides, examples, instructions, and acceptance criteria in the same

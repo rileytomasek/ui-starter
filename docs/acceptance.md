@@ -46,8 +46,8 @@ documents own behavior; this file provides observable acceptance checks.
 
 ## Foundation and reproducibility
 
-- [ ] Resolve initialization choices in [the decision record](spec.md), with
-  exact compatible versions and one package manager/lockfile.
+- [ ] Implement the confirmed stack in [the decision record](spec.md), recording
+  the visual preset and exact compatible versions with pnpm and its lockfile.
 - [ ] A fresh checkout installs, starts, typechecks, and produces a production
   build using documented commands.
 - [ ] Record the shadcn/create preset and generation choices; component aliases,
@@ -62,8 +62,9 @@ documents own behavior; this file provides observable acceptance checks.
   integration exceptions are narrow and documented.
 - [ ] Typeset styles compact and reading content consistently, including nested
   lists, tables, inline code, and the shared Code Block.
-- [ ] Iconify icons compile through unplugin-icons to React SVG components, with
-  consistent sizing and accessible usage; ordinary icons need no runtime fetch.
+- [ ] IBM Carbon icons from Iconify compile through unplugin-icons to React SVG
+  components, with consistent sizing and accessible usage; ordinary icons need
+  no runtime fetch.
 
 ## Themes
 
@@ -122,7 +123,8 @@ documents own behavior; this file provides observable acceptance checks.
   provider to cover the interaction risks specified in [Testing](testing.md).
 - [ ] A small Playwright suite covers assembled navigation, themes, and a full
   example flow without duplicating the component suite.
-- [ ] CI performs a reproducible install and runs the documented checks.
+- [ ] CI performs a reproducible pnpm install and runs the main checks in
+  Chromium plus the small Firefox/WebKit smoke suite.
 - [ ] Automated accessibility checks and manual keyboard/focus review are
   completed for representative pages and states; any limitations are recorded.
 - [ ] Both themes and relevant viewport sizes receive rendered visual review.
@@ -133,7 +135,7 @@ documents own behavior; this file provides observable acceptance checks.
   architecture, usage, customization, extension, gallery maintenance, and tests
   as defined in [Documentation requirements](documentation.md).
 - [ ] Optional recipes distinguish installed defaults, preferred additions, and
-  open choices, with official references and verified setup examples.
+  app-specific choices, with official references and verified setup examples.
 
 - [ ] Customization recipes name real files and verified commands for tokens,
   preset, fonts, icons, themes, components, code highlighting, and navigation.
@@ -144,6 +146,8 @@ documents own behavior; this file provides observable acceptance checks.
 - [ ] AGENTS.md and the pinned design skill are present, concise in their
   respective roles, and consistent with actual behavior and commands.
 - [ ] All documentation links resolve; superseded instructions are removed or
-  labeled as history; unresolved choices remain clearly identified.
-- [ ] Publication, template status, and licensing are resolved before distributing
-  the starter in a way that depends on those choices.
+  labeled as history; implementation parameters and compatibility gaps are explicit.
+- [ ] MIT license and package metadata are present; required third-party notices,
+  including Carbon's Apache-2.0 notices, survive finalization. The GitHub template
+  copy workflow is documented; private visibility remains until publication
+  is requested.

@@ -35,8 +35,8 @@ For common tasks, state the preferred approach first, then provide:
 
 Keep instructions self-contained enough to act on without relying on a human to
 infer missing setup or choose among undocumented alternatives. Link to shared
-contracts instead of copying them. Clearly label recommendations, open decisions,
-and implemented behavior. Prefer useful precision over tutorial storytelling or
+contracts instead of copying them. Clearly distinguish confirmed requirements,
+optional recommendations, app-specific choices, and verified implementation. Prefer useful precision over tutorial storytelling or
 a polished documentation website. Add machine-readable metadata only when a
 concrete workflow needs it; Markdown and source remain sufficient initially.
 
@@ -97,8 +97,8 @@ For each selected optional addition, explain:
 
 ## Maintenance and acceptance
 
-When implementation replaces a proposal, update the guide and decision record
-together. In the upstream starter, keep historical planning clearly labeled or separate
+When implementation makes a requirement concrete, update its usage guide and
+record the selected versions and parameters together. In the upstream starter, keep historical planning clearly labeled or separate
 from current usage instructions. Remove starter planning from finalized consuming
 apps according to the setup transition. Do not leave competing descriptions of the current API.
 
