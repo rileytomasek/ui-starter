@@ -52,7 +52,11 @@ Keep a smaller end-to-end suite for behavior that depends on the assembled app:
   or confirmation in its page context.
 
 Do not repeat every component case here. Use the built app when checking build
-integration. State explicitly if a check uses the development server instead.
+integration. Since the gallery is excluded from production by default, run its
+example flows against an explicit gallery preview build or the development
+server, and state which target was tested. Separately verify that the default
+production build excludes gallery routes and example modules. Keep fixtures
+independent of the production app.
 Commands and CI responsibilities are owned by [Code quality](quality.md).
 
 ## Accessibility and visual review

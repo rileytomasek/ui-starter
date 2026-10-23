@@ -12,8 +12,12 @@ documents own behavior; this file provides observable acceptance checks.
   build using documented commands.
 - [ ] Record the shadcn/create preset and generation choices; component aliases,
   tokens, and stylesheet configuration match the actual implementation.
-- [ ] A representative playground demonstrates coherent styling, realistic
-  content, and relevant empty/loading/error states.
+- [ ] The UI gallery covers theme, typography, components, patterns, layouts,
+  and icons using the actual components, tokens, and providers.
+- [ ] Searchable gallery navigation, stable example links, theme switching, and
+  copyable usage snippets work with realistic content and interaction states.
+- [ ] Default production builds exclude gallery routes and example modules;
+  consuming app behavior does not depend on them.
 - [ ] Semantic tokens and variants govern normal application styling; justified
   integration exceptions are narrow and documented.
 - [ ] Typeset styles compact and reading content consistently, including nested
@@ -76,6 +80,12 @@ documents own behavior; this file provides observable acceptance checks.
 - [ ] Both themes and relevant viewport sizes receive rendered visual review.
 
 ## Documentation and handoff
+
+- [ ] The README indexes task-oriented `docs/` guides covering getting started,
+  architecture, usage, customization, extension, gallery maintenance, and tests
+  as defined in [Documentation requirements](documentation.md).
+- [ ] Optional recipes distinguish installed defaults, preferred additions, and
+  open choices, with official references and verified setup examples.
 
 - [ ] Customization recipes name real files and verified commands for tokens,
   preset, fonts, icons, themes, components, code highlighting, and navigation.

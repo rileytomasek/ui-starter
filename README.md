@@ -17,6 +17,7 @@ interfaces, not commands that work in this checkout.
 | [UI foundations](docs/foundations.md) | Tokens, themes, Typeset, icons, and design direction |
 | [Components](docs/components.md) | The eight included components/examples and their behavior |
 | [Shells and page layouts](docs/layouts.md) | Both shells, shared navigation, and four inner-page patterns |
+| [Documentation requirements](docs/documentation.md) | Required usage guides, extension recipes, and maintenance standards |
 | [Customization](docs/customization.md) | How apps change the foundation and add capabilities |
 | [Code quality](docs/quality.md) | Oxlint, Oxfmt, design rules, command contract, and CI responsibilities |
 | [Testing](docs/testing.md) | Vitest Node/browser, Playwright, accessibility, and visual review |
@@ -36,7 +37,8 @@ the design principles. Implementation details belong in the documents above.
   forms example, combobox, date picker, sidebar, and command palette.
 - A collapsible-sidebar shell and a no-sidebar shell with a fixed header.
 - Collection, detail, settings/form, and reading page examples.
-- A playground, customization documentation, and repository-local agent guidance.
+- A searchable UI gallery, usage and extension guides in `docs/`, and
+  repository-local agent guidance.
 - Oxlint, Oxfmt, targeted shadcn design rules, Vitest component tests in a real
   browser, and a small Playwright end-to-end suite.
 

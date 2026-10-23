@@ -113,14 +113,35 @@ Keep the helper small. Efficient imports and simple SVG output are the initial
 performance strategy; blanket memoization or an additional rendering framework
 is not required.
 
-## Playground
+## UI gallery
 
-Demonstrate the actual shared components, token choices, and page compositions
-inside the app. Include long labels, missing values, loading/empty/error states,
-keyboard focus, wide content, narrow viewports, and both themes. Examples should
-show how to compose a useful screen, not just isolated controls.
+Provide a lightweight, browsable gallery inside the Vite app. This is the
+reference playground discussed in the initial scope. Import the actual shared
+components, stylesheet, tokens, and providers so changes appear immediately.
+Use ordinary React example pages, without a separate Storybook installation.
 
-Make examples easy to remove when starting an app while retaining the foundation.
-Source links and customization notes should help developers and agents locate
-the relevant component, preset, or layout. Do not place starter implementation
-details in ordinary end-user product flows.
+| Section | Examples |
+| --- | --- |
+| Theme | Semantic color swatches with token names, surfaces, borders, radii, shadows |
+| Typography | Headings, body, labels, metadata, monospace, compact and reading Typeset |
+| Components | Included primitives and compositions, sizes, variants, disabled/loading/error states |
+| Patterns | Full forms, data table, Markdown/code display, command palette |
+| Layouts | Both shells and the four inner-page patterns with realistic content |
+| Icons | Selected family, sizes, alignment, and accessible usage |
+
+Provide searchable navigation, stable links to examples, Light/Dark/System
+switching, and small copyable usage snippets. Link examples to relevant source
+files and usage/customization guidance. Include long labels, missing values,
+keyboard focus, wide content, narrow viewports, and meaningful interaction states.
+Demonstrate useful complete compositions as well as individual controls.
+
+Keep gallery examples in an easily removable directory. Exclude the gallery
+routes and example modules from production builds by default; merely hiding a
+navigation link is insufficient. Document the actual development entry point,
+removal steps, and any explicit opt-in preview build. Production app behavior
+must not depend on gallery fixtures or modules.
+
+Keep the gallery to navigation and example pages. If automatic prop editors,
+generated component API docs, or an interaction-test dashboard become necessary,
+reconsider Storybook instead of implementing those features locally. The
+[documentation requirements](documentation.md) describe the accompanying guides.

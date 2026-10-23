@@ -3,6 +3,8 @@
 The starter must make the initial visual choices explicit and show how to
 change them. This guide specifies the documentation and examples the implemented
 starter must provide; paths and commands must be filled in from the actual app.
+[Documentation requirements](documentation.md) owns the broader usage-guide
+coverage and standards for optional extension recipes.
 
 ## Initialize with shadcn/create
 

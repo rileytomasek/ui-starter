@@ -58,7 +58,7 @@ from other guides.
 
 | Proposed command | Responsibility |
 | --- | --- |
-| `pnpm dev` | Run the Vite development app and playground |
+| `pnpm dev` | Run the Vite development app and UI gallery |
 | `pnpm build` | Produce the production app bundle |
 | `pnpm preview` | Serve the built app locally |
 | `pnpm format` | Apply Oxfmt formatting |

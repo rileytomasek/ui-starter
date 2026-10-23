@@ -95,10 +95,11 @@ Main content normally uses page scrolling. Internal scroll regions should be
 deliberate, such as wide tables, bounded code, and long menus; avoid unnecessary
 nested vertical scrolling. A resizable split-pane or inbox layout is deferred.
 
-## Playground navigation
+## Gallery navigation
 
-Suggested destinations are Overview, Data table, Forms, Markdown, and
-Foundations. Include detail/reading examples where they fit naturally. These
-names are sample navigation, not a required information architecture for apps
-created from the starter. Make shell examples easy to inspect without adding a
-permanent shell-switching feature to end-user applications.
+Use the sections defined in the [UI gallery](foundations.md#ui-gallery) for
+searchable example navigation. Keep stable links to individual examples. Shell
+demos may use realistic sample destinations such as Overview, Data table, Forms,
+and Markdown; these are not a required information architecture for consuming
+apps. Make shell examples easy to inspect without adding a permanent
+shell-switching feature to end-user applications.

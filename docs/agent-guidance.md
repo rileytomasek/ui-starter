@@ -12,6 +12,7 @@ help agents find and apply the shared system without duplicating its manuals.
 | `.agents/skills/interface-design/SKILL.md` | Design judgment, composition, density, interaction states, and rendered refinement |
 | `docs/spec.md` | Agreed scope and unresolved decisions |
 | `docs/foundations.md`, `docs/components.md`, `docs/layouts.md` | Expected product behavior and composition |
+| `docs/documentation.md` | Required usage guides, optional recipes, and their maintenance |
 | `docs/customization.md` | How consuming apps adapt the foundation |
 | `docs/quality.md`, `docs/testing.md` | Actual commands once implemented and verification strategy |
 

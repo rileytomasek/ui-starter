@@ -50,8 +50,13 @@ a dialog composition and destructive-action confirmation example where useful
 to demonstrate pending state, recovery, and focus behavior.
 
 The [layout spec](layouts.md) defines two interchangeable shells and four
-inner-page patterns. A reference playground demonstrates the real components
-and compositions with representative content and edge cases.
+inner-page patterns. A lightweight UI gallery inside the Vite app demonstrates
+the real components, theme, typography, and compositions with representative
+content and edge cases; [Foundations](foundations.md#ui-gallery) owns its scope.
+
+Ship task-oriented usage and extension guides in `docs/`, including preferred
+optional integrations such as charts. [Documentation requirements](documentation.md)
+defines required coverage and maintenance expectations.
 
 The starter should be a small repository whose code consuming apps own. A
 GitHub template is the leading distribution proposal; exact template setup is
@@ -87,8 +92,9 @@ repository. They do not resolve the broader publication and licensing decisions.
   inbox/editor layouts are deferred until a concrete app needs them.
 - Streaming Markdown is not a default requirement. Streamdown was discussed as
   an option for streaming-heavy apps; do not install two Markdown renderers.
-- Do not require a separate Storybook application. The initial playground can
-  live inside the Vite app.
+- Use the in-app UI gallery initially. Reconsider Storybook if automatic prop
+  controls, generated component API docs, or a story-based testing workflow
+  become requirements; do not build those systems into the gallery.
 - No automatic remote skill updates, extra orchestration framework, or large
   collection of agent skills.
 
