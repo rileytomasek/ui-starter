@@ -135,6 +135,12 @@ files and usage/customization guidance. Include long labels, missing values,
 keyboard focus, wide content, narrow viewports, and meaningful interaction states.
 Demonstrate useful complete compositions as well as individual controls.
 
+The gallery is also a rendered inspection surface for coding agents. Stable
+example URLs and deterministic states should let an agent open the relevant
+composition directly and check it with browser tools. Keep source paths, usage
+contracts, and verification instructions in searchable Markdown/source as well;
+a visual gallery must not be the only way to discover how a component works.
+
 Keep gallery examples in an easily removable directory. Exclude the gallery
 routes and example modules from production builds by default; merely hiding a
 navigation link is insufficient. Document the actual development entry point,

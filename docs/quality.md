@@ -49,6 +49,12 @@ React composition, small modules, and explicit state ownership. Share logic when
 it repeats or enforces a meaningful contract, not to create a generic framework
 around every example.
 
+Checks must support unattended agent execution: provide non-interactive,
+finite commands with meaningful exit codes and actionable file-level diagnostics.
+Keep watch mode explicit. Document required environment and setup failures so
+an agent can distinguish a code failure from a missing prerequisite. Prefer
+one discoverable command contract to undocumented IDE-only actions.
+
 ## Proposed command contract
 
 No package manifest or scripts exist in this specification repository. `pnpm`

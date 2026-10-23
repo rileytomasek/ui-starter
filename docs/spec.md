@@ -8,8 +8,8 @@ the intended starter, not shipped software.
 
 ## Objective
 
-Make it straightforward to build polished, information-rich apps that follow
-the [interface-design skill](../.agents/skills/interface-design/SKILL.md).
+Make it straightforward for coding agents to build polished, information-rich
+apps that follow the [interface-design skill](../.agents/skills/interface-design/SKILL.md).
 Establish useful defaults for styling, components, layout, agent guidance,
 customization, and verification. The first screen should feel coherent, and
 later screens should have clear examples to follow.
@@ -18,6 +18,32 @@ Useful content should dominate. Compact controls, purposeful whitespace,
 typographic hierarchy, restrained surfaces, and precise alignment should make
 dense interfaces easy to scan. The foundation must support different products
 and compositions; it must not force every app into one dashboard layout.
+
+## Authoring priority
+
+This is a starter for agent-authored apps. Coding agents are the primary users
+of the repository, its documentation, component APIs, examples, and development
+workflow. Human developers remain supported, but where their authoring preferences
+conflict, optimize for reliable agent discovery, implementation, and verification.
+This is an explicit product priority, not an optional documentation enhancement.
+
+Evaluate choices by whether an agent can find the right code, understand its
+contract, make a scoped change, and verify the outcome with little ambiguity or
+missing context. Prefer explicit structure, consistent naming, typed interfaces,
+searchable local documentation, executable examples, and deterministic commands.
+A little additional explicitness is worthwhile when it prevents repeated agent
+mistakes; a shorter or more visually polished developer workflow is not the
+primary success criterion.
+
+This priority concerns authoring. It does not reduce requirements for end-user
+usability, accessibility, visual quality, or responsiveness. Agents must inspect
+rendered output as well as source and test results. Keep the architecture small;
+add automation or abstraction when it demonstrably helps agents perform real
+starter tasks, rather than assuming that more machinery is better.
+
+[Documentation requirements](documentation.md) and [Agent guidance](agent-guidance.md)
+translate this priority into repository conventions. Resolve open implementation
+choices using this criterion and record consequential tradeoffs in this document.
 
 ## Agreed foundation
 

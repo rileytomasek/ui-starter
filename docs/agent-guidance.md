@@ -3,6 +3,8 @@
 The starter includes a concise root [AGENTS.md](../AGENTS.md) and one repository
 skill: [interface-design](../.agents/skills/interface-design/SKILL.md). They should
 help agents find and apply the shared system without duplicating its manuals.
+Agent authoring is the primary product workflow, governed by the
+[authoring priority](spec.md#authoring-priority).
 
 ## Ownership
 
@@ -35,6 +37,20 @@ upstream provenance after editing it.
 The skill owns design principles. The repository docs own integration choices.
 Do not duplicate the complete skill in AGENTS.md or the specifications. User
 instructions and authorized task scope still govern the work.
+
+## Agent discovery and extension
+
+Make the path from a task to its implementation explicit: AGENTS.md links to
+focused guides, guides identify real source files and exports, and examples show
+working compositions. Use predictable names and locations. Prefer static imports,
+explicit dependencies, and typed contracts over implicit discovery or hidden
+runtime registration when they meet the same need.
+
+Document common extension paths so an agent can add a page, component variant,
+form field, or optional chart without inventing another system. Keep familiar
+upstream APIs when they aid reliable use, and add a small helper when it removes
+repeated error-prone work. Evaluate helpers by agent outcomes, not human API
+brevity alone. Guidance must fit a fresh task with no prior chat history.
 
 ## Expected agent workflow
 

@@ -1,7 +1,14 @@
 # UI Starter
 
-A specification for a reusable Vite, React, and TypeScript UI starter with
-Tailwind, shadcn/ui, deliberate information density, and clear customization.
+A specification for a reusable Vite, React, and TypeScript UI starter for
+agent-authored apps, with Tailwind, shadcn/ui, deliberate information density,
+and clear customization.
+
+Coding agents are the primary consumers of the starter. When authoring workflows
+conflict, prioritize reliable agent discovery, modification, and verification
+over human developer convenience. The resulting apps must still provide excellent
+interfaces for their users. [Scope and decisions](docs/spec.md#authoring-priority)
+defines this priority.
 
 **Status: specification only.** This repository captures the design discussion
 through October 23, 2026. It contains Markdown specifications and the reviewed

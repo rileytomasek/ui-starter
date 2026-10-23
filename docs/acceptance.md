@@ -4,6 +4,24 @@ This checklist defines completion of the future starter implementation. All
 runtime items are pending in this specification-only repository. The detailed
 documents own behavior; this file provides observable acceptance checks.
 
+## Agent authoring
+
+- [ ] README and AGENTS.md identify agents as the primary authors and link to
+  the explicit priority rule for conflicts with human developer convenience.
+- [ ] From repository instructions alone, an agent in a fresh task can locate
+  the relevant implementation, add a page using an existing layout/component,
+  and run the relevant checks without undocumented human setup or prior chat.
+- [ ] That task also demonstrates finding a gallery example by stable URL and
+  inspecting the rendered result. Record obstacles and correct the guidance or
+  workflow before considering the starter complete.
+- [ ] Common extension recipes identify exact files, imports, contracts, working
+  examples, verification commands, and observable success criteria.
+- [ ] Automated checks offer non-interactive execution and actionable failures;
+  essential guidance is available in searchable local Markdown and source.
+- [ ] Agent-oriented choices preserve end-user usability, accessibility, visual
+  quality, and responsiveness. No separate agent-evaluation framework is required
+  for this initial practical acceptance exercise.
+
 ## Foundation and reproducibility
 
 - [ ] Resolve initialization choices in [the decision record](spec.md), with

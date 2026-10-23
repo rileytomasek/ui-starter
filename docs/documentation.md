@@ -1,9 +1,34 @@
 # Documentation requirements
 
 The implemented starter must ship practical Markdown documentation in `docs/`
-for people and coding agents using, customizing, and extending it. Documentation
-is part of the deliverable. The current specification files describe intended
-behavior; they do not substitute for verified usage instructions once code exists.
+primarily for coding agents using, customizing, and extending it. Human readers
+are also supported; the [authoring priority](spec.md#authoring-priority) resolves
+conflicts. Documentation is part of the deliverable. The current specification
+files describe intended behavior; they do not substitute for verified usage
+instructions once code exists.
+
+## Agent-oriented documentation contract
+
+Optimize for an agent entering the repository without prior conversation context.
+Use a short entry point and focused, linked guides that can be read independently
+for a task. Markdown, explicit headings, consistent terminology, exact paths and
+export names, and text-searchable examples are the default navigation interface.
+Do not require browsing the gallery to discover essential implementation facts.
+
+For common tasks, state the preferred approach first, then provide:
+
+- Preconditions and the existing component or pattern to reuse.
+- Exact files, imports, types, and extension points involved.
+- A minimal complete example that works with the selected versions.
+- The commands to run and observable success criteria.
+- Important constraints, common mistakes, and justified exceptions.
+
+Keep instructions self-contained enough to act on without relying on a human to
+infer missing setup or choose among undocumented alternatives. Link to shared
+contracts instead of copying them. Clearly label recommendations, open decisions,
+and implemented behavior. Prefer useful precision over tutorial storytelling or
+a polished documentation website. Add machine-readable metadata only when a
+concrete workflow needs it; Markdown and source remain sufficient initially.
 
 ## Required coverage
 
@@ -20,7 +45,7 @@ with a clear README index and one authoritative explanation for each:
 | UI gallery | Browsing themes, typography, components, patterns, layouts, and icons; adding an example; production exclusion and removal |
 | Extensions | Preferred approaches for optional capabilities, starting with shadcn charts and Recharts |
 | Quality and testing | Actual lint/format/typecheck/test commands, when to use each test layer, and rendered review expectations |
-| Agent guidance | A concise AGENTS.md entry point and the pinned design skill, linking to the same guides people use |
+| Agent guidance | A concise AGENTS.md entry point and pinned design skill, directing agents to task-specific authoritative guides |
 
 These are coverage requirements, not a requirement to create a separate file for
 every row. Keep documentation concise and organized around tasks. Link to
@@ -71,5 +96,7 @@ affected docs, examples, and agent guidance in the same task. Verify local links
 and relevant commands/examples before completion. If an optional recipe cannot
 be validated against the selected versions, label that limitation explicitly.
 
-The README should get a new user to a running app and gallery quickly, then
-point into `docs/`. A separate documentation site is not required.
+The README and AGENTS.md should let an agent starting with no conversation
+context find the relevant guide, run the app and gallery, and locate verification
+commands. Humans can use the same documentation. A separate documentation site
+is not required.

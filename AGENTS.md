@@ -6,6 +6,11 @@ Do not claim that planned commands, components, or checks already exist.
 
 ## Working agreements
 
+- This starter is for agent-authored apps. Prioritize reliable agent discovery,
+  changes, and verification over human developer convenience when they conflict.
+  Preserve end-user UX and accessibility. Follow the
+  [authoring priority](docs/spec.md#authoring-priority).
+
 - Preserve the distinction between agreed scope, recommended choices, and open
   decisions. Update the decision record when a choice is resolved.
 - For UI creation, changes, or reviews, read and apply
