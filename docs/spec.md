@@ -1,0 +1,116 @@
+# Scope and decisions
+
+Recorded October 23, 2026 from the starter-repository discussion.
+
+This document owns product scope and decision status. Other documents define
+the behavior of the selected pieces. All implementation requirements describe
+the intended starter, not shipped software.
+
+## Objective
+
+Make it straightforward to build polished, information-rich apps that follow
+the [interface-design skill](../.agents/skills/interface-design/SKILL.md).
+Establish useful defaults for styling, components, layout, agent guidance,
+customization, and verification. The first screen should feel coherent, and
+later screens should have clear examples to follow.
+
+Useful content should dominate. Compact controls, purposeful whitespace,
+typographic hierarchy, restrained surfaces, and precise alignment should make
+dense interfaces easy to scan. The foundation must support different products
+and compositions; it must not force every app into one dashboard layout.
+
+## Agreed foundation
+
+| Area | Decision |
+| --- | --- |
+| Application | Vite + React + TypeScript, with strict checking |
+| Styling | Tailwind CSS and shadcn/ui; use shadcn/create for the starting preset |
+| Typography | shadcn Typeset for rendered prose, with compact and reading presets |
+| Theme | Light / Dark / System; System default; live OS updates and persisted override |
+| Icons | Iconify collections through unplugin-icons; compiled React SVG components |
+| Code display | shadcn Code Block and its Shiki integration |
+| Tables | A shadcn-based TanStack Table example |
+| Lint | Oxlint with targeted @shadcn/lint rules |
+| Format | Oxfmt, including Tailwind class sorting |
+| Component tests | Vitest Browser Mode, vitest-browser-react, Playwright provider |
+| Logic tests | Vitest in Node |
+| End-to-end tests | A smaller Playwright suite for application flows |
+| Agent guidance | Concise AGENTS.md plus the checked-in interface-design skill |
+
+Use Tailwind v4-compatible tooling for the selected shadcn/lint direction.
+Resolve exact compatible package versions during implementation and commit a
+lockfile. Documentation consulted during planning is not live integration proof.
+
+## Included scope
+
+The [component spec](components.md) defines code display, Markdown, data table,
+forms, combobox, date picker, sidebar, and command palette. Shared interaction
+states and small helpers support these examples. The forms coverage includes
+a dialog composition and destructive-action confirmation example where useful
+to demonstrate pending state, recovery, and focus behavior.
+
+The [layout spec](layouts.md) defines two interchangeable shells and four
+inner-page patterns. A reference playground demonstrates the real components
+and compositions with representative content and edge cases.
+
+The starter should be a small repository whose code consuming apps own. A
+GitHub template is the leading distribution proposal; exact template setup is
+still open. A shared runtime component package or generator is not required.
+
+## Open choices and current recommendations
+
+| Choice | Current recommendation | Still to resolve |
+| --- | --- | --- |
+| Router | React Router, starting with declarative routing | React Router versus TanStack Router |
+| Forms | React Hook Form + Zod | Confirm library and validation approach |
+| Markdown | react-markdown + remark-gfm | Confirm parser; assess streaming only if required |
+| Package manager | pnpm | Confirm manager and version |
+| shadcn configuration | Select visually in shadcn/create | Style, primitive base, colors, radii, fonts, and icon family |
+| UI icon family | One coherent family matching the preset | Choose the family; Lucide was an example, not a selection |
+| Fonts | Coordinated body/heading and monospace choices | Font selection, loading, and distribution |
+| Runtime versions | Compatible stable versions at implementation | Node, React, Vite, Tailwind, and dependent packages |
+| Distribution | GitHub template | When to enable template status, visibility, and licensing |
+| Browser coverage | Chromium in CI, small Firefox/WebKit smoke coverage | Final support and CI matrix |
+| Commands and CI | See quality.md for the proposed command interface | Final script names, pipeline, and hosting configuration |
+
+`ui-starter`, its private visibility, and the local `~/projects/ui-starter`
+location are setup choices made to fulfill the request to create this spec
+repository. They do not resolve the broader publication and licensing decisions.
+
+## Scope boundaries
+
+- No installed charting dependency by default. Document how to add shadcn's
+  Recharts integration and theme it when needed.
+- Backend, authentication, persistence, server-data caching, global state
+  libraries, and deployment infrastructure are selected by each app.
+- Rich-text editing, uploads, diagrams, resizable split panes, and specialized
+  inbox/editor layouts are deferred until a concrete app needs them.
+- Streaming Markdown is not a default requirement. Streamdown was discussed as
+  an option for streaming-heavy apps; do not install two Markdown renderers.
+- Do not require a separate Storybook application. The initial playground can
+  live inside the Vite app.
+- No automatic remote skill updates, extra orchestration framework, or large
+  collection of agent skills.
+
+## Superseded proposals
+
+- Oxlint and Oxfmt replace the earlier ESLint/Prettier proposal.
+- Vitest Browser Mode component tests replace the earlier plan to use Vitest
+  only for pure logic and put nearly all interaction coverage in end-to-end tests.
+- React Testing Library with jsdom was compared but is not the selected default.
+- shadcn Code Block with its existing Shiki hook replaces a bespoke code-display
+  implementation. Use its built-in Typeset integration.
+- Typeset is the prose styling foundation; a parallel Tailwind Typography setup
+  is unnecessary by default.
+- Iconify through unplugin-icons replaces the alternative direct lucide-react
+  approach for the starter's own icon integration.
+- The initial large example-app idea was narrowed to a playground and small,
+  realistic reference compositions.
+
+## Delivery shape
+
+First resolve the open choices that affect initialization. Then generate the
+foundation, integrate the selected examples, wire both shells, establish quality
+checks and tests, and complete the customization docs. The observable end state
+is defined in [Acceptance](acceptance.md). Task status and progress are separate
+from this durable product specification.
