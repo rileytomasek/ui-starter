@@ -67,3 +67,35 @@ on reload. The default production JS bundle is about 521 kB minified / 170 kB gz
 Vite emits its nonblocking 500 kB chunk advisory. Introduce route-level splitting
 when actual app features warrant it. No backend, deployment, or publication is
 included in this acceptance.
+
+## Strict lint follow-up
+
+The Charlie Labs-derived configuration retains all supported explicit rules and
+limits, enables type-aware linting, and composes existing shadcn integration rules.
+No new exemptions were added; the obsolete mobile-hook exemption was removed.
+Six effect-review warnings remain visible at the reference's warning severity,
+with their external synchronization purpose documented in [Development](../development.md).
+
+Validation after refactoring:
+
+- `pnpm check`: no lint errors, strict TypeScript, 10 passing Vitest tests, and production build.
+- `pnpm test:e2e`: all 11 application/gallery cases passed across three browsers.
+- `pnpm test:setup`: all four conflict/recovery/cleanup regression cases passed.
+- A temporary negative fixture was rejected for all eleven tested rule families:
+  complexity, block depth, file/function length, nested callbacks, parameters,
+  statements, nested ternaries, JSX depth, floating promises, and explicit any.
+  The fixture was removed after checking diagnostics.
+- A fresh consuming copy with two routes and no gallery/examples completed real
+  install, lint/types/tests/build, seven browser cases, and final cleanup. The first
+  trial caught generated navigation and test-loop violations; corrected templates
+  passed in a new clean copy without manual repairs.
+- Six rendered views covered tables, forms, and highlighted Markdown at 390/1280
+  across both themes. Screenshots were reviewed; all had zero axe violations,
+  uncaught page errors, and page-level horizontal overflow. Wide tables/code remain
+  independently scrollable. The design skill remains unchanged.
+
+The config and scripts now use native Node TypeScript. Sidebar, form, table, and
+navigation internals are split by responsibility with existing public imports
+preserved. Installed component source retains its original provenance. This record
+supersedes the earlier lint configuration; original phase evidence above remains
+historical. Hosted CI for this follow-up is recorded in GitHub on its commit.

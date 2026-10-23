@@ -49,7 +49,7 @@ in consuming apps after temporary starter specifications are removed.
 
 ## Phase 3: visual system
 
-Installed UI icon imports now use Carbon via scripts/carbon-icons.mjs; no primitive
+Installed UI icon imports now use Carbon via scripts/carbon-icons.ts; no primitive
 was replaced. Fonts are IBM Plex Sans/Mono. The light muted-foreground token was
 lowered to oklch(0.50 0 0) after axe measured the upstream pair at 4.34:1.
 The four light/dark mobile/desktop gallery scans now pass. Theme E2E verifies
@@ -73,3 +73,12 @@ GitHub high-contrast light/dark themes after rendered contrast checks found the 
 orange token too faint. These narrow adaptations retain the installed APIs. Forms,
 Markdown, date-only helpers, and table behavior are compositions around CLI source.
 See [component recipes](components.md) for extension and data contracts.
+
+## Strict lint follow-up
+
+The original lint setup is superseded by the
+[strict contract](development.md#strict-lint-contract). Tooling moved from mjs to
+native Node TypeScript; the cleanup workflow uses typed JSON boundaries and small
+planning/recovery modules. UI source was refactored to the same limits, including
+CLI-installed components. [Acceptance](starter/release.md#strict-lint-follow-up)
+records checks, generated-app validation, and rendered review.

@@ -8,18 +8,20 @@
     "strict": true,
     "types": ["node"],
     "skipLibCheck": true,
-
-    /* Bundler mode */
     "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": true,
     "moduleDetection": "force",
     "noEmit": true,
-
-    /* Linting */
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["*.config.ts", "tests/**/*.ts"]
+  "include": [
+    "*.config.ts",
+    "tests/**/*.ts",
+    "scripts/**/*.ts",
+    ".starter/**/*.ts",
+    "config/**/*.ts"
+  ]
 }

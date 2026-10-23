@@ -1,4 +1,4 @@
-import * as React from "react"
+import { type CSSProperties } from "react"
 import { createHighlighterCore, type GrammarState, type HighlighterCore } from "shiki/core"
 import { createJavaScriptRegexEngine } from "shiki/engine/javascript"
 
@@ -19,7 +19,7 @@ const languages = {
   yaml: () => import("shiki/langs/yaml.mjs"),
 }
 
-const aliases: Record<string, keyof typeof languages> = {
+const aliases: Partial<Record<string, keyof typeof languages>> = {
   js: "javascript",
   md: "markdown",
   py: "python",
@@ -53,8 +53,8 @@ function getLanguage(language: string) {
     return name
   }
 
-  if (name in languages) {
-    return name as keyof typeof languages
+  if (isLanguage(name)) {
+    return name
   }
 
   return aliases[name] ?? null
@@ -94,10 +94,10 @@ export async function loadHighlighter(language: string) {
 
       return {
         lines: tokens.map((line) =>
-          line.map((token, index) => (
+          line.map((token) => (
             <span
-              key={index}
-              style={token.htmlStyle as React.CSSProperties}
+              key={token.offset}
+              style={tokenStyle(token.htmlStyle)}
               className="text-(--shiki-light) dark:text-(--shiki-dark)"
             >
               {token.content}
@@ -112,7 +112,16 @@ export async function loadHighlighter(language: string) {
 
 // Returns one React node per line, or null for a language that is not listed.
 export async function highlightCode(code: string, language: string) {
-  const highlighter = await loadHighlighter(language)
+  const loaded = await loadHighlighter(language)
 
-  return highlighter ? highlighter.highlight(code).lines : null
+  return loaded ? loaded.highlight(code).lines : null
+}
+
+function isLanguage(name: string): name is keyof typeof languages {
+  return Object.hasOwn(languages, name)
+}
+function tokenStyle(
+  style: Record<string, string> | undefined,
+): CSSProperties & Record<string, string | number | undefined> {
+  return { ...style }
 }

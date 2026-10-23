@@ -1,8 +1,8 @@
-import { resolve } from "node:path"
 import tailwindcss from "@tailwindcss/vite"
-import Icons from "unplugin-icons/vite"
-import { FileSystemIconLoader } from "unplugin-icons/loaders"
 import react from "@vitejs/plugin-react"
+import { resolve } from "node:path"
+import { FileSystemIconLoader } from "unplugin-icons/loaders"
+import Icons from "unplugin-icons/vite"
 import { defineConfig } from "vite"
 
 // https://vite.dev/config/

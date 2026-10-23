@@ -32,7 +32,7 @@ strict types, Vitest, and production build; `pnpm test:e2e` runs browser flows.
   single/multiple comboboxes, date-only picker, sidebar, and command palette.
 - Sidebar and fixed-header shells; collection, detail, settings, and reading pages.
 - Searchable development gallery, excluded from production by default.
-- Oxlint + shadcn rules, Oxfmt, Vitest Node/browser tests, Playwright, and CI.
+- Strict type-aware Oxlint + shadcn rules, Oxfmt, Vitest Node/browser tests, Playwright, and CI.
 - Previewable, recoverable setup/finalization with explicit modified-file handling.
 
 Charts are optional: [shadcn/Recharts recipe](docs/optional.md). Backend, auth,

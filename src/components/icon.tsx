@@ -1,6 +1,6 @@
-import type { ComponentType, SVGProps, ComponentProps } from "react"
-import { cn } from "cn"
 import { Button } from "@/components/ui/button"
+import { cn } from "cn"
+import type { ComponentProps, ComponentType, SVGProps } from "react"
 export type SvgIcon = ComponentType<SVGProps<SVGSVGElement>>
 const sizes = { sm: "size-3.5", md: "size-4", lg: "size-5" }
 export function Icon({
@@ -15,9 +15,9 @@ export function Icon({
   return (
     <Svg
       className={cn("shrink-0", sizes[size])}
-      aria-hidden={label ? undefined : true}
+      aria-hidden={label !== undefined && label !== "" ? undefined : true}
       aria-label={label}
-      role={label ? "img" : undefined}
+      role={label !== undefined && label !== "" ? "img" : undefined}
     />
   )
 }

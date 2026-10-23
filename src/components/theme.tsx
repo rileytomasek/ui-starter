@@ -1,7 +1,9 @@
 import {
   createContext,
+  useCallback,
   useContext,
   useLayoutEffect,
+  useMemo,
   useState,
   useSyncExternalStore,
   type ReactNode,
@@ -16,7 +18,9 @@ const media = () => window.matchMedia("(prefers-color-scheme: dark)")
 const subscribe = (callback: () => void) => {
   const query = media()
   query.addEventListener("change", callback)
-  return () => query.removeEventListener("change", callback)
+  return () => {
+    query.removeEventListener("change", callback)
+  }
 }
 function stored(): ThemeMode {
   try {
@@ -34,25 +38,25 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     () => media().matches,
     () => false,
   )
-  const resolved = mode === "system" ? (dark ? "dark" : "light") : mode
+  const systemMode = dark ? "dark" : "light"
+  const resolved = mode === "system" ? systemMode : mode
   useLayoutEffect(() => {
     document.documentElement.classList.toggle("dark", resolved === "dark")
     document.documentElement.style.colorScheme = resolved
   }, [resolved])
-  function setMode(next: ThemeMode) {
+  const setMode = useCallback((next: ThemeMode) => {
     update(next)
     try {
       localStorage.setItem("app.theme", next)
     } catch {
       /* Keep an in-memory choice. */
     }
-  }
-  return (
-    <ThemeContext.Provider value={{ mode, resolved, setMode }}>{children}</ThemeContext.Provider>
-  )
+  }, [])
+  const context = useMemo(() => ({ mode, resolved, setMode }), [mode, resolved, setMode])
+  return <ThemeContext.Provider value={context}>{children}</ThemeContext.Provider>
 }
 export function useTheme() {
   const context = useContext(ThemeContext)
-  if (!context) throw Error("Use ThemeProvider around appearance controls")
+  if (!context) throw new Error("Use ThemeProvider around appearance controls")
   return context
 }

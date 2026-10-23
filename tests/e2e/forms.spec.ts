@@ -1,12 +1,12 @@
-import { test, expect } from "@playwright/test"
-import AxeBuilder from "@axe-core/playwright"
+import { AxeBuilder } from "@axe-core/playwright"
+import { expect, test } from "@playwright/test"
 const base = "http://127.0.0.1:4174/__gallery/layouts/header/settings"
 test("form failure preserves edits and supports retry; dialog restores focus", async ({ page }) => {
   await page.goto(`${base}?scenario=failure`)
-  await page.getByRole("textbox", { name: /Project name/ }).fill("Weekly research")
+  await page.getByRole("textbox", { name: /Project name/u }).fill("Weekly research")
   await page.getByRole("button", { name: "Save project", exact: true }).click()
-  await expect(page.getByText(/Your input is preserved/)).toBeVisible()
-  await expect(page.getByRole("textbox", { name: /Project name/ })).toHaveValue("Weekly research")
+  await expect(page.getByText(/Your input is preserved/u)).toBeVisible()
+  await expect(page.getByRole("textbox", { name: /Project name/u })).toHaveValue("Weekly research")
   await page.getByRole("button", { name: "Save project", exact: true }).click()
   await expect(page.getByText("Project saved.")).toBeVisible()
   await page.getByRole("button", { name: "Edit in dialog" }).click()

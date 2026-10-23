@@ -1,16 +1,17 @@
-import { readdirSync, readFileSync, writeFileSync, existsSync } from "node:fs"
 import { createHash } from "node:crypto"
-export const digest = (text) => createHash("sha256").update(text).digest("hex")
-export function files(dir) {
+import { existsSync, readdirSync, readFileSync, writeFileSync } from "node:fs"
+export const digest = (text: string | NodeJS.ArrayBufferView) =>
+  createHash("sha256").update(text).digest("hex")
+export function files(dir: string): string[] {
   if (!existsSync(dir)) return []
   return readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
-    if (entry.isSymbolicLink()) throw Error(`Symlink not allowed: ${dir}/${entry.name}`)
+    if (entry.isSymbolicLink()) throw new Error(`Symlink not allowed: ${dir}/${entry.name}`)
     return entry.isDirectory() ? files(`${dir}/${entry.name}`) : [`${dir}/${entry.name}`]
   })
 }
 export const transformed = [
   ".github/workflows/check.yml",
-  ".oxlintrc.json",
+  "config/oxlint-design.ts",
   ".oxfmtrc.json",
   ".gitignore",
   "README.md",

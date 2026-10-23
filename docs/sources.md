@@ -52,3 +52,12 @@ pins installed versions; review upstream changes before migrations.
 
 Source URLs can redirect as upstream documentation evolves. Keep the behavioral
 requirements stable and update implementation recipes deliberately.
+
+## Strict lint configuration
+
+Copied and adapted from [charlie-labs/ch-pr](https://github.com/charlie-labs/ch-pr/blob/e0c6d198c68470ae272689f882b738b57fda2a4b/oxlint.config.ts)
+at revision `e0c6d198c68470ae272689f882b738b57fda2a4b` on October 23, 2026.
+All explicit supported rules and structural thresholds are retained. The retired
+compiler rule uses current Oxlint's correctness-category replacement. Existing
+shadcn/accessibility integrations and Vite build-output exclusions are composed
+with it. [Development](development.md#strict-lint-contract) owns the active policy.

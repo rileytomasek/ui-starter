@@ -280,3 +280,14 @@ review, and the optional chart recipe passed locally. Hosted CI passed on
 | Complete reference UI  | 4–5             | Both shells and all agreed components/patterns work together             |
 | Application transition | 6               | Consuming copies shed starter context safely                             |
 | Verified starter       | 7               | Fresh-agent acceptance and full handoff criteria are satisfied           |
+
+## Follow-up — Strict lint contract
+
+- [x] Adopt the reference categories, type-aware checks, and every structural threshold.
+- [x] Refactor app, CLI-installed UI, tests, and tooling without new rule exemptions.
+- [x] Type JSON boundaries and separate finalization planning, conflict handling, and recovery.
+- [x] Update generated application code, retained guides, and setup cleanup for the new config.
+- [x] Verify full checks, browser flows, deliberate lint failures, and a clean consuming copy.
+- [x] Review rendered UI and record final validation evidence.
+
+Evidence: [strict-lint acceptance](release.md#strict-lint-follow-up).

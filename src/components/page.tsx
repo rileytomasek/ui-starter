@@ -1,5 +1,5 @@
-import type { ReactNode } from "react"
 import { cn } from "cn"
+import type { ReactNode } from "react"
 const widths = { full: "max-w-7xl", form: "max-w-3xl", reading: "max-w-reading" }
 export function PageContent({
   children,
@@ -29,9 +29,13 @@ export function PageHeader({
         <h1 tabIndex={-1} className="text-xl font-semibold tracking-tight outline-none">
           {title}
         </h1>
-        {description && <p className="mt-1 text-sm text-muted-foreground">{description}</p>}
+        {description !== undefined && description !== "" && (
+          <p className="mt-1 text-sm text-muted-foreground">{description}</p>
+        )}
       </div>
-      {actions && <div className="flex flex-wrap items-center gap-2">{actions}</div>}
+      {actions !== undefined && actions !== null && (
+        <div className="flex flex-wrap items-center gap-2">{actions}</div>
+      )}
     </div>
   )
 }
@@ -48,7 +52,9 @@ export function PageSection({
     <section className="space-y-4">
       <div>
         <h2 className="text-base font-medium">{title}</h2>
-        {description && <p className="mt-1 text-sm text-muted-foreground">{description}</p>}
+        {description !== undefined && description !== "" && (
+          <p className="mt-1 text-sm text-muted-foreground">{description}</p>
+        )}
       </div>
       {children}
     </section>

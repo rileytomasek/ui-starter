@@ -1,24 +1,24 @@
-import { useState } from "react"
+import {
+  AlertDialog,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog"
 import { Button } from "@/components/ui/button"
 import {
   Dialog,
-  DialogTrigger,
   DialogContent,
+  DialogDescription,
   DialogHeader,
   DialogTitle,
-  DialogDescription,
+  DialogTrigger,
 } from "@/components/ui/dialog"
-import {
-  AlertDialog,
-  AlertDialogTrigger,
-  AlertDialogContent,
-  AlertDialogHeader,
-  AlertDialogTitle,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogCancel,
-} from "@/components/ui/alert-dialog"
 import { FieldError } from "@/components/ui/field"
+import { useState } from "react"
 import { ProjectForm, type ProjectValues } from "./project-form"
 export function ProjectDialogs({
   submit,
@@ -27,23 +27,11 @@ export function ProjectDialogs({
   submit: (values: ProjectValues) => Promise<void>
   archive: () => Promise<void>
 }) {
-  const [edit, setEdit] = useState(false),
-    [confirm, setConfirm] = useState(false),
-    [pending, setPending] = useState(false),
-    [error, setError] = useState(""),
-    [archived, setArchived] = useState(false)
+  const { confirm, setConfirm, pending, error, archived, confirmArchive } =
+    useArchiveProject(archive)
   return (
     <div className="flex flex-wrap gap-2">
-      <Dialog open={edit} onOpenChange={setEdit}>
-        <DialogTrigger render={<Button variant="outline" />}>Edit in dialog</DialogTrigger>
-        <DialogContent className="max-h-dvh overflow-y-auto">
-          <DialogHeader>
-            <DialogTitle>Edit project</DialogTitle>
-            <DialogDescription>Update the details and review date.</DialogDescription>
-          </DialogHeader>
-          <ProjectForm submit={submit} onSaved={() => setEdit(false)} />
-        </DialogContent>
-      </Dialog>
+      <EditProjectDialog submit={submit} />
       <AlertDialog
         open={confirm}
         onOpenChange={(value) => {
@@ -66,18 +54,8 @@ export function ProjectDialogs({
             <Button
               variant="destructive"
               disabled={pending}
-              onClick={async () => {
-                setPending(true)
-                setError("")
-                try {
-                  await archive()
-                  setArchived(true)
-                  setConfirm(false)
-                } catch {
-                  setError("Archiving failed. Try again.")
-                } finally {
-                  setPending(false)
-                }
+              onClick={() => {
+                void confirmArchive()
               }}
             >
               {pending ? "Archiving…" : "Confirm archive"}
@@ -88,4 +66,47 @@ export function ProjectDialogs({
       <output className="text-sm">{archived ? "Project archived." : ""}</output>
     </div>
   )
+}
+
+function EditProjectDialog({ submit }: { submit: (values: ProjectValues) => Promise<void> }) {
+  const [edit, setEdit] = useState(false)
+  return (
+    <Dialog open={edit} onOpenChange={setEdit}>
+      <DialogTrigger render={<Button variant="outline" />}>Edit in dialog</DialogTrigger>
+      <DialogContent className="max-h-dvh overflow-y-auto">
+        <DialogHeader>
+          <DialogTitle>Edit project</DialogTitle>
+          <DialogDescription>Update the details and review date.</DialogDescription>
+        </DialogHeader>
+        <ProjectForm
+          submit={submit}
+          onSaved={() => {
+            setEdit(false)
+          }}
+        />
+      </DialogContent>
+    </Dialog>
+  )
+}
+
+function useArchiveProject(archive: () => Promise<void>) {
+  const [confirm, setConfirm] = useState(false),
+    [pending, setPending] = useState(false),
+    [error, setError] = useState(""),
+    [archived, setArchived] = useState(false)
+  async function confirmArchive() {
+    setPending(true)
+    setError("")
+    try {
+      await archive()
+      setArchived(true)
+      setConfirm(false)
+    } catch {
+      setError("Archiving failed. Try again.")
+    } finally {
+      setPending(false)
+    }
+  }
+
+  return { confirm, setConfirm, pending, error, archived, confirmArchive }
 }

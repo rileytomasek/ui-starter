@@ -1,5 +1,5 @@
-import { test, expect } from "@playwright/test"
-import AxeBuilder from "@axe-core/playwright"
+import { AxeBuilder } from "@axe-core/playwright"
+import { expect, test } from "@playwright/test"
 const base = "http://127.0.0.1:4174/__gallery/layouts"
 for (const shell of ["header", "sidebar"]) {
   test(`${shell} supports navigation, commands, and mobile`, async ({ page }) => {

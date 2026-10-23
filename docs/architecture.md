@@ -22,3 +22,10 @@ controls, clipboard-error feedback, high-contrast Shiki themes, and attaching th
 CalendarDayButton focus ref so arrow-key navigation actually moves focus. The selected
 lint exceptions are documented in [Development](development.md). The source and
 interface design skill provenance is retained in [Sources](sources.md).
+
+The stricter lint contract also requires small modules and stable renderers.
+The installed Sidebar keeps its public facade in sidebar.tsx, with context, panel,
+layout, and menu internals alongside it. Calendar slot renderers are stable module
+functions. Forms separate model/details/people, and tables separate model/columns/
+controls/content. Shared code display identifies lines and tokens by source offset.
+These are local refactors of the installed source, not new primitive implementations.

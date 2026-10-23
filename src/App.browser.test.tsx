@@ -1,10 +1,10 @@
 import "@/index.css"
+import { MemoryRouter } from "react-router"
 import { expect, test } from "vitest"
 import { render } from "vitest-browser-react"
 import App from "./App"
-import { MemoryRouter } from "react-router"
-import { TooltipProvider } from "./components/ui/tooltip"
 import { ThemeProvider } from "./components/theme"
+import { TooltipProvider } from "./components/ui/tooltip"
 test("saves through the installed button", async () => {
   const screen = await render(
     <ThemeProvider>

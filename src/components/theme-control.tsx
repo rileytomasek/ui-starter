@@ -1,14 +1,14 @@
-import Contrast from "~icons/carbon/contrast"
 import { Icon } from "@/components/icon"
+import { useTheme } from "@/components/theme"
 import { Button } from "@/components/ui/button"
 import {
   DropdownMenu,
-  DropdownMenuTrigger,
   DropdownMenuContent,
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
+  DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { useTheme, type ThemeMode } from "@/components/theme"
+import Contrast from "~icons/carbon/contrast"
 export function ThemeControl() {
   const { mode, setMode } = useTheme()
   return (
@@ -17,7 +17,12 @@ export function ThemeControl() {
         <Icon as={Contrast} />
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuRadioGroup value={mode} onValueChange={(value) => setMode(value as ThemeMode)}>
+        <DropdownMenuRadioGroup
+          value={mode}
+          onValueChange={(value: unknown) => {
+            if (value === "light" || value === "dark" || value === "system") setMode(value)
+          }}
+        >
           {(["light", "dark", "system"] as const).map((value) => (
             <DropdownMenuRadioItem key={value} value={value}>
               {value[0].toUpperCase() + value.slice(1)}

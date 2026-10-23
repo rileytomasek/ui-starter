@@ -15,7 +15,7 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm exec playwright install --with-deps chromium firefox webkit
       - name: Setup workflow tests
-        if: hashFiles('.starter/finalize.test.mjs') != ''
+        if: hashFiles('.starter/finalize.test.ts') != ''
         run: pnpm test:setup
       - run: pnpm check
       - run: pnpm test:e2e

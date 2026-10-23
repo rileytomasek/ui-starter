@@ -55,7 +55,7 @@ translate this priority into repository conventions. Choose implementation detai
 | Icons            | IBM Carbon icons through Iconify and unplugin-icons; compiled React SVG components                    |
 | Code display     | shadcn Code Block and its Shiki integration                                                           |
 | Tables           | A shadcn-based TanStack Table example                                                                 |
-| Lint             | Oxlint with targeted @shadcn/lint rules                                                               |
+| Lint             | Strict type-aware Oxlint, structural limits, and @shadcn/lint rules                                   |
 | Format           | Oxfmt, including Tailwind class sorting                                                               |
 | Component tests  | Vitest Browser Mode, vitest-browser-react, Playwright provider                                        |
 | Logic tests      | Vitest in Node                                                                                        |

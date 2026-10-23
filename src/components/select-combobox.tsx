@@ -1,17 +1,17 @@
-import type { Ref } from "react"
 import {
   Combobox,
-  ComboboxInput,
-  ComboboxContent,
-  ComboboxList,
-  ComboboxItem,
-  ComboboxEmpty,
-  ComboboxChips,
   ComboboxChip,
+  ComboboxChips,
   ComboboxChipsInput,
+  ComboboxContent,
+  ComboboxEmpty,
+  ComboboxInput,
+  ComboboxItem,
+  ComboboxList,
   ComboboxValue,
   useComboboxAnchor,
 } from "@/components/ui/combobox"
+import type { Ref } from "react"
 export type Option = { value: string; label: string }
 type Shared = {
   id: string
@@ -37,7 +37,9 @@ export function SelectCombobox({
     <Combobox
       items={options}
       value={options.find((x) => x.value === value) ?? null}
-      onValueChange={(item) => onChange(item?.value ?? "")}
+      onValueChange={(item) => {
+        onChange(item?.value ?? "")
+      }}
       itemToStringLabel={(item) => item.label}
       itemToStringValue={(item) => item.value}
       disabled={disabled}
@@ -82,25 +84,15 @@ export function MultiCombobox({
       multiple
       items={options}
       value={options.filter((x) => value.includes(x.value))}
-      onValueChange={(items) => onChange(items.map((x) => x.value))}
+      onValueChange={(items) => {
+        onChange(items.map((x) => x.value))
+      }}
       itemToStringLabel={(item) => item.label}
       itemToStringValue={(item) => item.value}
       disabled={disabled}
     >
       <ComboboxChips ref={anchor}>
-        <ComboboxValue>
-          {(items: Option[]) =>
-            items.map((item) => (
-              <ComboboxChip
-                key={item.value}
-                aria-label={item.label}
-                removeLabel={`Remove ${item.label}`}
-              >
-                {item.label}
-              </ComboboxChip>
-            ))
-          }
-        </ComboboxValue>
+        <SelectedChips />
         <ComboboxChipsInput
           id={id}
           disabled={disabled}
@@ -122,5 +114,23 @@ export function MultiCombobox({
         </ComboboxList>
       </ComboboxContent>
     </Combobox>
+  )
+}
+
+function SelectedChips() {
+  return (
+    <ComboboxValue>
+      {(items: Option[]) =>
+        items.map((item) => (
+          <ComboboxChip
+            key={item.value}
+            aria-label={item.label}
+            removeLabel={`Remove ${item.label}`}
+          >
+            {item.label}
+          </ComboboxChip>
+        ))
+      }
+    </ComboboxValue>
   )
 }

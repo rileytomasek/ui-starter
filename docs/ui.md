@@ -8,7 +8,7 @@ neutral, with subtle menu accent. Source receipt: [installation.json](installati
 Run `pnpm ui:add <component>` followed by `pnpm ui:icons` and `pnpm format`.
 The CLI generates Lucide imports; ui:icons replaces known equivalents with static
 Carbon imports and fails on unmapped names. Add a deliberate mapping to
-scripts/carbon-icons.mjs, inspect the icon, and remove lucide-react if no longer
+scripts/carbon-icons.ts, inspect the icon, and remove lucide-react if no longer
 used after installation. Never handwrite replacement primitives. Preserve the
 installed APIs and record narrow local changes in [architecture](architecture.md).
 
@@ -43,6 +43,10 @@ An Icon is decorative unless given a label. IconButton requires a label. Sizes
 are sm/md/lg; SVGs inherit currentColor. Custom SVGs in src/assets/icons import
 as ~icons/local/name. Keep their viewBox and multicolor fills. Use Carbon for UI;
 new collections need a specific purpose and preserved source notices.
+
+After installing or updating components, run `pnpm lint` and `pnpm typecheck`.
+Refactor generated code to the [strict lint contract](development.md#strict-lint-contract)
+while preserving its APIs, behavior, styling, and installation provenance.
 
 ## Inspect and verify
 

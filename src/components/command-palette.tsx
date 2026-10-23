@@ -1,19 +1,27 @@
-import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from "react"
-import { useNavigate } from "react-router"
-import Search from "~icons/carbon/search"
-import { Button } from "@/components/ui/button"
-import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog"
-import {
-  Command,
-  CommandInput,
-  CommandList,
-  CommandEmpty,
-  CommandGroup,
-  CommandItem,
-} from "@/components/ui/command"
+import { flattenDestinations, type Destination } from "@/app/navigation"
 import { Icon } from "@/components/icon"
 import { useTheme } from "@/components/theme"
-import { flattenDestinations, type Destination } from "@/app/navigation"
+import { Button } from "@/components/ui/button"
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from "@/components/ui/command"
+import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog"
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+  type ReactNode,
+} from "react"
+import { useNavigate } from "react-router"
+import Search from "~icons/carbon/search"
 const Context = createContext<(() => void) | null>(null)
 export function CommandProvider({
   destinations,
@@ -23,14 +31,12 @@ export function CommandProvider({
   children: ReactNode
 }) {
   const [open, setOpen] = useState(false),
-    lastFocus = useRef<HTMLElement | null>(null),
-    navigate = useNavigate(),
-    { setMode } = useTheme()
-  function show() {
+    lastFocus = useRef<HTMLElement | null>(null)
+  const show = useCallback(() => {
     lastFocus.current =
       document.activeElement instanceof HTMLElement ? document.activeElement : null
     setOpen(true)
-  }
+  }, [])
   useEffect(() => {
     const handle = (event: KeyboardEvent) => {
       if (event.isComposing || event.repeat || event.altKey) return
@@ -42,7 +48,9 @@ export function CommandProvider({
       }
     }
     window.addEventListener("keydown", handle)
-    return () => window.removeEventListener("keydown", handle)
+    return () => {
+      window.removeEventListener("keydown", handle)
+    }
   }, [])
   return (
     <Context.Provider value={show}>
@@ -53,40 +61,12 @@ export function CommandProvider({
             <DialogTitle>Commands</DialogTitle>
             <DialogDescription>Find a page or change appearance.</DialogDescription>
           </div>
-          <Command>
-            <CommandInput placeholder="Search pages and actions…" />
-            <CommandList>
-              <CommandEmpty>No commands found.</CommandEmpty>
-              <CommandGroup heading="Navigate">
-                {flattenDestinations(destinations).map((item) => (
-                  <CommandItem
-                    key={item.path}
-                    value={item.title}
-                    onSelect={() => {
-                      setOpen(false)
-                      navigate(item.path)
-                    }}
-                  >
-                    <Icon as={item.icon} />
-                    {item.title}
-                  </CommandItem>
-                ))}
-              </CommandGroup>
-              <CommandGroup heading="Appearance">
-                {(["light", "dark", "system"] as const).map((mode) => (
-                  <CommandItem
-                    key={mode}
-                    onSelect={() => {
-                      setMode(mode)
-                      setOpen(false)
-                    }}
-                  >
-                    Use {mode} appearance
-                  </CommandItem>
-                ))}
-              </CommandGroup>
-            </CommandList>
-          </Command>
+          <CommandOptions
+            destinations={destinations}
+            close={() => {
+              setOpen(false)
+            }}
+          />
         </DialogContent>
       </Dialog>
     </Context.Provider>
@@ -102,5 +82,52 @@ export function CommandTrigger() {
         ⌘ / Ctrl K
       </kbd>
     </Button>
+  )
+}
+
+function CommandOptions({
+  destinations,
+  close,
+}: {
+  destinations: Destination[]
+  close: () => void
+}) {
+  const navigate = useNavigate()
+  const { setMode } = useTheme()
+  return (
+    <Command>
+      <CommandInput placeholder="Search pages and actions…" />
+      <CommandList>
+        <CommandEmpty>No commands found.</CommandEmpty>
+        <CommandGroup heading="Navigate">
+          {flattenDestinations(destinations).map((item) => (
+            <CommandItem
+              key={item.path}
+              value={item.title}
+              onSelect={() => {
+                close()
+                void navigate(item.path)
+              }}
+            >
+              <Icon as={item.icon} />
+              {item.title}
+            </CommandItem>
+          ))}
+        </CommandGroup>
+        <CommandGroup heading="Appearance">
+          {(["light", "dark", "system"] as const).map((mode) => (
+            <CommandItem
+              key={mode}
+              onSelect={() => {
+                setMode(mode)
+                close()
+              }}
+            >
+              Use {mode} appearance
+            </CommandItem>
+          ))}
+        </CommandGroup>
+      </CommandList>
+    </Command>
   )
 }

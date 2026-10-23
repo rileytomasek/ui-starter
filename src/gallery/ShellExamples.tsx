@@ -1,16 +1,16 @@
+import type { Destination } from "@/app/navigation"
+import { HeaderShell, SidebarShell } from "@/components/shells"
+import { ExamplePage } from "@/examples/pages"
 import { Link, Route, Routes, useLocation } from "react-router"
+import Book from "~icons/carbon/book"
 import Table from "~icons/carbon/data-table"
 import Document from "~icons/carbon/document"
 import Settings from "~icons/carbon/settings"
-import Book from "~icons/carbon/book"
-import { HeaderShell, SidebarShell } from "@/components/shells"
-import { ExamplePage } from "@/examples/pages"
-import type { Destination } from "@/app/navigation"
 export default function ShellExamples() {
-  const { pathname } = useLocation(),
-    kind = pathname.includes("/sidebar/") ? "sidebar" : "header",
-    base = `/__gallery/layouts/${kind}`,
-    Shell = kind === "sidebar" ? SidebarShell : HeaderShell
+  const { pathname } = useLocation()
+  const kind = pathname.includes("/sidebar/") ? "sidebar" : "header"
+  const base = `/__gallery/layouts/${kind}`
+  const Shell = kind === "sidebar" ? SidebarShell : HeaderShell
   const destinations: Destination[] = [
     {
       title: "Projects",

@@ -8,13 +8,14 @@ toolchains.
 ## Oxlint and shadcn rules
 
 Integrate `@shadcn/lint` through Oxlint's supported JavaScript plugin mechanism.
-Verify the selected versions together. Keep general correctness rules and
-project-specific design rules understandable, with actionable diagnostics.
+Verify the selected versions together. Use the strict Charlie Labs-derived configuration and all structural limits
+recorded in [Development](../development.md#strict-lint-contract). Type-aware
+safety checks apply to app code, installed components, tests, and tooling. Fix
+violations instead of adding exemptions or raising limits.
 
-Evaluate and configure the following rule candidates against the generated
-preset rather than enabling every rule without review:
+The following design rules are enabled alongside the strict general rules:
 
-| Candidate                | Intended purpose                                                      |
+| Rule                     | Intended purpose                                                      |
 | ------------------------ | --------------------------------------------------------------------- |
 | `no-raw-colors`          | Encourage semantic theme colors                                       |
 | `no-unknown-classes`     | Catch invalid utility names against the actual stylesheet             |

@@ -1,23 +1,26 @@
-import "@/index.css"
-import { expect, test, vi } from "vitest"
-import { userEvent } from "vitest/browser"
-import { render } from "vitest-browser-react"
-import { ProjectForm } from "./project-form"
-import { SelectCombobox } from "@/components/select-combobox"
 import { DatePicker } from "@/components/date-picker"
+import { SelectCombobox } from "@/components/select-combobox"
+import "@/index.css"
 import { useState } from "react"
+import { expect, test, vi } from "vitest"
+import { render } from "vitest-browser-react"
+import { userEvent } from "vitest/browser"
+import { ProjectForm } from "./project-form"
 test("form validates, preserves input after failure, and retries", async () => {
-  const submit = vi.fn().mockRejectedValueOnce(Error("offline")).mockResolvedValue(undefined)
+  const submit = vi
+    .fn()
+    .mockRejectedValueOnce(new Error("offline"))
+    .mockImplementation(async () => {})
   const s = await render(<ProjectForm submit={submit} />)
-  await s.getByRole("textbox", { name: /Project name/ }).fill("")
+  await s.getByRole("textbox", { name: /Project name/u }).fill("")
   await s.getByRole("button", { name: "Save project", exact: true }).click()
   await expect.element(s.getByText("Enter at least 3 characters.")).toBeVisible()
   expect(submit).not.toHaveBeenCalled()
-  await s.getByRole("textbox", { name: /Project name/ }).fill("Research update")
+  await s.getByRole("textbox", { name: /Project name/u }).fill("Research update")
   await s.getByRole("button", { name: "Save project", exact: true }).click()
-  await expect.element(s.getByText(/Your input is preserved/)).toBeVisible()
+  await expect.element(s.getByText(/Your input is preserved/u)).toBeVisible()
   await expect
-    .element(s.getByRole("textbox", { name: /Project name/ }))
+    .element(s.getByRole("textbox", { name: /Project name/u }))
     .toHaveValue("Research update")
   await s.getByRole("button", { name: "Save project", exact: true }).click()
   await expect.element(s.getByText("Project saved.")).toBeVisible()
@@ -25,11 +28,11 @@ test("form validates, preserves input after failure, and retries", async () => {
 })
 test("combobox searches, clears, and supports multiple selection", async () => {
   const s = await render(<ProjectForm submit={async () => {}} />)
-  await s.getByRole("combobox", { name: /Owner/ }).fill("Alex")
+  await s.getByRole("combobox", { name: /Owner/u }).fill("Alex")
   await userEvent.keyboard("{ArrowDown}{Enter}")
-  await expect.element(s.getByRole("combobox", { name: /Owner/ })).toHaveValue("Alex Morgan")
+  await expect.element(s.getByRole("combobox", { name: /Owner/u })).toHaveValue("Alex Morgan")
   await s.getByRole("button", { name: "Clear selection" }).click()
-  await s.getByRole("combobox", { name: /Owner/ }).fill("nothing-matches")
+  await s.getByRole("combobox", { name: /Owner/u }).fill("nothing-matches")
   await expect.element(s.getByText("No options found.")).toBeVisible()
   await userEvent.keyboard("{Escape}")
   await s.getByRole("combobox", { name: "Topics" }).fill("Design")
@@ -64,8 +67,8 @@ function DateExample() {
 test("date picker disables earlier dates and clears", async () => {
   const s = await render(<DateExample />)
   await s.getByRole("button", { name: "Nov 12, 2026" }).click()
-  await expect.element(s.getByRole("button", { name: /November 11/ })).toBeDisabled()
-  await expect.element(s.getByRole("button", { name: /November 12/ })).toHaveFocus()
+  await expect.element(s.getByRole("button", { name: /November 11/u })).toBeDisabled()
+  await expect.element(s.getByRole("button", { name: /November 12/u })).toHaveFocus()
   await userEvent.keyboard("{ArrowRight}{Enter}")
   await expect.element(s.getByRole("status")).toHaveTextContent("2026-11-13")
   await s.getByRole("button", { name: "Clear date" }).click()

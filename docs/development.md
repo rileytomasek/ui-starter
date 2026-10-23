@@ -20,7 +20,50 @@ environment failures, not evidence that interactions passed.
 - tests/e2e: application browser tests; *.browser.test.tsx: Vitest browser tests.
 - docs/installation.json: original CLI commands and source hashes.
 
+## Strict lint contract
+
+`pnpm lint` uses [oxlint.config.ts](../oxlint.config.ts), adapted from
+[Charlie Labs' configuration](https://github.com/charlie-labs/ch-pr/blob/e0c6d198c68470ae272689f882b738b57fda2a4b/oxlint.config.ts).
+Correctness, suspicious, pedantic, and performance categories are errors, with
+import, promise, React, TypeScript, Unicorn, Oxc, and accessibility plugins.
+`oxlint-tsgolint` enables type-aware rules; do not remove it or disable type-aware
+mode. The Node TypeScript project includes the build scripts and lint config.
+Node 24 runs the scripts' erasable TypeScript directly.
+
+| Constraint                                                       | Maximum |
+| ---------------------------------------------------------------- | ------- |
+| Classic cyclomatic complexity                                    | 10      |
+| Block nesting                                                    | 3       |
+| File lines, excluding blank lines/comments                       | 300     |
+| Function lines, excluding blank lines/comments (including IIFEs) | 60      |
+| Nested callbacks                                                 | 3       |
+| Parameters                                                       | 4       |
+| Statements per function                                          | 25      |
+| JSX depth                                                        | 5       |
+
+The config also forbids nested ternaries, parameter reassignment, unsafe type
+assertions, explicit `any`, non-null assertions, unhandled/misused promises,
+import cycles, namespace imports, unstable nested components, and array-index keys.
+Split by responsibility and preserve public APIs; do not compress code, raise
+limits, add suppression comments, or exclude files to evade these checks.
+This applies to installed components too: retain their CLI provenance and refactor
+locally without replacing primitives. New CLI additions must pass the same checks.
+
+The upstream's retired `react/react-compiler` rule is replaced by current Oxlint's
+[compiler correctness rules](https://oxc.rs/blog/2026-08-18-react-compiler-support).
+The two effect-review rules retain upstream `warn` severity. `pnpm lint` reports
+warnings visibly and fails on errors or unused disable directives. The six current
+`useEffect` warnings are reviewed external synchronizations: command/sidebar
+keyboard subscriptions, route/calendar DOM focus, clipboard-reset timers, and
+asynchronous Shiki loading. Each has cleanup where needed. New effects require the
+same review; derived state belongs in render, event-driven work in handlers, and
+external snapshots in `useSyncExternalStore`. Mobile detection uses that snapshot API.
+
 ## Design lint boundaries
+
+The retained [design config](../config/oxlint-design.ts) adds the five shadcn rules
+and the existing narrow integration exceptions below. It does not relax the
+structural or type-safety limits above.
 
 Application compositions enable all five selected shadcn design rules. Installed
 UI source and installed highlighter hooks keep upstream arbitrary positioning,
@@ -37,8 +80,7 @@ Additional exact-path lint exceptions preserve upstream behavior: InputGroup and
 Calendar pass runtime classes through public APIs; Label associates controls at
 its call site; CodeBlock makes scrollable content keyboard-focusable; InputGroup's
 click enhancement focuses its already keyboard-operable input. Installed compound
-components use group/link semantics. use-mobile synchronizes a media query in an
-effect. These exceptions do not apply to application compositions.
+components use group/link semantics. These exceptions do not apply to application compositions.
 
 TanStack Table v8 returns mutable instance methods incompatible with React Compiler
 optimization. The exact ProjectTable file disables react/incompatible-library; this

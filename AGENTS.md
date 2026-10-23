@@ -26,6 +26,10 @@ Read the design skill at every UI phase and before rendered review.
 - Install UI components through the shadcn CLI; do not handwrite replacements
   or recreate them from memory. Follow the
   [component source contract](docs/starter/components.md#component-source-and-installation).
+- Follow the [strict lint contract](docs/development.md#strict-lint-contract). Fix
+  violations through typed boundaries and cohesive extraction, never new ignores,
+  suppressions, compressed formatting, or raised limits. Review effect warnings
+  for a concrete external synchronization.
 - Keep components understandable and their familiar APIs available. Add shared
   abstractions when a concrete repeated need warrants them.
 - Keep examples realistic, functional, and easy for a consuming app to remove.

@@ -1,34 +1,34 @@
-import { useEffect, useRef, useState, type ReactNode } from "react"
-import { Link, NavLink, useLocation } from "react-router"
-import Menu from "~icons/carbon/menu"
+import { flattenDestinations, type Destination } from "@/app/navigation"
+import { CommandProvider, CommandTrigger } from "@/components/command-palette"
 import { Icon, IconButton } from "@/components/icon"
 import { ThemeControl } from "@/components/theme-control"
-import { CommandProvider, CommandTrigger } from "@/components/command-palette"
 import {
   Sheet,
-  SheetTrigger,
   SheetContent,
+  SheetDescription,
   SheetHeader,
   SheetTitle,
-  SheetDescription,
+  SheetTrigger,
 } from "@/components/ui/sheet"
 import {
-  SidebarProvider,
   Sidebar,
-  SidebarHeader,
   SidebarContent,
   SidebarFooter,
   SidebarGroup,
+  SidebarHeader,
   SidebarMenu,
-  SidebarMenuItem,
   SidebarMenuButton,
+  SidebarMenuItem,
   SidebarMenuSub,
-  SidebarMenuSubItem,
   SidebarMenuSubButton,
+  SidebarMenuSubItem,
+  SidebarProvider,
   SidebarTrigger,
   useSidebar,
 } from "@/components/ui/sidebar"
-import { flattenDestinations, type Destination } from "@/app/navigation"
+import { useEffect, useRef, useState, type ReactNode } from "react"
+import { Link, NavLink, useLocation } from "react-router"
+import Menu from "~icons/carbon/menu"
 type Props = { name: string; destinations: Destination[]; children: ReactNode }
 function RouteFocus() {
   const { pathname } = useLocation(),
@@ -61,7 +61,6 @@ function Links({
   )
 }
 export function HeaderShell({ name, destinations, children }: Props) {
-  const [mobile, setMobile] = useState(false)
   return (
     <CommandProvider destinations={destinations}>
       <RouteFocus />
@@ -78,20 +77,7 @@ export function HeaderShell({ name, destinations, children }: Props) {
         <div className="ml-auto flex items-center gap-1">
           <CommandTrigger />
           <ThemeControl />
-          <div className="md:hidden">
-            <Sheet open={mobile} onOpenChange={setMobile}>
-              <SheetTrigger render={<IconButton icon={Menu} label="Open navigation" />} />
-              <SheetContent side="left">
-                <SheetHeader>
-                  <SheetTitle>{name}</SheetTitle>
-                  <SheetDescription>Navigate your workspace.</SheetDescription>
-                </SheetHeader>
-                <nav aria-label="Mobile" className="px-3">
-                  <Links destinations={destinations} onNavigate={() => setMobile(false)} />
-                </nav>
-              </SheetContent>
-            </Sheet>
-          </div>
+          <MobileNavigation name={name} destinations={destinations} />
         </div>
       </header>
       <main id="main-content" className="min-w-0 pt-header">
@@ -101,59 +87,12 @@ export function HeaderShell({ name, destinations, children }: Props) {
   )
 }
 function SideNav({ name, destinations }: Omit<Props, "children">) {
-  const { setOpenMobile } = useSidebar(),
-    { pathname } = useLocation()
   return (
     <aside aria-label="Workspace navigation" className="flex">
       <Sidebar collapsible="icon">
-        <SidebarHeader>
-          <SidebarMenu>
-            <SidebarMenuItem>
-              <SidebarMenuButton render={<Link to={destinations[0]?.path ?? "/"} />} tooltip={name}>
-                <Icon as={destinations[0].icon} />
-                <span className="font-semibold">{name}</span>
-              </SidebarMenuButton>
-            </SidebarMenuItem>
-          </SidebarMenu>
-        </SidebarHeader>
+        <SidebarIdentity name={name} destinations={destinations} />
         <SidebarContent>
-          <SidebarGroup>
-            <nav aria-label="Primary">
-              <SidebarMenu>
-                {destinations.map((item) => (
-                  <SidebarMenuItem key={item.path}>
-                    <SidebarMenuButton
-                      render={<Link to={item.path} />}
-                      isActive={pathname === item.path}
-                      aria-current={pathname === item.path ? "page" : undefined}
-                      tooltip={item.title}
-                      aria-label={item.title}
-                      onClick={() => setOpenMobile(false)}
-                    >
-                      <Icon as={item.icon} />
-                      <span>{item.title}</span>
-                    </SidebarMenuButton>
-                    {item.children && (
-                      <SidebarMenuSub>
-                        {item.children.map((child) => (
-                          <SidebarMenuSubItem key={child.path}>
-                            <SidebarMenuSubButton
-                              render={<Link to={child.path} />}
-                              isActive={pathname === child.path}
-                              aria-current={pathname === child.path ? "page" : undefined}
-                              onClick={() => setOpenMobile(false)}
-                            >
-                              {child.title}
-                            </SidebarMenuSubButton>
-                          </SidebarMenuSubItem>
-                        ))}
-                      </SidebarMenuSub>
-                    )}
-                  </SidebarMenuItem>
-                ))}
-              </SidebarMenu>
-            </nav>
-          </SidebarGroup>
+          <SidebarDestinations destinations={destinations} />
         </SidebarContent>
         <SidebarFooter>
           <ThemeControl />
@@ -199,5 +138,104 @@ export function SidebarShell({ name, destinations, children }: Props) {
         </div>
       </SidebarProvider>
     </CommandProvider>
+  )
+}
+
+function MobileNavigation({ name, destinations }: Omit<Props, "children">) {
+  const [mobile, setMobile] = useState(false)
+  return (
+    <div className="md:hidden">
+      <Sheet open={mobile} onOpenChange={setMobile}>
+        <SheetTrigger render={<IconButton icon={Menu} label="Open navigation" />} />
+        <SheetContent side="left">
+          <SheetHeader>
+            <SheetTitle>{name}</SheetTitle>
+            <SheetDescription>Navigate your workspace.</SheetDescription>
+          </SheetHeader>
+          <nav aria-label="Mobile" className="px-3">
+            <Links
+              destinations={destinations}
+              onNavigate={() => {
+                setMobile(false)
+              }}
+            />
+          </nav>
+        </SheetContent>
+      </Sheet>
+    </div>
+  )
+}
+
+function SidebarIdentity({ name, destinations }: Omit<Props, "children">) {
+  return (
+    <SidebarHeader>
+      <SidebarMenu>
+        <SidebarMenuItem>
+          <SidebarMenuButton render={<Link to={destinations[0]?.path ?? "/"} />} tooltip={name}>
+            <Icon as={destinations[0].icon} />
+            <span className="font-semibold">{name}</span>
+          </SidebarMenuButton>
+        </SidebarMenuItem>
+      </SidebarMenu>
+    </SidebarHeader>
+  )
+}
+
+function SidebarDestination({ item }: { item: Destination }) {
+  const { pathname } = useLocation()
+  const { setOpenMobile } = useSidebar()
+  return (
+    <SidebarMenuItem>
+      <SidebarMenuButton
+        render={<Link to={item.path} />}
+        isActive={pathname === item.path}
+        aria-current={pathname === item.path ? "page" : undefined}
+        tooltip={item.title}
+        aria-label={item.title}
+        onClick={() => {
+          setOpenMobile(false)
+        }}
+      >
+        <Icon as={item.icon} />
+        <span>{item.title}</span>
+      </SidebarMenuButton>
+      {item.children && <SidebarChildren items={item.children} />}
+    </SidebarMenuItem>
+  )
+}
+function SidebarChildren({ items }: { items: Destination[] }) {
+  const { pathname } = useLocation()
+  const { setOpenMobile } = useSidebar()
+  return (
+    <SidebarMenuSub>
+      {items.map((child) => (
+        <SidebarMenuSubItem key={child.path}>
+          <SidebarMenuSubButton
+            render={<Link to={child.path} />}
+            isActive={pathname === child.path}
+            aria-current={pathname === child.path ? "page" : undefined}
+            onClick={() => {
+              setOpenMobile(false)
+            }}
+          >
+            {child.title}
+          </SidebarMenuSubButton>
+        </SidebarMenuSubItem>
+      ))}
+    </SidebarMenuSub>
+  )
+}
+
+function SidebarDestinations({ destinations }: { destinations: Destination[] }) {
+  return (
+    <SidebarGroup>
+      <nav aria-label="Primary">
+        <SidebarMenu>
+          {destinations.map((item) => (
+            <SidebarDestination key={item.path} item={item} />
+          ))}
+        </SidebarMenu>
+      </nav>
+    </SidebarGroup>
   )
 }

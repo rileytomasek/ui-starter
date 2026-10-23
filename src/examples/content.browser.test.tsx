@@ -1,18 +1,18 @@
-import "@/index.css"
-import { expect, test, vi } from "vitest"
-import { userEvent } from "vitest/browser"
-import { render } from "vitest-browser-react"
 import { CodeDisplay } from "@/components/code-display"
 import { Markdown } from "@/components/markdown"
-import { ProjectTable } from "./project-table"
+import "@/index.css"
+import { expect, test, vi } from "vitest"
+import { render } from "vitest-browser-react"
+import { userEvent } from "vitest/browser"
 import { projects } from "./fixtures"
+import { ProjectTable } from "./project-table"
 test("copies original code and reports clipboard failures", async () => {
   const code = "first\n\nlast\n",
-    copy = vi.spyOn(navigator.clipboard, "writeText").mockResolvedValue(undefined)
+    copy = vi.spyOn(navigator.clipboard, "writeText").mockResolvedValue()
   const s = await render(<CodeDisplay code={code} language="unknown-language" lineNumbers />)
   await s.getByRole("button", { name: "Copy", exact: true }).click()
   expect(copy).toHaveBeenCalledWith(code)
-  copy.mockRejectedValue(Error("denied"))
+  copy.mockRejectedValue(new Error("denied"))
   await s.getByRole("button", { name: "Copied", exact: true }).click()
   await expect
     .element(s.getByRole("alert"))
@@ -36,10 +36,17 @@ test("Markdown renders GFM and shared code with safe HTML and URL defaults", asy
 })
 test("table filters, sorts, paginates, and preserves selection", async () => {
   const open = vi.fn(),
-    s = await render(<ProjectTable rows={projects} onOpen={open} />)
+    s = await render(
+      <ProjectTable
+        rows={projects}
+        onOpen={(row) => {
+          open(row)
+        }}
+      />,
+    )
   await s.getByRole("button", { name: "Project", exact: true }).click()
   await expect
-    .element(s.getByRole("columnheader", { name: /Project/ }))
+    .element(s.getByRole("columnheader", { name: /Project/u }))
     .toHaveAttribute("aria-sort", "ascending")
   await s.getByRole("button", { name: "Columns", exact: true }).click()
   await s.getByRole("menuitemcheckbox", { name: "Owner", exact: true }).click()
@@ -48,7 +55,7 @@ test("table filters, sorts, paginates, and preserves selection", async () => {
     .element(s.getByRole("columnheader", { name: "Owner", exact: true }))
     .not.toBeInTheDocument()
   await s.getByRole("checkbox", { name: "Select this page" }).click()
-  await expect.element(s.getByText(/6 selected across all pages/)).toBeVisible()
+  await expect.element(s.getByText(/6 selected across all pages/u)).toBeVisible()
   await s.getByRole("button", { name: "Next", exact: true }).click()
   await expect.element(s.getByText("Page 2 of 2")).toBeVisible()
   await s.getByRole("textbox", { name: "Filter projects" }).fill("Interface research")

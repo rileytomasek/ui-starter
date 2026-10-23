@@ -1,8 +1,8 @@
 "use client"
 
-import * as React from "react"
 import { Combobox as ComboboxPrimitive } from "@base-ui/react"
 import { cn } from "cn"
+import { type ComponentPropsWithRef, useRef } from "react"
 
 import { Button } from "@/components/ui/button"
 import {
@@ -11,9 +11,9 @@ import {
   InputGroupButton,
   InputGroupInput,
 } from "@/components/ui/input-group"
+import CheckIcon from "~icons/carbon/checkmark"
 import ChevronDownIcon from "~icons/carbon/chevron-down"
 import XIcon from "~icons/carbon/close"
-import CheckIcon from "~icons/carbon/checkmark"
 
 const Combobox = ComboboxPrimitive.Root
 
@@ -195,7 +195,7 @@ function ComboboxSeparator({ className, ...props }: ComboboxPrimitive.Separator.
 function ComboboxChips({
   className,
   ...props
-}: React.ComponentPropsWithRef<typeof ComboboxPrimitive.Chips> & ComboboxPrimitive.Chips.Props) {
+}: ComponentPropsWithRef<typeof ComboboxPrimitive.Chips> & ComboboxPrimitive.Chips.Props) {
   return (
     <ComboboxPrimitive.Chips
       data-slot="combobox-chips"
@@ -253,23 +253,23 @@ function ComboboxChipsInput({ className, ...props }: ComboboxPrimitive.Input.Pro
 }
 
 function useComboboxAnchor() {
-  return React.useRef<HTMLDivElement | null>(null)
+  return useRef<HTMLDivElement | null>(null)
 }
 
 export {
   Combobox,
-  ComboboxInput,
-  ComboboxContent,
-  ComboboxList,
-  ComboboxItem,
-  ComboboxGroup,
-  ComboboxLabel,
-  ComboboxCollection,
-  ComboboxEmpty,
-  ComboboxSeparator,
-  ComboboxChips,
   ComboboxChip,
+  ComboboxChips,
   ComboboxChipsInput,
+  ComboboxCollection,
+  ComboboxContent,
+  ComboboxEmpty,
+  ComboboxGroup,
+  ComboboxInput,
+  ComboboxItem,
+  ComboboxLabel,
+  ComboboxList,
+  ComboboxSeparator,
   ComboboxTrigger,
   ComboboxValue,
   useComboboxAnchor,
