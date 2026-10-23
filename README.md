@@ -20,6 +20,7 @@ interfaces, not commands that work in this checkout.
 
 | Document | Owns |
 | --- | --- |
+| [Implementation plan](docs/implementation-plan.md) | Phased task checklists, completion criteria, and implementation progress |
 | [Scope and decisions](docs/spec.md) | Goals, agreed stack, deferred scope, open choices, and superseded proposals |
 | [Setup transition](docs/setup-transition.md) | Initial app choices, finalization, and removal of temporary starter material |
 | [UI foundations](docs/foundations.md) | Tokens, themes, Typeset, icons, and design direction |

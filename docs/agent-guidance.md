@@ -13,6 +13,7 @@ Agent authoring is the primary product workflow, governed by the
 | `AGENTS.md` | Entry point, working agreements, navigation to authoritative docs, verification expectations |
 | `.agents/skills/interface-design/SKILL.md` | Design judgment, composition, density, interaction states, and rendered refinement |
 | `docs/spec.md` | Agreed scope and unresolved decisions |
+| `docs/implementation-plan.md` | Phase order, implementation task checklists, and completion evidence |
 | `docs/foundations.md`, `docs/components.md`, `docs/layouts.md` | Expected product behavior and composition |
 | `docs/documentation.md` | Required usage guides, optional recipes, and their maintenance |
 | `docs/customization.md` | How consuming apps adapt the foundation |

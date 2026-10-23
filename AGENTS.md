@@ -13,6 +13,9 @@ Do not claim that planned commands, components, or checks already exist.
 
 - Preserve the distinction between agreed scope, recommended choices, and open
   decisions. Update the decision record when a choice is resolved.
+- Track implementation in [Implementation plan](docs/implementation-plan.md).
+  Update task checkboxes and phase evidence with each completed change; leave
+  incomplete or unverified work unchecked.
 - For UI creation, changes, or reviews, read and apply
   [.agents/skills/interface-design/SKILL.md](.agents/skills/interface-design/SKILL.md).
 - Follow [Customization](docs/customization.md). Reuse the shared tokens,

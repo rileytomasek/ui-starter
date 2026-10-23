@@ -146,8 +146,9 @@ repository. They do not resolve the broader publication and licensing decisions.
 
 ## Delivery shape
 
-First resolve the open choices that affect initialization. Then generate the
-foundation, integrate the selected examples, wire both shells, establish quality
-checks and tests, and complete the customization docs. The observable end state
-is defined in [Acceptance](acceptance.md). Task status and progress are separate
-from this durable product specification.
+Follow the [Implementation plan](implementation-plan.md) for phase order, task
+checklists, and progress evidence. Establish the runnable foundation and checks
+early, then build the gallery, shells, components, and application finalization.
+Keep documentation and tests with each feature. [Acceptance](acceptance.md)
+defines the observable end state; the plan tracks execution separately from this
+durable product specification.
