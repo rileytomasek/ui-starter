@@ -22,6 +22,28 @@ documents own behavior; this file provides observable acceptance checks.
   quality, and responsiveness. No separate agent-evaluation framework is required
   for this initial practical acceptance exercise.
 
+## Setup and application transition
+
+- [ ] One temporary setup entry point covers app identity, visual choices, shell,
+  navigation, example retention, verification, and finalization. Established
+  stack defaults are distinguished from app-specific choices.
+- [ ] Temporary guides/specifications live separately from retained app guidance;
+  the consuming-copy finalizer leaves the upstream starter specification intact.
+- [ ] The finalizer supports a non-mutating preview and non-interactive apply with
+  explicit configuration and resolutions for modified-file conflicts.
+- [ ] Cleanup uses bounded, known paths and transformations, preserves unrelated
+  work, reconciles dependencies/imports/scripts, and leaves reviewable Git changes.
+- [ ] Failure/retry behavior is tested; completion is recorded only after checks
+  pass, and setup tooling remains available until recovery no longer needs it.
+- [ ] Finalized README and AGENTS.md describe the app and link to retained docs;
+  temporary instructions, starter specs, discarded fixtures, and obsolete links
+  are removed. Skill provenance and required attribution remain available.
+- [ ] Gallery retention is explicit; any retained gallery is documented as an
+  app development tool and remains excluded from production by default.
+- [ ] A fresh agent can work on the finalized app without prior chat context or
+  being prompted to configure a template again. Removed starter history is not
+  kept as an active archive inside the app.
+
 ## Foundation and reproducibility
 
 - [ ] Resolve initialization choices in [the decision record](spec.md), with

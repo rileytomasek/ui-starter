@@ -20,6 +20,9 @@ Do not claim that planned commands, components, or checks already exist.
 - Keep components understandable and their familiar APIs available. Add shared
   abstractions when a concrete repeated need warrants them.
 - Keep examples realistic, functional, and easy for a consuming app to remove.
+- Follow [Setup transition](docs/setup-transition.md) when implementing setup and
+  finalization. Preserve the upstream spec; consuming apps must end with
+  app-specific instructions and no active starter setup guidance.
 - Follow [Code quality](docs/quality.md) and [Testing](docs/testing.md). Once
   implemented, run the actual relevant commands and fix failures. Do not weaken
   checks or add blanket ignores to conceal a problem.

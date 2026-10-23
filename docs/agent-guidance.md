@@ -22,6 +22,16 @@ Keep AGENTS.md short enough to remain useful on every task. As implementation
 lands, add a small map of the actual source directories and link to the command
 contract. Do not leave proposed commands described as working commands.
 
+## Setup and application instructions
+
+The ownership table above describes this upstream specification. Implement the
+[setup transition](setup-transition.md) in consuming app copies: initial AGENTS.md
+points to the temporary setup guide; finalized AGENTS.md describes the actual
+app and links only to retained guidance. Do not leave instructions to read an
+upstream spec that cleanup has removed, or tell a fresh agent to repeat setup.
+Carry forward the authoring priority, applicable conventions, design skill,
+provenance, and verification expectations into app-specific documentation.
+
 ## Design-skill provenance
 
 The checked-in skill is an exact copy of the reviewed gist revision recorded

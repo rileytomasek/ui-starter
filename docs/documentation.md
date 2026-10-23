@@ -7,6 +7,16 @@ conflicts. Documentation is part of the deliverable. The current specification
 files describe intended behavior; they do not substitute for verified usage
 instructions once code exists.
 
+## Documentation lifecycle
+
+Follow [Setup transition](setup-transition.md) for temporary `docs/starter/`
+material and the move to an application repository. Before finalization, guide
+initial choices explicitly. Afterwards, README, AGENTS.md, and retained docs must
+describe the app, its actual APIs, and its commands. Remove original starter
+specifications and setup instructions from consuming copies, while preserving
+ongoing conventions, optional extension recipes, and source provenance. Keep the
+upstream starter's maintenance specification intact.
+
 ## Agent-oriented documentation contract
 
 Optimize for an agent entering the repository without prior conversation context.
@@ -37,7 +47,7 @@ with a clear README index and one authoritative explanation for each:
 
 | Guide | Required content |
 | --- | --- |
-| Getting started | Prerequisites, installation, development, build, checks, and opening the UI gallery; copy/rename steps for a new app |
+| Getting started | Prerequisites, installation, development, build, and checks; temporary setup guide owns initial choices and finalization; retained guide describes the actual app |
 | Architecture | Actual directory map, providers, routing, shared components, examples, styling ownership, and where app-specific code belongs |
 | Customization | shadcn/create choices, tokens, light/dark/system mode, fonts, Typeset, density, radii, icons, and component variants |
 | Components and patterns | Working usage examples for the included components; value contracts, important states, and composition guidance |
@@ -88,8 +98,9 @@ For each selected optional addition, explain:
 ## Maintenance and acceptance
 
 When implementation replaces a proposal, update the guide and decision record
-together. Keep historical planning clearly labeled or separate from current
-usage instructions. Do not leave competing descriptions of the current API.
+together. In the upstream starter, keep historical planning clearly labeled or separate
+from current usage instructions. Remove starter planning from finalized consuming
+apps according to the setup transition. Do not leave competing descriptions of the current API.
 
 Changes to behavior, dependencies, commands, or configuration must update the
 affected docs, examples, and agent guidance in the same task. Verify local links

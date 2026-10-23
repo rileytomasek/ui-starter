@@ -21,6 +21,7 @@ interfaces, not commands that work in this checkout.
 | Document | Owns |
 | --- | --- |
 | [Scope and decisions](docs/spec.md) | Goals, agreed stack, deferred scope, open choices, and superseded proposals |
+| [Setup transition](docs/setup-transition.md) | Initial app choices, finalization, and removal of temporary starter material |
 | [UI foundations](docs/foundations.md) | Tokens, themes, Typeset, icons, and design direction |
 | [Components](docs/components.md) | The eight included components/examples and their behavior |
 | [Shells and page layouts](docs/layouts.md) | Both shells, shared navigation, and four inner-page patterns |
@@ -44,6 +45,8 @@ the design principles. Implementation details belong in the documents above.
   forms example, combobox, date picker, sidebar, and command palette.
 - A collapsible-sidebar shell and a no-sidebar shell with a fixed header.
 - Collection, detail, settings/form, and reading page examples.
+- Guided application setup and finalization that replaces starter instructions
+  with app-specific guidance and removes temporary material.
 - A searchable UI gallery, usage and extension guides in `docs/`, and
   repository-local agent guidance.
 - Oxlint, Oxfmt, targeted shadcn design rules, Vitest component tests in a real

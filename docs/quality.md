@@ -76,6 +76,11 @@ from other guides.
 | `pnpm test:e2e` | Run the small Playwright application suite |
 | `pnpm check` | Run formatting check, lint, types, Vitest projects, and production build |
 
+The proposed setup finalization command is specified in
+[Setup transition](setup-transition.md#finalization-command). It belongs to the
+temporary setup workflow; remove its package script when successful finalization
+removes the tooling. Keep ordinary app checks available afterwards.
+
 Document browser installation and local prerequisites alongside the actual
 scripts. An optional Vitest UI command is useful only if added deliberately;
 the Vitest UI dashboard is distinct from testing rendered UI components.

@@ -59,11 +59,12 @@ can silently drift.
 
 ## Start a real application
 
-Document how to copy the starter, rename it, choose a shell, replace demo
-destinations and data, and remove the playground. Identify the actual example
-files separately from reusable foundations once the implementation exists.
-Removing examples must not break shared providers or navigation. Remove orphaned
-dependencies and tests along with their examples.
+Follow [Setup transition](setup-transition.md) for initial application choices,
+example retention, and finalization. The setup guide must identify the actual
+example files separately from reusable foundations. Removing examples must not
+break shared providers or navigation. Reconcile affected dependencies and tests,
+preserving those still used by the app. Keep ongoing customization instructions
+in the retained application docs after temporary setup guidance is removed.
 
 Link to [Scope and decisions](spec.md) for backend and deployment boundaries.
 Keep developer documentation in the repository; the starter's user-facing

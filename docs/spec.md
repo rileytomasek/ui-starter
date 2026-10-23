@@ -84,6 +84,11 @@ Ship task-oriented usage and extension guides in `docs/`, including preferred
 optional integrations such as charts. [Documentation requirements](documentation.md)
 defines required coverage and maintenance expectations.
 
+[Setup transition](setup-transition.md) defines a guided configuration phase and
+an explicit finalization operation for consuming apps. Separate temporary starter
+material from retained foundations; finalization produces app-specific guidance
+and removes obsolete setup context so future agents work on the application.
+
 The starter should be a small repository whose code consuming apps own. A
 GitHub template is the leading distribution proposal; exact template setup is
 still open. A shared runtime component package or generator is not required.

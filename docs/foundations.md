@@ -144,7 +144,10 @@ a visual gallery must not be the only way to discover how a component works.
 Keep gallery examples in an easily removable directory. Exclude the gallery
 routes and example modules from production builds by default; merely hiding a
 navigation link is insufficient. Document the actual development entry point,
-removal steps, and any explicit opt-in preview build. Production app behavior
+removal steps, and any explicit opt-in preview build.
+[Setup finalization](setup-transition.md) records whether to retain the gallery;
+retained examples must describe the app and its development conventions.
+Production app behavior
 must not depend on gallery fixtures or modules.
 
 Keep the gallery to navigation and example pages. If automatic prop editors,

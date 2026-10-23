@@ -76,6 +76,22 @@ stable. Review intentional changes rather than blindly updating snapshots.
 Do not block initial work on a broad visual-regression service or extensive
 snapshot matrix.
 
+## Setup finalization verification
+
+Test the finalizer against disposable repository fixtures. Cover preview without
+mutation, missing required choices, a successful application transition, modified
+example conflicts, explicit retention, unrelated file preservation, partial
+failure/retry, and checks failing before completion. Verify dependency/import/link
+cleanup and that one-off tooling is removed only after successful verification.
+These tests protect a file-removal workflow; do not run them destructively on the
+upstream starter checkout.
+
+Also exercise a real consuming copy through setup and finalization. Run its
+normal checks and inspect the app. Use a fresh agent task to verify that retained
+instructions describe the app, support a representative change, and do not lead
+back into starter setup. This can satisfy the existing agent-authoring acceptance
+exercise rather than requiring a duplicate evaluation framework.
+
 ## Reporting verification
 
 Report the checks actually run and their outcomes. Keep runtime tests, automated
