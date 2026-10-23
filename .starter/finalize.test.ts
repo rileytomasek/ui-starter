@@ -187,3 +187,14 @@ void test("migrate requires an existing acknowledged destination; symlinks are r
   )
   assert.match(other.run().stderr, /Symlink/u)
 })
+
+void test("grouped primitives and recipes survive removal of examples and their tests", () => {
+  const f = fixture()
+  const result = f.run("--apply")
+  assert.equal(result.status, 0, result.stderr)
+  for (const name of ["input-group", "toggle-group", "button-group", "tabs"])
+    assert.ok(existsSync(join(f.root, `src/components/ui/${name}.tsx`)))
+  assert.equal(existsSync(join(f.root, "tests/e2e/grouped-controls.spec.ts")), false)
+  assert.match(f.read("docs/components.md"), /## Compact grouped controls/u)
+  assert.doesNotMatch(f.read("docs/components.md"), /src\/examples|__gallery/u)
+})

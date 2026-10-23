@@ -29,3 +29,8 @@ layout, and menu internals alongside it. Calendar slot renderers are stable modu
 functions. Forms separate model/details/people, and tables separate model/columns/
 controls/content. Shared code display identifies lines and tokens by source offset.
 These are local refactors of the installed source, not new primitive implementations.
+
+Toggle Group retains the CLI API and styles, with named React imports, a typed CSS
+custom-property helper, memoized context, and nullish variant fallbacks to meet strict
+lint. Button Group uses named React types. The additional CLI receipt records the
+original installed hashes before these narrow adaptations.

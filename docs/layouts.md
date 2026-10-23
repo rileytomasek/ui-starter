@@ -36,3 +36,8 @@ Inspect /__gallery/layouts/header/collection and
 views. `pnpm test:e2e` builds production and an explicit gallery preview, then
 checks navigation, shortcuts, persistence, mobile dismissal, and accessibility.
 Review narrow screens, both themes, and focus/anchor positioning after changes.
+
+Detail examples use local Overview/Research guide tabs; collection examples group
+search, status filtering, and pagination. Use the
+[grouped-control recipes](components.md#compact-grouped-controls) when extending
+these patterns. Tabs switch related content within a page; shell navigation remains links.

@@ -78,6 +78,7 @@ function nameColumn(onOpen: (row: ProjectRow) => void): ColumnDef<ProjectRow> {
 const ownerColumn: ColumnDef<ProjectRow> = { accessorKey: "owner", header: "Owner" }
 const statusColumn: ColumnDef<ProjectRow> = {
   accessorKey: "status",
+  filterFn: "equalsString",
   header: "Status",
   cell: ({ row }) => <Badge variant="secondary">{row.original.status}</Badge>,
 }

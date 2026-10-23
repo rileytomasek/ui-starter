@@ -99,3 +99,30 @@ navigation internals are split by responsibility with existing public imports
 preserved. Installed component source retains its original provenance. This record
 supersedes the earlier lint configuration; original phase evidence above remains
 historical. Hosted CI for this follow-up is recorded in GitHub on its commit.
+
+## Compact grouped controls follow-up
+
+Installed Toggle, Toggle Group, and Button Group using shadcn@4.22.1; reused
+CLI-installed Input Group and Tabs. The [receipt](../installation.json) records the
+new original hashes; [architecture](../architecture.md) explains narrow lint adaptations.
+Both shells now expose search/clear, combined exact-status filtering, grouped
+pagination, and local Overview/Research guide panels with responsive metadata.
+
+Verified on October 23, 2026:
+
+- `pnpm check`: formatting, strict lint, docs links, types, all 10 Vitest tests, and
+  production build/exclusion pass. No new lint exceptions; the six existing
+  external-synchronization warnings remain visible.
+- `pnpm test:e2e`: 15 pass, including four new cases for both shells covering
+  combined filters, reset pagination, clear/focus, required selection, and keyboard tabs.
+- `pnpm test:setup`: five pass, including shared primitive/recipe retention and
+  removal of the grouped-control example test when gallery cleanup is selected.
+- Six rendered views at 1280px/390px across light/dark and both shells: no Axe
+  violations, browser errors, or document overflow. Tables retain local horizontal
+  scrolling. Reviewed spacing, grouping, disabled pagination, and metadata stacking.
+- Fresh disposable consuming copy with gallery/examples removed: real finalization,
+  `pnpm check`, and four cross-browser E2E cases pass. Grouped primitives and their
+  API guide remain; example-specific references and tests are removed.
+
+Vite's existing bundle-size advisory remains. Grouped-control interaction cases run
+in Chromium; Firefox/WebKit retain the production/theme/form smoke coverage.

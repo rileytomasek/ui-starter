@@ -48,6 +48,13 @@ After installing or updating components, run `pnpm lint` and `pnpm typecheck`.
 Refactor generated code to the [strict lint contract](development.md#strict-lint-contract)
 while preserving its APIs, behavior, styling, and installation provenance.
 
+## Density and grouping
+
+Prefer the installed InputGroup, ToggleGroup, ButtonGroup, and Tabs for related
+controls and local panels. See [compact grouped controls](components.md#compact-grouped-controls)
+for semantics, APIs, and working examples. Keep meaningful groups compact and allow
+toolbars to wrap on narrow screens.
+
 ## Inspect and verify
 
 Run `pnpm dev` and open `/__gallery/theme`, `/__gallery/typography`,

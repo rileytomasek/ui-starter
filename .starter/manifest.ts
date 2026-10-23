@@ -44,6 +44,7 @@ export function refresh() {
       ),
       "docs/implementation.md",
       "tests/e2e/forms.spec.ts",
+      "tests/e2e/grouped-controls.spec.ts",
       "tests/e2e/shells.spec.ts",
     ]),
   ]

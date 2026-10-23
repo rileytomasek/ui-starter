@@ -50,5 +50,18 @@
   "typeset": {
     "source": "https://ui.shadcn.com/typeset.css",
     "sha256": "47e2af83b960d10cfa3196c9527bb0c143a71883f78e7da709cfca8de9576288"
-  }
+  },
+  "additions": [
+    {
+      "date": "2026-10-23",
+      "command": "pnpm ui:add toggle-group button-group --yes",
+      "cli": "shadcn@4.22.1",
+      "preserved": ["src/components/ui/separator.tsx"],
+      "files": {
+        "src/components/ui/toggle.tsx": "039be815aed401e7e652271040fad53286ffa734743381a65f84ac61cb2ea4db",
+        "src/components/ui/toggle-group.tsx": "3bfc0381e148d26807d68d74774d594403ea6fead2f0b7c11d4c928d9d1dc495",
+        "src/components/ui/button-group.tsx": "8c091198a9a4fe7fa3359834087727addfd5ac4c1259689632220389215b33c1"
+      }
+    }
+  ]
 }

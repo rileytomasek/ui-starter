@@ -291,3 +291,14 @@ review, and the optional chart recipe passed locally. Hosted CI passed on
 - [x] Review rendered UI and record final validation evidence.
 
 Evidence: [strict-lint acceptance](release.md#strict-lint-follow-up).
+
+## Follow-up — Compact grouped controls
+
+- [x] Install missing Button Group/Toggle Group through the CLI and retain Input Group/Tabs.
+- [x] Compose working search, status, pagination, and detail panels in both page shells.
+- [x] Preserve strict lint rules and record installation/adaptation provenance.
+- [x] Update retained recipes, gallery discovery, and component requirements.
+- [x] Verify keyboard behavior, responsive themes, full checks, and setup cleanup.
+- [x] Refresh release baseline and commit the verified change.
+
+Evidence: [grouped-control acceptance](release.md#compact-grouped-controls-follow-up).

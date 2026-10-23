@@ -88,7 +88,9 @@ install both an ordinary and a streaming Markdown renderer without a real need.
 Use shadcn Table with TanStack Table, following the composable example approach.
 Provide realistic rows, typed columns, useful metadata, and working controls.
 
-- Sorting, text filtering, and pagination.
+- Sorting, combined text/status filtering, and pagination.
+- Input Group search with a clear action, Toggle Group status choices, and Button
+  Group pagination. Filters reset the page while preserving row selection.
 - Row selection with a defined scope across filtering and pagination.
 - Column visibility controls and row actions.
 - Appropriate alignment and formatting for comparable values.
@@ -191,3 +193,13 @@ badges, feedback, and other dependencies of these examples. Small helpers may
 include Icon, IconButton, copy feedback, an aligned details list, and consistent
 content-state compositions. Each should earn its place through an actual
 included example rather than speculative completeness.
+
+## Compact grouped controls
+
+Include CLI-installed Input Group, Toggle Group, Button Group, and Tabs as required
+shared foundations. Use them in functional full-page examples in both shells: table
+search, mutually exclusive status filters, related pagination actions, and detail
+content panels. Preserve compact preset styling, accessible labels, keyboard behavior,
+and responsive wrapping. Do not replace grouped primitives with ad hoc button rows.
+The [component recipes](../components.md#compact-grouped-controls) own API guidance.
+Retain these primitives and recipes after consuming-app finalization removes examples.

@@ -11,7 +11,8 @@ const sections = [
   { title: "Components", keywords: "button input disabled combobox", path: "components" },
   {
     title: "Patterns",
-    keywords: "forms data table markdown code date picker dialog confirmation",
+    keywords:
+      "forms data table markdown code date picker dialog confirmation input group toggle group button group tabs",
     path: "patterns",
   },
   {
@@ -67,13 +68,13 @@ function Patterns() {
       <h2 className="text-base font-medium">Complete examples</h2>
       <ul className="space-y-3 text-sm">
         {[
-          { name: "Data table", path: "collection" },
+          { name: "Data table · input, toggle, and button groups", path: "collection" },
           { name: "Empty collection", path: "collection?state=empty" },
           { name: "Loading collection", path: "collection?state=loading" },
           { name: "Full form", path: "settings" },
           { name: "Submission failure and retry", path: "settings?scenario=failure" },
           { name: "Markdown and code", path: "reading" },
-          { name: "Record details", path: "detail" },
+          { name: "Record details · tabs", path: "detail" },
         ].map((item) => (
           <li key={item.path}>
             <Link

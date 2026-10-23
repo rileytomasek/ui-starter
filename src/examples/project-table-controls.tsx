@@ -6,7 +6,8 @@ import {
   DropdownMenuContent,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { Input } from "@/components/ui/input"
+import { ButtonGroup } from "@/components/ui/button-group"
+import { ProjectSearch, ProjectStatusFilter } from "./project-table-filters"
 
 import type { Table as TableInstance } from "@tanstack/react-table"
 import type { ProjectRow } from "./project-table-model"
@@ -14,15 +15,9 @@ type Props = { table: TableInstance<ProjectRow>; loading: boolean }
 export function ProjectTableToolbar({ table }: Props) {
   return (
     <PageToolbar>
-      <div className="w-full sm:w-72">
-        <Input
-          aria-label="Filter projects"
-          placeholder="Filter projects…"
-          value={String(table.getState().globalFilter ?? "")}
-          onChange={(e) => {
-            table.setGlobalFilter(e.target.value)
-          }}
-        />
+      <div className="flex flex-wrap items-center gap-2">
+        <ProjectSearch table={table} />
+        <ProjectStatusFilter table={table} />
       </div>
       <DropdownMenu>
         <DropdownMenuTrigger render={<Button variant="outline" />}>Columns</DropdownMenuTrigger>
@@ -57,26 +52,28 @@ export function ProjectTablePagination({ table, loading }: Props) {
         <span className="text-muted-foreground">
           Page {table.getState().pagination.pageIndex + 1} of {Math.max(1, table.getPageCount())}
         </span>
-        <Button
-          variant="outline"
-          size="sm"
-          disabled={!table.getCanPreviousPage() || loading}
-          onClick={() => {
-            table.previousPage()
-          }}
-        >
-          Previous
-        </Button>
-        <Button
-          variant="outline"
-          size="sm"
-          disabled={!table.getCanNextPage() || loading}
-          onClick={() => {
-            table.nextPage()
-          }}
-        >
-          Next
-        </Button>
+        <ButtonGroup aria-label="Pagination">
+          <Button
+            variant="outline"
+            size="sm"
+            disabled={!table.getCanPreviousPage() || loading}
+            onClick={() => {
+              table.previousPage()
+            }}
+          >
+            Previous
+          </Button>
+          <Button
+            variant="outline"
+            size="sm"
+            disabled={!table.getCanNextPage() || loading}
+            onClick={() => {
+              table.nextPage()
+            }}
+          >
+            Next
+          </Button>
+        </ButtonGroup>
       </div>
     </div>
   )

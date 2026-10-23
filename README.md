@@ -30,6 +30,7 @@ strict types, Vitest, and production build; `pnpm test:e2e` runs browser flows.
   IBM Plex fonts, semantic tokens, Typeset, and Light/Dark/System appearance.
 - Shiki code display, safe GFM Markdown, a typed data table, complete forms,
   single/multiple comboboxes, date-only picker, sidebar, and command palette.
+- Input Group, Toggle Group, Button Group, and Tabs for compact, related controls.
 - Sidebar and fixed-header shells; collection, detail, settings, and reading pages.
 - Searchable development gallery, excluded from production by default.
 - Strict type-aware Oxlint + shadcn rules, Oxfmt, Vitest Node/browser tests, Playwright, and CI.

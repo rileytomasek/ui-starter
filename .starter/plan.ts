@@ -10,7 +10,11 @@ function removals(config: Configuration, manifest: JsonObject) {
     if (
       !config.retainGallery &&
       (path.startsWith("src/gallery/") ||
-        ["tests/e2e/forms.spec.ts", "tests/e2e/shells.spec.ts"].includes(path))
+        [
+          "tests/e2e/forms.spec.ts",
+          "tests/e2e/shells.spec.ts",
+          "tests/e2e/grouped-controls.spec.ts",
+        ].includes(path))
     )
       return true
     return !config.retainExamples && path.startsWith("src/examples/")

@@ -105,3 +105,7 @@ a representative form when examples are retained.
 Rendered review is still required: automated axe checks do not establish full
 accessibility conformance. Review focus, overlays, long content, loading/empty/error
 states, mobile/intermediate/desktop widths, and reduced motion in both themes.
+
+When installing a Base UI component, include its new package subpaths in
+vite.config.ts optimizeDeps.include. This prevents dependency discovery from reloading
+Vitest browser sessions midway through a test (Toggle/Toggle Group are included).
