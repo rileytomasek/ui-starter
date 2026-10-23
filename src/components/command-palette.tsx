@@ -95,10 +95,12 @@ export function CommandProvider({
 export function CommandTrigger() {
   const show = useContext(Context)
   return (
-    <Button variant="ghost" onClick={() => show?.()} aria-label="Open commands">
+    <Button variant="ghost" onClick={() => show?.()} aria-label="Search ⌘ / Ctrl K commands">
       <Icon as={Search} />
       <span className="hidden sm:inline">Search</span>
-      <kbd className="hidden text-xs text-muted-foreground sm:inline">⌘ / Ctrl K</kbd>
+      <kbd aria-hidden="true" className="hidden text-xs text-muted-foreground sm:inline">
+        ⌘ / Ctrl K
+      </kbd>
     </Button>
   )
 }

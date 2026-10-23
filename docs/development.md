@@ -30,8 +30,8 @@ and static-class rules still apply. Do not broaden exceptions to app code.
 Typeset and the pinned design skill are excluded from formatting to preserve
 upstream provenance; the pnpm lockfile is managed by pnpm.
 
-Later phases add the gallery, shells, reference features, and setup finalization.
-The implementation plan records what is actually available.
+See [Components](components.md) and [Layouts](layouts.md) for reference features.
+The implementation plan records setup/finalization progress.
 
 Additional exact-path lint exceptions preserve upstream behavior: InputGroup and
 Calendar pass runtime classes through public APIs; Label associates controls at
@@ -39,3 +39,10 @@ its call site; CodeBlock makes scrollable content keyboard-focusable; InputGroup
 click enhancement focuses its already keyboard-operable input. Installed compound
 components use group/link semantics. use-mobile synchronizes a media query in an
 effect. These exceptions do not apply to application compositions.
+
+TanStack Table v8 returns mutable instance methods incompatible with React Compiler
+optimization. The exact ProjectTable file disables react/incompatible-library; this
+app does not enable React Compiler. Revisit that integration before enabling it.
+
+Markdown table regions are keyboard-focusable so wide content can be scrolled.
+The exact Markdown file permits tabindex on that labelled region.

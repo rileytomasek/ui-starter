@@ -17,6 +17,7 @@ import {
   CodeBlockCopyButton,
   CodeBlockContent,
 } from "@/components/ui/code-block"
+import { SelectCombobox, MultiCombobox } from "@/components/select-combobox"
 import { Badge } from "@/components/ui/badge"
 const sections = ["Theme", "Typography", "Components", "Patterns", "Layouts", "Icons"]
 const usage =
@@ -131,6 +132,30 @@ function Components() {
         </div>
         <output className="block text-sm">{message}</output>
       </Example>
+      <Example title="Disabled selections">
+        <div className="max-w-sm space-y-3">
+          <label htmlFor="disabled-owner" className="text-sm">
+            Owner
+          </label>
+          <SelectCombobox
+            id="disabled-owner"
+            disabled
+            options={[{ value: "maya", label: "Maya Chen" }]}
+            value="maya"
+            onChange={() => {}}
+          />
+          <label htmlFor="disabled-topics" className="text-sm">
+            Topics
+          </label>
+          <MultiCombobox
+            id="disabled-topics"
+            disabled
+            options={[{ value: "research", label: "Research" }]}
+            value={["research"]}
+            onChange={() => {}}
+          />
+        </div>
+      </Example>
       <Example title="Inputs">
         <div className="max-w-sm space-y-2">
           <label htmlFor="example-name" className="text-sm font-medium">
@@ -213,6 +238,34 @@ export default function Gallery() {
             <Route path="components" element={<Components />} />
             <Route path="icons" element={<Icons />} />
             <Route
+              path="patterns"
+              element={
+                <div className="space-y-4">
+                  <h2 className="text-base font-medium">Complete examples</h2>
+                  <ul className="space-y-3 text-sm">
+                    {[
+                      { name: "Data table", path: "collection" },
+                      { name: "Empty collection", path: "collection?state=empty" },
+                      { name: "Loading collection", path: "collection?state=loading" },
+                      { name: "Full form", path: "settings" },
+                      { name: "Submission failure and retry", path: "settings?scenario=failure" },
+                      { name: "Markdown and code", path: "reading" },
+                      { name: "Record details", path: "detail" },
+                    ].map((item) => (
+                      <li key={item.path}>
+                        <Link
+                          className="underline underline-offset-4"
+                          to={`/__gallery/layouts/header/${item.path}`}
+                        >
+                          {item.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              }
+            />
+            <Route
               path="layouts"
               element={
                 <div className="space-y-4">
@@ -240,10 +293,7 @@ export default function Gallery() {
             <Route
               path="*"
               element={
-                <p className="text-sm text-muted-foreground">
-                  Choose an example to inspect. Patterns and layouts arrive with their
-                  implementation phases.
-                </p>
+                <p className="text-sm text-muted-foreground">Choose an example to inspect.</p>
               }
             />
           </Routes>

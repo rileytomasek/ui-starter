@@ -64,3 +64,12 @@ were not retained. A shared destination contract drives links and commands.
 Vite dependency prebundling includes installed Base UI entry points so first-run
 Vitest browser imports do not reload mid-test. Full application and explicit
 gallery builds passed six E2E cases; no gallery modules entered production.
+
+## Reference component adaptations
+
+The installed CodeBlock copy action now reports clipboard errors instead of swallowing
+them. Combobox trigger/clear/chip-remove controls have accessible names. Shiki uses
+GitHub high-contrast light/dark themes after rendered contrast checks found the original
+orange token too faint. These narrow adaptations retain the installed APIs. Forms,
+Markdown, date-only helpers, and table behavior are compositions around CLI source.
+See [component recipes](components.md) for extension and data contracts.

@@ -104,59 +104,61 @@ function SideNav({ name, destinations }: Omit<Props, "children">) {
   const { setOpenMobile } = useSidebar(),
     { pathname } = useLocation()
   return (
-    <Sidebar collapsible="icon">
-      <SidebarHeader>
-        <SidebarMenu>
-          <SidebarMenuItem>
-            <SidebarMenuButton render={<Link to={destinations[0]?.path ?? "/"} />} tooltip={name}>
-              <Icon as={destinations[0].icon} />
-              <span className="font-semibold">{name}</span>
-            </SidebarMenuButton>
-          </SidebarMenuItem>
-        </SidebarMenu>
-      </SidebarHeader>
-      <SidebarContent>
-        <SidebarGroup>
-          <nav aria-label="Primary">
-            <SidebarMenu>
-              {destinations.map((item) => (
-                <SidebarMenuItem key={item.path}>
-                  <SidebarMenuButton
-                    render={<Link to={item.path} />}
-                    isActive={pathname === item.path}
-                    aria-current={pathname === item.path ? "page" : undefined}
-                    tooltip={item.title}
-                    aria-label={item.title}
-                    onClick={() => setOpenMobile(false)}
-                  >
-                    <Icon as={item.icon} />
-                    <span>{item.title}</span>
-                  </SidebarMenuButton>
-                  {item.children && (
-                    <SidebarMenuSub>
-                      {item.children.map((child) => (
-                        <SidebarMenuSubItem key={child.path}>
-                          <SidebarMenuSubButton
-                            render={<Link to={child.path} />}
-                            isActive={pathname === child.path}
-                            onClick={() => setOpenMobile(false)}
-                          >
-                            {child.title}
-                          </SidebarMenuSubButton>
-                        </SidebarMenuSubItem>
-                      ))}
-                    </SidebarMenuSub>
-                  )}
-                </SidebarMenuItem>
-              ))}
-            </SidebarMenu>
-          </nav>
-        </SidebarGroup>
-      </SidebarContent>
-      <SidebarFooter>
-        <ThemeControl />
-      </SidebarFooter>
-    </Sidebar>
+    <aside aria-label="Workspace navigation" className="flex">
+      <Sidebar collapsible="icon">
+        <SidebarHeader>
+          <SidebarMenu>
+            <SidebarMenuItem>
+              <SidebarMenuButton render={<Link to={destinations[0]?.path ?? "/"} />} tooltip={name}>
+                <Icon as={destinations[0].icon} />
+                <span className="font-semibold">{name}</span>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+          </SidebarMenu>
+        </SidebarHeader>
+        <SidebarContent>
+          <SidebarGroup>
+            <nav aria-label="Primary">
+              <SidebarMenu>
+                {destinations.map((item) => (
+                  <SidebarMenuItem key={item.path}>
+                    <SidebarMenuButton
+                      render={<Link to={item.path} />}
+                      isActive={pathname === item.path}
+                      aria-current={pathname === item.path ? "page" : undefined}
+                      tooltip={item.title}
+                      aria-label={item.title}
+                      onClick={() => setOpenMobile(false)}
+                    >
+                      <Icon as={item.icon} />
+                      <span>{item.title}</span>
+                    </SidebarMenuButton>
+                    {item.children && (
+                      <SidebarMenuSub>
+                        {item.children.map((child) => (
+                          <SidebarMenuSubItem key={child.path}>
+                            <SidebarMenuSubButton
+                              render={<Link to={child.path} />}
+                              isActive={pathname === child.path}
+                              onClick={() => setOpenMobile(false)}
+                            >
+                              {child.title}
+                            </SidebarMenuSubButton>
+                          </SidebarMenuSubItem>
+                        ))}
+                      </SidebarMenuSub>
+                    )}
+                  </SidebarMenuItem>
+                ))}
+              </SidebarMenu>
+            </nav>
+          </SidebarGroup>
+        </SidebarContent>
+        <SidebarFooter>
+          <ThemeControl />
+        </SidebarFooter>
+      </Sidebar>
+    </aside>
   )
 }
 export function SidebarShell({ name, destinations, children }: Props) {

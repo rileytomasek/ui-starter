@@ -63,6 +63,18 @@
       "rules": {
         "react/set-state-in-effect": "off"
       }
+    },
+    {
+      "files": ["src/examples/project-table.tsx"],
+      "rules": {
+        "react/incompatible-library": "off"
+      }
+    },
+    {
+      "files": ["src/components/markdown.tsx"],
+      "rules": {
+        "jsx-a11y/no-noninteractive-tabindex": "off"
+      }
     }
   ]
 }

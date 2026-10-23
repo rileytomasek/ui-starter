@@ -4,11 +4,11 @@ import Document from "~icons/carbon/document"
 import Settings from "~icons/carbon/settings"
 import Book from "~icons/carbon/book"
 import { HeaderShell, SidebarShell } from "@/components/shells"
-import { PageContent, PageHeader, PageSection } from "@/components/page"
+import { ExamplePage } from "@/examples/pages"
 import type { Destination } from "@/app/navigation"
 export default function ShellExamples() {
-  const { pathname } = useLocation()
-  const kind = pathname.includes("/sidebar/") ? "sidebar" : "header",
+  const { pathname } = useLocation(),
+    kind = pathname.includes("/sidebar/") ? "sidebar" : "header",
     base = `/__gallery/layouts/${kind}`,
     Shell = kind === "sidebar" ? SidebarShell : HeaderShell
   const destinations: Destination[] = [
@@ -20,42 +20,25 @@ export default function ShellExamples() {
   return (
     <Shell name="Fieldnotes" destinations={destinations}>
       <Routes>
-        {["collection", "detail", "settings", "reading"].map((page) => (
+        {(["collection", "detail", "settings", "reading"] as const).map((page) => (
           <Route
             key={page}
             path={`${kind}/${page}`}
-            element={
-              <PageContent
-                width={page === "reading" ? "reading" : page === "settings" ? "form" : "full"}
-              >
-                <PageHeader
-                  title={
-                    destinations[["collection", "detail", "settings", "reading"].indexOf(page)]
-                      .title
-                  }
-                  description="A shared space for research and delivery."
-                />
-                <PageSection title="Page structure">
-                  <p className="text-sm text-muted-foreground">
-                    This layout will hold the complete {page} composition in the next phase.
-                  </p>
-                </PageSection>
-                <div className="flex flex-wrap gap-4 text-sm">
-                  <Link className="underline underline-offset-4" to="/__gallery/layouts">
-                    All layouts
-                  </Link>
-                  <Link
-                    className="underline underline-offset-4"
-                    to={`/__gallery/layouts/${kind === "sidebar" ? "header" : "sidebar"}/${page}`}
-                  >
-                    View {kind === "sidebar" ? "header" : "sidebar"} shell
-                  </Link>
-                </div>
-              </PageContent>
-            }
+            element={<ExamplePage kind={page} base={base} />}
           />
         ))}
       </Routes>
+      <footer className="mx-auto flex max-w-7xl flex-wrap gap-4 px-5 pb-6 text-xs text-muted-foreground">
+        <Link className="underline underline-offset-4" to="/__gallery/layouts">
+          All layouts
+        </Link>
+        <Link
+          className="underline underline-offset-4"
+          to={`/__gallery/layouts/${kind === "sidebar" ? "header" : "sidebar"}/collection`}
+        >
+          View {kind === "sidebar" ? "header" : "sidebar"} shell
+        </Link>
+      </footer>
     </Shell>
   )
 }

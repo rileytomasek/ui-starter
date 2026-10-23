@@ -9,6 +9,14 @@ import { defineConfig } from "vite"
 export default defineConfig({
   optimizeDeps: {
     include: [
+      "@base-ui/react",
+      "react-hook-form",
+      "@hookform/resolvers/zod",
+      "zod",
+      "react-markdown",
+      "remark-gfm",
+      "@tanstack/react-table",
+      "react-day-picker",
       "@base-ui/react/alert-dialog",
       "@base-ui/react/avatar",
       "@base-ui/react/button",

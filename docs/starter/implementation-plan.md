@@ -1,6 +1,6 @@
 # Implementation plan
 
-Status: in progress. Phases 1–4 verified; Phase 5 is next. Tasks are checked only
+Status: in progress. Phases 1–5 verified; Phase 6 is next. Tasks are checked only
 after implementation, documentation, and verification. Evidence is recorded per phase.
 
 [Scope and decisions](spec.md) owns confirmed requirements and implementation
@@ -155,51 +155,55 @@ was exercised at 390px. See [shell guide](../layouts.md).
 Depends on Phase 4. Build each chain in the order below. See
 [Components](components.md), [Layouts](layouts.md), and [Testing](testing.md).
 
-- [ ] Install remaining required shadcn components through the CLI before their
+- [x] Install remaining required shadcn components through the CLI before their
       feature work; review custom code as composition/integration, not replacement UI.
 
 ### Code, Markdown, and reading/detail pages
 
-- [ ] Integrate shadcn Code Block/Shiki with filename/actions, faithful copying,
+- [x] Integrate shadcn Code Block/Shiki with filename/actions, faithful copying,
       theme handling, optional line numbers, overflow, and plain-text failure fallback.
-- [ ] Implement Markdown with GFM content, safe HTML/URL defaults, Typeset presets,
+- [x] Implement Markdown with GFM content, safe HTML/URL defaults, Typeset presets,
       and the shared code display; handle wide content and long links.
-- [ ] Complete reading and detail examples with realistic content and responsive
+- [x] Complete reading and detail examples with realistic content and responsive
       metadata; add relevant tests, gallery entries, usage and extension recipes.
 
 ### Inputs, full forms, and settings pages
 
-- [ ] Build single/multi-select combobox examples with search, clearing, disabled
+- [x] Build single/multi-select combobox examples with search, clearing, disabled
       and empty states; document async search and stale-request handling.
-- [ ] Build the single-date picker with labels, clearing, disabled dates,
+- [x] Build the single-date picker with labels, clearing, disabled dates,
       validation, keyboard use, and an explicit date-only value contract.
-- [ ] Integrate a coherent full form with defaults, validation timing, field/form
+- [x] Integrate a coherent full form with defaults, validation timing, field/form
       errors, reset, pending state, success, failure, and input-preserving recovery.
-- [ ] Add dialog-form and destructive-confirmation compositions with meaningful
+- [x] Add dialog-form and destructive-confirmation compositions with meaningful
       pending/error states and focus handling; complete the settings page example.
-- [ ] Add browser interaction tests, useful Node tests for owned logic, gallery
+- [x] Add browser interaction tests, useful Node tests for owned logic, gallery
       states, and recipes for adding fields and replacing local submission behavior.
 
 ### Data table and collection pages
 
-- [ ] Build typed TanStack columns, sorting/filtering/pagination, selection scope,
+- [x] Build typed TanStack columns, sorting/filtering/pagination, selection scope,
       column visibility, row actions, and loading/empty/no-results states.
-- [ ] Complete the collection page, toolbar, formatting/alignment, and overflow;
+- [x] Complete the collection page, toolbar, formatting/alignment, and overflow;
       keep the client-side data boundary and extension points explicit.
-- [ ] Test relevant behavior and document adding columns, actions, and data;
+- [x] Test relevant behavior and document adding columns, actions, and data;
       avoid turning the example into a universal table framework.
 
 ### Composition review
 
-- [ ] Complete all gallery sections and exercise the four page patterns in both
+- [x] Complete all gallery sections and exercise the four page patterns in both
       shells, themes, and relevant viewport sizes with realistic edge cases.
-- [ ] Refine shared pieces based on repeated actual use; reconcile component APIs,
+- [x] Refine shared pieces based on repeated actual use; reconcile component APIs,
       lint exceptions, tests, usage snippets, and documentation in the same changes.
 
 Exit: all agreed components work as coherent compositions, with observable
 states, focused tests, and discoverable extension instructions.
 
-Evidence: pending.
+Evidence: `pnpm check` passed with nine focused Node/browser tests; eight E2E
+cases passed including form recovery and dialog/confirmation flows. All 32
+page/shell/theme/viewport combinations passed axe after targeted corrections.
+Desktop/mobile light/dark screenshots were inspected; shared controls, typesetting,
+and wide-content behavior were refined. See [component recipes](../components.md).
 
 ## Phase 6 — Guided setup and application finalization
 

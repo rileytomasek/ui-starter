@@ -14,8 +14,7 @@ in the app. Destinations use real links and supply the command palette too.
 </HeaderShell>
 ```
 
-The snippet assumes the shared Markdown renderer added in Phase 5. Before then,
-use ordinary React content. PageContent, PageHeader, PageSection, and PageToolbar
+PageContent, PageHeader, PageSection, and PageToolbar
 are in src/components/page.tsx. Widths are full/form/reading; layout owns gutters
 and reading measure. Actions wrap beside titles. Keep data tables full width.
 

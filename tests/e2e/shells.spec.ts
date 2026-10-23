@@ -5,7 +5,7 @@ for (const shell of ["header", "sidebar"]) {
   test(`${shell} supports navigation, commands, and mobile`, async ({ page }) => {
     await page.goto(`${base}/${shell}/collection`)
     await expect(page.getByRole("heading", { name: "Projects", exact: true })).toBeVisible()
-    await page.getByRole("button", { name: "Open commands" }).click()
+    await page.getByRole("button", { name: "Search ⌘ / Ctrl K commands" }).click()
     await expect(page.getByRole("dialog")).toBeVisible()
     await page.getByPlaceholder("Search pages and actions…").fill("Settings")
     await page.keyboard.press("Enter")

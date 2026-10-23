@@ -10,10 +10,9 @@ over human developer convenience. The resulting apps must still provide excellen
 interfaces for their users. [Scope and decisions](docs/starter/spec.md#authoring-priority)
 defines this priority.
 
-**Status: implementation in progress.** Phases 1–3 are verified. The runnable
-foundation, lint/format/type checks, browser tests, and CI configuration exist.
-The initial gallery is at `/__gallery/theme`. Full shells, examples, and
-finalization follow in subsequent phases.
+**Status: implementation in progress.** Phases 1–5 are verified. Both shells,
+the component gallery, substantial reference examples, and checks are available.
+Setup/finalization and final acceptance are next. Open `/__gallery/theme` in dev.
 
 ## Run and verify
 
@@ -43,7 +42,7 @@ See [Development](docs/development.md) for the source map and prerequisites.
 The [interface-design skill](.agents/skills/interface-design/SKILL.md) supplies
 the design principles. Implementation details belong in the documents above.
 
-## What the starter will contain
+## Included foundations
 
 - Vite + React + strict TypeScript, Tailwind, and a shadcn/create preset.
 - Actual shadcn/ui components installed through its CLI, with app-specific
@@ -86,5 +85,4 @@ retain their own licenses and notices. Keep the repository private during
 implementation; publication requires a user request. Production deployment is
 outside this starter's scope.
 
-Start future work with [AGENTS.md](AGENTS.md). Creating this specification does
-not start implementation or authorize deployment.
+Start future work with [AGENTS.md](AGENTS.md). Deployment is outside this repository task.

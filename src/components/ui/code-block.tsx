@@ -90,6 +90,7 @@ function CodeBlockCopyButton({
   ...props
 }: React.ComponentProps<typeof Button> & { value: string }) {
   const [copied, setCopied] = React.useState(false)
+  const [failed, setFailed] = React.useState(false)
 
   React.useEffect(() => {
     if (!copied) {
@@ -111,15 +112,24 @@ function CodeBlockCopyButton({
         className={cn(className)}
         onClick={(event) => {
           onClick?.(event)
-          navigator.clipboard
-            .writeText(value)
+          setFailed(false)
+          Promise.resolve()
+            .then(() => navigator.clipboard.writeText(value))
             .then(() => setCopied(true))
-            .catch(() => {})
+            .catch(() => {
+              setCopied(false)
+              setFailed(true)
+            })
         }}
         {...props}
       >
         {copied ? <CheckIcon /> : <CopyIcon />}
       </Button>
+      {failed && (
+        <span role="alert" className="text-xs text-destructive">
+          Copy failed. Select the code to copy it.
+        </span>
+      )}
       <span aria-live="polite" className="sr-only">
         {copied ? "Copied" : ""}
       </span>
