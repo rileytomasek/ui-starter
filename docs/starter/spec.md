@@ -111,7 +111,7 @@ not alternatives awaiting another selection round.
 | shadcn configuration | Use shadcn/create; select and record a coherent compact preset and compatible primitive base during Phase 1, following the design skill |
 | Fonts                | Choose coordinated body/heading and monospace fonts during Phase 1; document loading, fallbacks, and applicable licenses                |
 | Runtime versions     | Select compatible stable versions during Phase 1, using a supported Node LTS release; pin the toolchain and lock dependencies           |
-| Distribution         | GitHub template repository; retain current private visibility unless the user requests publication                                      |
+| Distribution         | Public, MIT-licensed GitHub template repository; publication authorized October 23, 2026                                                |
 | License              | MIT for starter-owned source and documentation; preserve third-party licenses and notices                                               |
 | Browser coverage     | Chromium for the main CI suites, with a small Firefox and WebKit smoke suite                                                            |
 | Commands and CI      | Use the pnpm command contract in quality.md, with reproducible CI and explicit watch modes                                              |
@@ -133,10 +133,9 @@ other assets retain their applicable notices. Record and ship the notices needed
 for the selected sources, including distributed icon assets; preserve them during
 setup finalization. [Sources](../sources.md) records the upstream references.
 
-The repository remains private during implementation. GitHub template status is
-a release task; selecting this distribution format does not itself publish the
-repository or authorize a visibility change. No production deployment is part
-of the starter implementation.
+The repository is public and template-enabled following explicit publication
+authorization on October 23, 2026. Users can fork it or create a repository from
+the template. No production deployment is part of the starter implementation.
 
 ## Scope boundaries
 

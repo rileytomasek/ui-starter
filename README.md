@@ -8,7 +8,7 @@ end-user usability and visual quality.
 
 ## Start a new application
 
-Use this private GitHub template to create your own repository. Setup is not yet
+Use this public GitHub template to create your own repository. Setup is not yet
 complete in a new copy: follow [Getting started](docs/starter/getting-started.md),
 record app choices in `.starter/config.json`, preview, then explicitly apply
 finalization. It replaces these instructions with app-specific guidance and
@@ -65,5 +65,5 @@ changes, run `pnpm setup:baseline` and commit the manifest with those changes;
 consuming apps must never refresh it to bypass modified-file conflicts.
 
 Own source is MIT licensed; retain LICENSE and public/licenses notices for shadcn,
-Carbon (Apache-2.0), and IBM Plex (OFL). The GitHub repository is a private template.
-Publishing it or deploying an app requires separate authorization.
+Carbon (Apache-2.0), and IBM Plex (OFL). The GitHub repository is a public, open-source template.
+Deploying a consuming app remains an application-specific decision.

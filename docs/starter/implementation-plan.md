@@ -259,7 +259,8 @@ release checklist; this phase closes gaps rather than starting documentation.
       resolve stale guidance, and leave unverified requirements unchecked.
 - [x] Prepare the GitHub template copy workflow and verify MIT metadata and all
       required third-party notices, including Carbon assets. Enable template status
-      for release; retain private visibility unless the user requests publication.
+      for release; visibility remained private at initial acceptance. The subsequently
+      authorized public release is recorded below.
 - [x] Record the completed revision, validation results, and remaining issues;
       remove temporary implementation spikes and confirm the intended repository state.
 
@@ -312,3 +313,12 @@ Evidence: [grouped-control acceptance](release.md#compact-grouped-controls-follo
 - [x] Record verification, refresh the release baseline, and commit.
 
 Evidence: [local-review skill acceptance](release.md#local-ui-review-skill-follow-up).
+
+## Follow-up — Public release
+
+- [x] Verify MIT licensing, template status, clean checkout, and scan Git history for secrets.
+- [x] Make the repository public under explicit user authorization.
+- [x] Update repository metadata and superseded private-distribution guidance.
+- [x] Verify anonymous access, documentation/setup checks, and publish the updated baseline.
+
+Evidence: [public release](release.md#public-open-source-release).

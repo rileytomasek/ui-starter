@@ -51,7 +51,8 @@ axe violations. The dependency is absent from the default repository.
 
 The design skill retains its exact pinned SHA-256 from [Sources](../sources.md).
 CLI installation receipts and MIT/Apache/OFL notices remain available after cleanup.
-The GitHub repository is private and template-enabled.
+At initial acceptance, the GitHub repository was private and template-enabled.
+The public release below supersedes that visibility.
 
 ## Hosted checks and limits
 
@@ -65,8 +66,8 @@ Automated accessibility scans are a useful check, not a claim of comprehensive
 accessibility conformance. Reference submissions are local simulations and reset
 on reload. The default production JS bundle is about 521 kB minified / 170 kB gzip;
 Vite emits its nonblocking 500 kB chunk advisory. Introduce route-level splitting
-when actual app features warrant it. No backend, deployment, or publication is
-included in this acceptance.
+when actual app features warrant it. No backend or deployment is included. Publication was outside the initial
+acceptance and is recorded separately below.
 
 ## Strict lint follow-up
 
@@ -143,3 +144,20 @@ consuming copy completed real finalization, full checks, and four E2E cases with
 gallery/examples removed. Skill links are now included in `pnpm docs:check`.
 This change adds agent guidance and setup verification; application UI is unchanged.
 The skill validator checks structure, not the quality of future agent reviews.
+
+## Public open-source release
+
+On October 23, 2026, Riley explicitly authorized publication. GitHub visibility
+is PUBLIC; template support remains enabled and the repository retains its MIT
+license and third-party notices. The description now reflects the implemented
+starter rather than a specification-only repository.
+
+Before publication, Gitleaks scanned all 18 existing commits (about 951 kB) and
+reported no leaks. The working tree was clean and no Actions secrets were configured.
+This is a bounded secret-scan result, not a general security audit.
+
+Anonymous GitHub API access confirms public visibility and template status.
+Documentation links and all six setup regression tests pass.
+
+Repository: [rileytomasek/ui-starter](https://github.com/rileytomasek/ui-starter).
+Publication changes source availability; it does not deploy an application.

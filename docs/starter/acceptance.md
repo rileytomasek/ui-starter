@@ -150,5 +150,5 @@ documents own behavior; this file provides observable acceptance checks.
       labeled as history; implementation parameters and compatibility gaps are explicit.
 - [x] MIT license and package metadata are present; required third-party notices,
       including Carbon's Apache-2.0 notices, survive finalization. The GitHub template
-      copy workflow is documented; private visibility remains until publication
-      is requested.
+      copy workflow is documented; the explicitly authorized public release is
+      recorded in [release evidence](release.md#public-open-source-release).
