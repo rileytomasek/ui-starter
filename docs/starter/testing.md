@@ -98,5 +98,5 @@ exercise rather than requiring a duplicate evaluation framework.
 
 Report the checks actually run and their outcomes. Keep runtime tests, automated
 accessibility checks, and human visual review distinct. An unavailable browser
-or unreviewed theme remains unverified. The current repository is specification
-only, so all runtime acceptance remains pending.
+or unreviewed theme remains unverified. The phase evidence records checks run so far; incomplete feature acceptance
+remains pending.

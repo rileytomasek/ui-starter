@@ -1,23 +1,23 @@
 # Agent guidance
 
-The starter includes a concise root [AGENTS.md](../AGENTS.md) and one repository
-skill: [interface-design](../.agents/skills/interface-design/SKILL.md). They should
+The starter includes a concise root [AGENTS.md](../../AGENTS.md) and one repository
+skill: [interface-design](../../.agents/skills/interface-design/SKILL.md). They should
 help agents find and apply the shared system without duplicating its manuals.
 Agent authoring is the primary product workflow, governed by the
 [authoring priority](spec.md#authoring-priority).
 
 ## Ownership
 
-| Location | Responsibility |
-| --- | --- |
-| `AGENTS.md` | Entry point, working agreements, navigation to authoritative docs, verification expectations |
-| `.agents/skills/interface-design/SKILL.md` | Design judgment, composition, density, interaction states, and rendered refinement |
-| `docs/spec.md` | Agreed scope, confirmed choices, and implementation boundaries |
-| `docs/implementation-plan.md` | Phase order, implementation task checklists, and completion evidence |
-| `docs/foundations.md`, `docs/components.md`, `docs/layouts.md` | Expected product behavior and composition |
-| `docs/documentation.md` | Required usage guides, optional recipes, and their maintenance |
-| `docs/customization.md` | How consuming apps adapt the foundation |
-| `docs/quality.md`, `docs/testing.md` | Actual commands once implemented and verification strategy |
+| Location                                                                               | Responsibility                                                                               |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `AGENTS.md`                                                                            | Entry point, working agreements, navigation to authoritative docs, verification expectations |
+| `.agents/skills/interface-design/SKILL.md`                                             | Design judgment, composition, density, interaction states, and rendered refinement           |
+| `docs/starter/spec.md`                                                                 | Agreed scope, confirmed choices, and implementation boundaries                               |
+| `docs/starter/implementation-plan.md`                                                  | Phase order, implementation task checklists, and completion evidence                         |
+| `docs/starter/foundations.md`, `docs/starter/components.md`, `docs/starter/layouts.md` | Expected product behavior and composition                                                    |
+| `docs/starter/documentation.md`                                                        | Required usage guides, optional recipes, and their maintenance                               |
+| `docs/starter/customization.md`                                                        | How consuming apps adapt the foundation                                                      |
+| `docs/starter/quality.md`, `docs/starter/testing.md`                                   | Actual commands once implemented and verification strategy                                   |
 
 Keep AGENTS.md short enough to remain useful on every task. As implementation
 lands, add a small map of the actual source directories and link to the command
@@ -38,7 +38,7 @@ into app-specific documentation.
 ## Design-skill provenance
 
 The checked-in skill is an exact copy of the reviewed gist revision recorded
-in [Sources](sources.md). It is available offline and reviewable in Git. Do not
+in [Sources](../sources.md). It is available offline and reviewable in Git. Do not
 download and execute a changing remote skill on each task.
 
 Update it only through an intentional change: fetch the intended revision,

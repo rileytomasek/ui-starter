@@ -1,0 +1,68 @@
+{
+  "jsPlugins": ["@shadcn/lint"],
+  "plugins": ["typescript", "react", "jsx-a11y"],
+  "rules": {
+    "shadcn/no-raw-colors": "error",
+    "shadcn/no-unknown-classes": "error",
+    "shadcn/require-static-classes": "error",
+    "shadcn/no-arbitrary-values": "error",
+    "shadcn/no-restyle": [
+      "error",
+      {
+        "allow": ["layout"]
+      }
+    ]
+  },
+  "ignorePatterns": ["dist/**", "dist-gallery/**", "test-results/**", "playwright-report/**"],
+  "overrides": [
+    {
+      "files": [
+        "src/components/ui/**",
+        "src/hooks/use-highlighted-code.ts",
+        "src/lib/highlighter.tsx"
+      ],
+      "rules": {
+        "shadcn/no-arbitrary-values": "off",
+        "shadcn/no-restyle": "off",
+        "shadcn/no-unknown-classes": "off"
+      }
+    },
+    {
+      "files": ["src/components/ui/**"],
+      "rules": {
+        "jsx-a11y/prefer-tag-over-role": "off"
+      }
+    },
+    {
+      "files": ["src/components/ui/input-group.tsx", "src/components/ui/calendar.tsx"],
+      "rules": {
+        "shadcn/require-static-classes": "off"
+      }
+    },
+    {
+      "files": ["src/components/ui/input-group.tsx"],
+      "rules": {
+        "jsx-a11y/click-events-have-key-events": "off",
+        "jsx-a11y/no-noninteractive-element-interactions": "off"
+      }
+    },
+    {
+      "files": ["src/components/ui/label.tsx"],
+      "rules": {
+        "jsx-a11y/label-has-associated-control": "off"
+      }
+    },
+    {
+      "files": ["src/components/ui/code-block.tsx"],
+      "rules": {
+        "jsx-a11y/no-noninteractive-tabindex": "off"
+      }
+    },
+    {
+      "files": ["src/hooks/use-mobile.ts"],
+      "rules": {
+        "react/set-state-in-effect": "off"
+      }
+    }
+  ]
+}

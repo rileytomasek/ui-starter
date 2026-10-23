@@ -51,13 +51,13 @@ specifications, and setup-only decisions in the implemented starter. The current
 specification files need not be moved before implementation; classify and place
 them deliberately when building the distributable starter.
 
-| Temporary material | Retained application material |
-| --- | --- |
-| Setup guides, checklist/record, original starter specs and rationale | App-specific architecture, usage, customization, testing, and extension guides |
-| Unselected examples, fixtures, demo destinations, starter branding | Shared components, chosen layouts, providers, tokens, and actual app routes |
-| Setup-oriented README and AGENTS.md content | App-specific README and AGENTS.md |
-| One-off setup tooling and cleanup manifest after successful finalization | Normal application development and verification commands |
-| Gallery content not explicitly retained | Useful gallery/examples explicitly retained and described as application development tools |
+| Temporary material                                                       | Retained application material                                                              |
+| ------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| Setup guides, checklist/record, original starter specs and rationale     | App-specific architecture, usage, customization, testing, and extension guides             |
+| Unselected examples, fixtures, demo destinations, starter branding       | Shared components, chosen layouts, providers, tokens, and actual app routes                |
+| Setup-oriented README and AGENTS.md content                              | App-specific README and AGENTS.md                                                          |
+| One-off setup tooling and cleanup manifest after successful finalization | Normal application development and verification commands                                   |
+| Gallery content not explicitly retained                                  | Useful gallery/examples explicitly retained and described as application development tools |
 
 Keep the interface-design skill and its provenance, plus relevant optional
 recipes such as charts. Preserve the MIT license, copyright notice, and needed

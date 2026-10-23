@@ -9,7 +9,7 @@ the intended starter, not shipped software.
 ## Objective
 
 Make it straightforward for coding agents to build polished, information-rich
-apps that follow the [interface-design skill](../.agents/skills/interface-design/SKILL.md).
+apps that follow the [interface-design skill](../../.agents/skills/interface-design/SKILL.md).
 Establish useful defaults for styling, components, layout, agent guidance,
 customization, and verification. The first screen should feel coherent, and
 later screens should have clear examples to follow.
@@ -46,21 +46,21 @@ translate this priority into repository conventions. Choose implementation detai
 
 ## Agreed foundation
 
-| Area | Decision |
-| --- | --- |
-| Application | Vite + React + TypeScript, with strict checking |
-| Styling | Tailwind CSS and shadcn/ui; use shadcn/create for the preset and the shadcn CLI to install components |
-| Typography | shadcn Typeset for rendered prose, with compact and reading presets |
-| Theme | Light / Dark / System; System default; live OS updates and persisted override |
-| Icons | IBM Carbon icons through Iconify and unplugin-icons; compiled React SVG components |
-| Code display | shadcn Code Block and its Shiki integration |
-| Tables | A shadcn-based TanStack Table example |
-| Lint | Oxlint with targeted @shadcn/lint rules |
-| Format | Oxfmt, including Tailwind class sorting |
-| Component tests | Vitest Browser Mode, vitest-browser-react, Playwright provider |
-| Logic tests | Vitest in Node |
-| End-to-end tests | A smaller Playwright suite for application flows |
-| Agent guidance | Concise AGENTS.md plus the checked-in interface-design skill |
+| Area             | Decision                                                                                              |
+| ---------------- | ----------------------------------------------------------------------------------------------------- |
+| Application      | Vite + React + TypeScript, with strict checking                                                       |
+| Styling          | Tailwind CSS and shadcn/ui; use shadcn/create for the preset and the shadcn CLI to install components |
+| Typography       | shadcn Typeset for rendered prose, with compact and reading presets                                   |
+| Theme            | Light / Dark / System; System default; live OS updates and persisted override                         |
+| Icons            | IBM Carbon icons through Iconify and unplugin-icons; compiled React SVG components                    |
+| Code display     | shadcn Code Block and its Shiki integration                                                           |
+| Tables           | A shadcn-based TanStack Table example                                                                 |
+| Lint             | Oxlint with targeted @shadcn/lint rules                                                               |
+| Format           | Oxfmt, including Tailwind class sorting                                                               |
+| Component tests  | Vitest Browser Mode, vitest-browser-react, Playwright provider                                        |
+| Logic tests      | Vitest in Node                                                                                        |
+| End-to-end tests | A smaller Playwright suite for application flows                                                      |
+| Agent guidance   | Concise AGENTS.md plus the checked-in interface-design skill                                          |
 
 Use Tailwind v4-compatible tooling for the selected shadcn/lint direction.
 Resolve exact compatible package versions during implementation and commit a
@@ -101,20 +101,20 @@ The recommendations below were accepted on October 23, 2026, with IBM Carbon
 selected for icons and MIT selected for the starter license. They are decisions,
 not alternatives awaiting another selection round.
 
-| Area | Decision |
-| --- | --- |
-| Router | React Router with declarative routing |
-| Forms | React Hook Form + Zod |
-| Markdown | react-markdown + remark-gfm |
-| Package manager | pnpm, with a committed lockfile and pinned manager version |
-| UI icon family | IBM Carbon through Iconify's `carbon` collection and unplugin-icons; use `@iconify-json/carbon` and static `~icons/carbon/...` imports |
+| Area                 | Decision                                                                                                                                |
+| -------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| Router               | React Router with declarative routing                                                                                                   |
+| Forms                | React Hook Form + Zod                                                                                                                   |
+| Markdown             | react-markdown + remark-gfm                                                                                                             |
+| Package manager      | pnpm, with a committed lockfile and pinned manager version                                                                              |
+| UI icon family       | IBM Carbon through Iconify's `carbon` collection and unplugin-icons; use `@iconify-json/carbon` and static `~icons/carbon/...` imports  |
 | shadcn configuration | Use shadcn/create; select and record a coherent compact preset and compatible primitive base during Phase 1, following the design skill |
-| Fonts | Choose coordinated body/heading and monospace fonts during Phase 1; document loading, fallbacks, and applicable licenses |
-| Runtime versions | Select compatible stable versions during Phase 1, using a supported Node LTS release; pin the toolchain and lock dependencies |
-| Distribution | GitHub template repository; retain current private visibility unless the user requests publication |
-| License | MIT for starter-owned source and documentation; preserve third-party licenses and notices |
-| Browser coverage | Chromium for the main CI suites, with a small Firefox and WebKit smoke suite |
-| Commands and CI | Use the pnpm command contract in quality.md, with reproducible CI and explicit watch modes |
+| Fonts                | Choose coordinated body/heading and monospace fonts during Phase 1; document loading, fallbacks, and applicable licenses                |
+| Runtime versions     | Select compatible stable versions during Phase 1, using a supported Node LTS release; pin the toolchain and lock dependencies           |
+| Distribution         | GitHub template repository; retain current private visibility unless the user requests publication                                      |
+| License              | MIT for starter-owned source and documentation; preserve third-party licenses and notices                                               |
+| Browser coverage     | Chromium for the main CI suites, with a small Firefox and WebKit smoke suite                                                            |
+| Commands and CI      | Use the pnpm command contract in quality.md, with reproducible CI and explicit watch modes                                              |
 
 There are no outstanding product-choice questions. Exact versions, visual preset
 values, font assets, exported APIs, setup-record schema, and CI wiring are
@@ -125,13 +125,13 @@ without substituting handwritten shadcn components.
 
 ## Licensing and distribution
 
-The repository uses the [MIT license](../LICENSE). Add `license: "MIT"` to the
+The repository uses the [MIT license](../../LICENSE). Add `license: "MIT"` to the
 package manifest when the app is initialized. Keep the copyright and permission
 notice in consuming copies. The starter's license does not replace third-party
 licenses: IBM Carbon icons are Apache-2.0, and installed components, fonts, and
 other assets retain their applicable notices. Record and ship the notices needed
 for the selected sources, including distributed icon assets; preserve them during
-setup finalization. [Sources](sources.md) records the upstream references.
+setup finalization. [Sources](../sources.md) records the upstream references.
 
 The repository remains private during implementation. GitHub template status is
 a release task; selecting this distribution format does not itself publish the

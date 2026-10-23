@@ -1,36 +1,37 @@
 # UI Starter
 
 Implementation is in progress. Consult the phase evidence before claiming behavior.
-Read [README.md](README.md) and [Scope and decisions](docs/spec.md) first.
-Do not claim that planned commands, components, or checks already exist.
+Read [README.md](README.md) and [Scope and decisions](docs/starter/spec.md) first.
+Use [Development](docs/development.md) for actual commands and source locations.
+Read the design skill at every UI phase and before rendered review.
 
 ## Working agreements
 
 - This starter is for agent-authored apps. Prioritize reliable agent discovery,
   changes, and verification over human developer convenience when they conflict.
   Preserve end-user UX and accessibility. Follow the
-  [authoring priority](docs/spec.md#authoring-priority).
+  [authoring priority](docs/starter/spec.md#authoring-priority).
 
-- Follow the [confirmed stack](docs/spec.md), including IBM Carbon icons and
+- Follow the [confirmed stack](docs/starter/spec.md), including IBM Carbon icons and
   MIT licensing. Select and record delegated implementation details without
   reopening settled choices. Distinguish required behavior from verified code.
-- Track implementation in [Implementation plan](docs/implementation-plan.md).
+- Track implementation in [Implementation plan](docs/starter/implementation-plan.md).
   Update task checkboxes and phase evidence with each completed change; leave
   incomplete or unverified work unchecked.
 - For UI creation, changes, or reviews, read and apply
   [.agents/skills/interface-design/SKILL.md](.agents/skills/interface-design/SKILL.md).
-- Follow [Customization](docs/customization.md). Reuse the shared tokens,
+- Follow [Customization](docs/starter/customization.md). Reuse the shared tokens,
   components, variants, icon conventions, and layouts before adding alternatives.
 - Install UI components through the shadcn CLI; do not handwrite replacements
   or recreate them from memory. Follow the
-  [component source contract](docs/components.md#component-source-and-installation).
+  [component source contract](docs/starter/components.md#component-source-and-installation).
 - Keep components understandable and their familiar APIs available. Add shared
   abstractions when a concrete repeated need warrants them.
 - Keep examples realistic, functional, and easy for a consuming app to remove.
-- Follow [Setup transition](docs/setup-transition.md) when implementing setup and
+- Follow [Setup transition](docs/starter/setup-transition.md) when implementing setup and
   finalization. Preserve the upstream spec; consuming apps must end with
   app-specific instructions and no active starter setup guidance.
-- Follow [Code quality](docs/quality.md) and [Testing](docs/testing.md). Once
+- Follow [Code quality](docs/starter/quality.md) and [Testing](docs/starter/testing.md). Once
   implemented, run the actual relevant commands and fix failures. Do not weaken
   checks or add blanket ignores to conceal a problem.
 - Review rendered UI changes in supported themes and relevant viewport sizes,
@@ -43,11 +44,11 @@ Do not claim that planned commands, components, or checks already exist.
 - Preserve unrelated work. Keep backend, authentication, deployment, and other
   app-specific expansion within the task's authorized scope.
 
-## Current verification
+## Verification
 
-Phase 1 compatibility evidence is in docs/implementation.md. Continue checking
-links, decision consistency, source provenance, and phase-specific behavior. Runtime acceptance
-in [docs/acceptance.md](docs/acceptance.md) remains pending until implementation.
+Run `pnpm check` and `pnpm test:e2e` for applicable changes. Tests and source are
+now present; the implementation plan identifies unfinished feature acceptance.
+The design skill is excluded from formatting to retain its pinned contents.
 
 The upstream design skill is pinned. Review its diff before updating it and
 record the new revision in [Sources](docs/sources.md).

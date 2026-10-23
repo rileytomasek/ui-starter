@@ -76,12 +76,12 @@ changes. Prevent fixed headers and overlays from trapping or obscuring focus.
 These are copyable examples made from shared pieces and ordinary grid/flex
 composition. Each must work in either shell.
 
-| Pattern | Composition | Example |
-| --- | --- | --- |
-| Collection | Title/actions, search/filter toolbar, list/table, pagination | Data table |
-| Detail | Breadcrumbs, title/actions, optional tabs, main content and metadata | Record with Markdown and a details list |
-| Settings/form | Title/description, grouped sections and fields, save/reset | Full forms example |
-| Reading | Constrained prose column, Typeset, wider content where useful | Markdown document |
+| Pattern       | Composition                                                          | Example                                 |
+| ------------- | -------------------------------------------------------------------- | --------------------------------------- |
+| Collection    | Title/actions, search/filter toolbar, list/table, pagination         | Data table                              |
+| Detail        | Breadcrumbs, title/actions, optional tabs, main content and metadata | Record with Markdown and a details list |
+| Settings/form | Title/description, grouped sections and fields, save/reset           | Full forms example                      |
+| Reading       | Constrained prose column, Typeset, wider content where useful        | Markdown document                       |
 
 The detail layout's supporting metadata column stacks below the main content
 on narrow screens. Toolbars and actions adapt rather than overflowing. Reading

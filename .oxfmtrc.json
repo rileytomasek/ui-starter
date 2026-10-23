@@ -1,0 +1,16 @@
+{
+  "semi": false,
+  "sortTailwindcss": {
+    "stylesheet": "./src/index.css",
+    "functions": ["cn", "clsx"]
+  },
+  "ignorePatterns": [
+    ".agents/skills/interface-design/SKILL.md",
+    "pnpm-lock.yaml",
+    "src/typeset.css",
+    "dist/**",
+    "dist-gallery/**",
+    "test-results/**",
+    "playwright-report/**"
+  ]
+}

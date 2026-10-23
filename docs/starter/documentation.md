@@ -45,17 +45,17 @@ concrete workflow needs it; Markdown and source remain sufficient initially.
 The final file organization can follow the implementation. Cover these subjects
 with a clear README index and one authoritative explanation for each:
 
-| Guide | Required content |
-| --- | --- |
-| Getting started | Prerequisites, installation, development, build, and checks; temporary setup guide owns initial choices and finalization; retained guide describes the actual app |
-| Architecture | Actual directory map, providers, routing, shared components, examples, styling ownership, and where app-specific code belongs |
-| Customization | shadcn/create choices, tokens, light/dark/system mode, fonts, Typeset, density, radii, icons, and component variants |
-| Components and patterns | Working usage examples for the included components; value contracts, important states, and composition guidance |
-| Layout and navigation | Choosing a shell, adding a page, shared destinations, page patterns, responsive behavior, and command actions |
-| UI gallery | Browsing themes, typography, components, patterns, layouts, and icons; adding an example; production exclusion and removal |
-| Extensions | Preferred approaches for optional capabilities, starting with shadcn charts and Recharts |
-| Quality and testing | Actual lint/format/typecheck/test commands, when to use each test layer, and rendered review expectations |
-| Agent guidance | A concise AGENTS.md entry point and pinned design skill, directing agents to task-specific authoritative guides |
+| Guide                   | Required content                                                                                                                                                  |
+| ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Getting started         | Prerequisites, installation, development, build, and checks; temporary setup guide owns initial choices and finalization; retained guide describes the actual app |
+| Architecture            | Actual directory map, providers, routing, shared components, examples, styling ownership, and where app-specific code belongs                                     |
+| Customization           | shadcn/create choices, tokens, light/dark/system mode, fonts, Typeset, density, radii, icons, and component variants                                              |
+| Components and patterns | Working usage examples for the included components; value contracts, important states, and composition guidance                                                   |
+| Layout and navigation   | Choosing a shell, adding a page, shared destinations, page patterns, responsive behavior, and command actions                                                     |
+| UI gallery              | Browsing themes, typography, components, patterns, layouts, and icons; adding an example; production exclusion and removal                                        |
+| Extensions              | Preferred approaches for optional capabilities, starting with shadcn charts and Recharts                                                                          |
+| Quality and testing     | Actual lint/format/typecheck/test commands, when to use each test layer, and rendered review expectations                                                         |
+| Agent guidance          | A concise AGENTS.md entry point and pinned design skill, directing agents to task-specific authoritative guides                                                   |
 
 These are coverage requirements, not a requirement to create a separate file for
 every row. Keep documentation concise and organized around tasks. Link to

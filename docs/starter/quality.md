@@ -14,13 +14,13 @@ project-specific design rules understandable, with actionable diagnostics.
 Evaluate and configure the following rule candidates against the generated
 preset rather than enabling every rule without review:
 
-| Candidate | Intended purpose |
-| --- | --- |
-| `no-raw-colors` | Encourage semantic theme colors |
-| `no-unknown-classes` | Catch invalid utility names against the actual stylesheet |
-| `require-static-classes` | Keep utility classes statically discoverable |
-| `no-arbitrary-values` | Prefer the shared scale where it expresses the design |
-| `no-restyle` | Encourage variants instead of repeatedly overriding shared components |
+| Candidate                | Intended purpose                                                      |
+| ------------------------ | --------------------------------------------------------------------- |
+| `no-raw-colors`          | Encourage semantic theme colors                                       |
+| `no-unknown-classes`     | Catch invalid utility names against the actual stylesheet             |
+| `require-static-classes` | Keep utility classes statically discoverable                          |
+| `no-arbitrary-values`    | Prefer the shared scale where it expresses the design                 |
+| `no-restyle`             | Encourage variants instead of repeatedly overriding shared components |
 
 Verify exact rule names and options against the selected release. Component
 implementations, consumer compositions, and generated integrations may require
@@ -57,23 +57,23 @@ one discoverable command contract to undocumented IDE-only actions.
 
 ## Required command contract
 
-No package manifest or scripts exist in this specification repository. pnpm is
-the selected package manager. Implement the commands below, pin the manager
-version, and document their verified behavior. Link here from other guides.
+The Phase 2 package manifest implements these commands with pnpm 11.14.0.
+[Development](../development.md) owns current prerequisites and lint exceptions.
+Gallery behavior is added in Phase 3; finalization is added in Phase 6.
 
-| Required command | Responsibility |
-| --- | --- |
-| `pnpm dev` | Run the Vite development app and UI gallery |
-| `pnpm build` | Produce the production app bundle |
-| `pnpm preview` | Serve the built app locally |
-| `pnpm format` | Apply Oxfmt formatting |
-| `pnpm format:check` | Check formatting without mutation |
-| `pnpm lint` | Run Oxlint and the configured shadcn rules |
-| `pnpm typecheck` | Run strict TypeScript checks |
-| `pnpm test` | Run Vitest Node and browser component projects once |
-| `pnpm test:watch` | Run the relevant Vitest projects interactively |
-| `pnpm test:e2e` | Run the small Playwright application suite |
-| `pnpm check` | Run formatting check, lint, types, Vitest projects, and production build |
+| Required command    | Responsibility                                                           |
+| ------------------- | ------------------------------------------------------------------------ |
+| `pnpm dev`          | Run the Vite development app and UI gallery                              |
+| `pnpm build`        | Produce the production app bundle                                        |
+| `pnpm preview`      | Serve the built app locally                                              |
+| `pnpm format`       | Apply Oxfmt formatting                                                   |
+| `pnpm format:check` | Check formatting without mutation                                        |
+| `pnpm lint`         | Run Oxlint and the configured shadcn rules                               |
+| `pnpm typecheck`    | Run strict TypeScript checks                                             |
+| `pnpm test`         | Run Vitest Node and browser component projects once                      |
+| `pnpm test:watch`   | Run the relevant Vitest projects interactively                           |
+| `pnpm test:e2e`     | Run the small Playwright application suite                               |
+| `pnpm check`        | Run formatting check, lint, types, Vitest projects, and production build |
 
 The required setup finalization command is specified in
 [Setup transition](setup-transition.md#finalization-command). It belongs to the

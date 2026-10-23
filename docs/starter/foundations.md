@@ -2,7 +2,7 @@
 
 ## Design direction
 
-The [interface-design skill](../.agents/skills/interface-design/SKILL.md) owns
+The [interface-design skill](../../.agents/skills/interface-design/SKILL.md) owns
 the detailed visual priorities and reference-product analysis. Apply them to
 the whole screen before polishing isolated components.
 
@@ -126,14 +126,14 @@ reference playground discussed in the initial scope. Import the actual shared
 components, stylesheet, tokens, and providers so changes appear immediately.
 Use ordinary React example pages, without a separate Storybook installation.
 
-| Section | Examples |
-| --- | --- |
-| Theme | Semantic color swatches with token names, surfaces, borders, radii, shadows |
-| Typography | Headings, body, labels, metadata, monospace, compact and reading Typeset |
+| Section    | Examples                                                                             |
+| ---------- | ------------------------------------------------------------------------------------ |
+| Theme      | Semantic color swatches with token names, surfaces, borders, radii, shadows          |
+| Typography | Headings, body, labels, metadata, monospace, compact and reading Typeset             |
 | Components | Included primitives and compositions, sizes, variants, disabled/loading/error states |
-| Patterns | Full forms, data table, Markdown/code display, command palette |
-| Layouts | Both shells and the four inner-page patterns with realistic content |
-| Icons | IBM Carbon family, sizes, alignment, and accessible usage |
+| Patterns   | Full forms, data table, Markdown/code display, command palette                       |
+| Layouts    | Both shells and the four inner-page patterns with realistic content                  |
+| Icons      | IBM Carbon family, sizes, alignment, and accessible usage                            |
 
 Provide searchable navigation, stable links to examples, Light/Dark/System
 switching, and small copyable usage snippets. Link examples to relevant source

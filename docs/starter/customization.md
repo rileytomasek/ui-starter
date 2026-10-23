@@ -36,18 +36,18 @@ Each recipe must identify the real files to edit, show one small example, and
 state how to check the result. Keep one authoritative definition for each token
 or configuration. Avoid a second configuration layer that mirrors shadcn.
 
-| Change | What the guide must explain | Verification |
-| --- | --- | --- |
-| Brand and neutral colors | Change semantic tokens for both themes, including border, muted, destructive, and focus colors | Inspect normal, hover, selected, disabled, and focus states |
-| Density and radius | Adjust shared tokens or component variants; preserve readable targets and alignment | Compare tables, forms, menus, and mobile layouts |
-| Fonts | Configure body, heading, and monospace loading, fallbacks, and metrics | Check wrapping, first load, code, and numeric alignment |
-| Prose | Change Typeset compact and reading styles through their shared definitions | Check Markdown headings, lists, tables, links, and code |
-| Theme | Find the provider, first-paint initialization, storage key, and selector | Test System, Light, Dark, reload, and a live OS change |
-| Icons | Use @iconify-json/carbon and static unplugin-icons imports; document custom SVGs | Check bundle behavior, sizing, alignment, and accessible names |
-| Components | Add through the configured shadcn workflow and adapt through shared variants | Exercise relevant interaction states and design lint |
-| Code highlighting | Add supported languages or change the Shiki theme through the shared integration | Check both modes, fallback text, copy, and loading |
-| Shell and navigation | Select either shell and edit the shared destination definitions | Check direct URLs, active items, mobile navigation, and command actions |
-| Page composition | Start from collection, detail, settings, or reading examples | Check narrow viewports and realistic content |
+| Change                   | What the guide must explain                                                                    | Verification                                                            |
+| ------------------------ | ---------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| Brand and neutral colors | Change semantic tokens for both themes, including border, muted, destructive, and focus colors | Inspect normal, hover, selected, disabled, and focus states             |
+| Density and radius       | Adjust shared tokens or component variants; preserve readable targets and alignment            | Compare tables, forms, menus, and mobile layouts                        |
+| Fonts                    | Configure body, heading, and monospace loading, fallbacks, and metrics                         | Check wrapping, first load, code, and numeric alignment                 |
+| Prose                    | Change Typeset compact and reading styles through their shared definitions                     | Check Markdown headings, lists, tables, links, and code                 |
+| Theme                    | Find the provider, first-paint initialization, storage key, and selector                       | Test System, Light, Dark, reload, and a live OS change                  |
+| Icons                    | Use @iconify-json/carbon and static unplugin-icons imports; document custom SVGs               | Check bundle behavior, sizing, alignment, and accessible names          |
+| Components               | Add through the configured shadcn workflow and adapt through shared variants                   | Exercise relevant interaction states and design lint                    |
+| Code highlighting        | Add supported languages or change the Shiki theme through the shared integration               | Check both modes, fallback text, copy, and loading                      |
+| Shell and navigation     | Select either shell and edit the shared destination definitions                                | Check direct URLs, active items, mobile navigation, and command actions |
+| Page composition         | Start from collection, detail, settings, or reading examples                                   | Check narrow viewports and realistic content                            |
 
 Explain when to use a component variant versus a caller's layout class. Layout
 spacing and placement belong with the composition; repeated visual treatment
