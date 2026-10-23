@@ -1,0 +1,21 @@
+import { test, expect } from "@playwright/test"
+test("system updates live, overrides persist, and first paint is correct", async ({ page }) => {
+  await page.emulateMedia({ colorScheme: "dark" })
+  await page.goto("/")
+  await expect(page.locator("html")).toHaveClass(/dark/)
+  await page.emulateMedia({ colorScheme: "light" })
+  await expect(page.locator("html")).not.toHaveClass(/dark/)
+  await page.getByRole("button", { name: "Appearance" }).click()
+  await page.getByRole("menuitemradio", { name: "Dark", exact: true }).click()
+  await page.reload()
+  await expect(page.locator("html")).toHaveClass(/dark/)
+  await page.getByRole("button", { name: "Appearance" }).click()
+  await page.getByRole("menuitemradio", { name: "System", exact: true }).click()
+  await expect(page.locator("html")).not.toHaveClass(/dark/)
+  await page.emulateMedia({ colorScheme: "dark" })
+  await expect(page.locator("html")).toHaveClass(/dark/)
+  // Check the blocking bootstrap itself, before any React module can execute.
+  await page.route("**/assets/*.js", (route) => route.abort())
+  await page.reload({ waitUntil: "domcontentloaded" })
+  await expect(page.locator("html")).toHaveClass(/dark/)
+})

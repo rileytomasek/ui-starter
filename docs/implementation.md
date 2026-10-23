@@ -46,3 +46,12 @@ MIT covers starter-owned code. Preserve upstream MIT notices for shadcn source,
 Apache-2.0 for Carbon icons, and OFL-1.1 for IBM Plex fonts. Phase 2 adds retained
 notice files; finalization must preserve them. Source provenance stays available
 in consuming apps after temporary starter specifications are removed.
+
+## Phase 3: visual system
+
+Installed UI icon imports now use Carbon via scripts/carbon-icons.mjs; no primitive
+was replaced. Fonts are IBM Plex Sans/Mono. The light muted-foreground token was
+lowered to oklch(0.50 0 0) after axe measured the upstream pair at 4.34:1.
+The four light/dark mobile/desktop gallery scans now pass. Theme E2E verifies
+live OS changes, persisted overrides, returning to System, and pre-React paint.
+Gallery modules are compiled out of default production; the build asserts this.

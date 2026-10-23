@@ -1,6 +1,6 @@
 # Implementation plan
 
-Status: in progress. Phases 1–2 verified; Phase 3 is next. Tasks are checked only
+Status: in progress. Phases 1–3 verified; Phase 4 is next. Tasks are checked only
 after implementation, documentation, and verification. Evidence is recorded per phase.
 
 [Scope and decisions](spec.md) owns confirmed requirements and implementation
@@ -92,29 +92,34 @@ is committed; hosted execution is checked after pushing. See [Development](../de
 Depends on Phase 2. See [Foundations](foundations.md) and
 [Documentation requirements](documentation.md).
 
-- [ ] Install the required shadcn controls through the CLI and record commands,
+- [x] Install the required shadcn controls through the CLI and record commands,
       versions, and sources; implement shared tokens, typography, density, radii,
       surfaces, and layering around the installed components.
-- [ ] Implement Light/Dark/System mode, persisted choices, live OS updates,
+- [x] Implement Light/Dark/System mode, persisted choices, live OS updates,
       first-paint initialization, and native-control color-scheme behavior.
-- [ ] Add compact/reading Typeset presets and the configured font loading/fallbacks.
-- [ ] Implement static icon imports, small Icon/IconButton helpers, custom SVG
+- [x] Add compact/reading Typeset presets and the configured font loading/fallbacks.
+- [x] Implement static icon imports, small Icon/IconButton helpers, custom SVG
       usage, and consistent generated-component icons with accessible naming.
-- [ ] Build gallery navigation with search, stable example URLs, theme switching,
+- [x] Build gallery navigation with search, stable example URLs, theme switching,
       copyable snippets, and source/documentation references.
-- [ ] Populate theme, typography, icon, and initial component sections using the
+- [x] Populate theme, typography, icon, and initial component sections using the
       actual tokens/components/providers and representative interaction states.
-- [ ] Separate gallery routes and fixtures from production app imports; verify
+- [x] Separate gallery routes and fixtures from production app imports; verify
       default production exclusion and document an explicit preview/test target.
-- [ ] Test theme behavior and relevant helpers; review both themes, keyboard
+- [x] Test theme behavior and relevant helpers; review both themes, keyboard
       focus, reduced motion, and mobile/desktop rendering.
-- [ ] Publish actual customization recipes and run an early agent exercise:
+- [x] Publish actual customization recipes and run an early agent exercise:
       locate a component, adjust a variant, open its example, and verify the result.
 
 Exit: a coherent visual system and useful inspection surface exist before more
 components are built. Correct discoverability problems exposed by the exercise.
 
-Evidence: pending.
+Evidence: `pnpm check` and four production E2E cases passed. Gallery search and
+stable navigation were exercised. Light/dark at 390px and 1280px were rendered,
+reviewed, and scanned with axe (zero violations after adjusting muted-foreground).
+The agent exercise located Button sizes, used a supported variant in the gallery,
+and verified the example via its stable URL. Production exclusion assertion passed.
+See [UI guide](../ui.md) for real paths and examples.
 
 ## Phase 4 — Shells, navigation, and page structure
 

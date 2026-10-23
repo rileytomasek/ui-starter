@@ -10,9 +10,10 @@ over human developer convenience. The resulting apps must still provide excellen
 interfaces for their users. [Scope and decisions](docs/starter/spec.md#authoring-priority)
 defines this priority.
 
-**Status: implementation in progress.** Phases 1–2 are verified. The runnable
+**Status: implementation in progress.** Phases 1–3 are verified. The runnable
 foundation, lint/format/type checks, browser tests, and CI configuration exist.
-Gallery, full UI examples, and finalization are delivered in subsequent phases.
+The initial gallery is at `/__gallery/theme`. Full shells, examples, and
+finalization follow in subsequent phases.
 
 ## Run and verify
 
