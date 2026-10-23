@@ -7,6 +7,27 @@ import { defineConfig } from "vite"
 
 // https://vite.dev/config/
 export default defineConfig({
+  optimizeDeps: {
+    include: [
+      "@base-ui/react/alert-dialog",
+      "@base-ui/react/avatar",
+      "@base-ui/react/button",
+      "@base-ui/react/checkbox",
+      "@base-ui/react/collapsible",
+      "@base-ui/react/dialog",
+      "@base-ui/react/input",
+      "@base-ui/react/menu",
+      "@base-ui/react/merge-props",
+      "@base-ui/react/popover",
+      "@base-ui/react/select",
+      "@base-ui/react/separator",
+      "@base-ui/react/tabs",
+      "@base-ui/react/tooltip",
+      "@base-ui/react/use-render",
+      "cmdk",
+      "react-router",
+    ],
+  },
   plugins: [
     react(),
     tailwindcss(),

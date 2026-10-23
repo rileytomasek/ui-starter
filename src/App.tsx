@@ -1,17 +1,19 @@
 import { useState } from "react"
-import { ThemeControl } from "@/components/theme-control"
+import { appConfig } from "@/app/config"
+import { destinations } from "@/app/navigation"
+import { HeaderShell, SidebarShell } from "@/components/shells"
+import { PageContent, PageHeader } from "@/components/page"
 import { Button } from "@/components/ui/button"
 export default function App() {
-  const [saved, setSaved] = useState(false)
+  const [saved, setSaved] = useState(false),
+    Shell = appConfig.shell === "sidebar" ? SidebarShell : HeaderShell
   return (
-    <main className="mx-auto max-w-3xl space-y-4 px-6 py-10">
-      <div className="flex items-center justify-between">
-        <h1 className="text-xl font-semibold">Workspace</h1>
-        <ThemeControl />
-      </div>
-      <p className="text-sm text-muted-foreground">Your application starts here.</p>
-      <Button onClick={() => setSaved(true)}>Save changes</Button>
-      <output className="block text-sm">{saved ? "Changes saved." : ""}</output>
-    </main>
+    <Shell name={appConfig.name} destinations={destinations}>
+      <PageContent>
+        <PageHeader title={appConfig.name} description={appConfig.purpose} />
+        <Button onClick={() => setSaved(true)}>Save changes</Button>
+        <output className="block text-sm">{saved ? "Changes saved." : ""}</output>
+      </PageContent>
+    </Shell>
   )
 }

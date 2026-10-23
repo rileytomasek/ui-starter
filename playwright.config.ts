@@ -15,9 +15,17 @@ export default defineConfig({
     { name: "firefox", use: { ...devices["Desktop Firefox"] }, testMatch: /smoke.spec.ts/ },
     { name: "webkit", use: { ...devices["Desktop Safari"] }, testMatch: /smoke.spec.ts/ },
   ],
-  webServer: {
-    command: "pnpm build && pnpm preview --port 4173 --strictPort",
-    url: "http://127.0.0.1:4173",
-    reuseExistingServer: !process.env.CI,
-  },
+  webServer: [
+    {
+      command: "pnpm build && pnpm preview --port 4173 --strictPort",
+      url: "http://127.0.0.1:4173",
+      reuseExistingServer: !process.env.CI,
+    },
+    {
+      command:
+        "pnpm build:gallery && pnpm exec vite preview --outDir dist-gallery --host 127.0.0.1 --port 4174 --strictPort",
+      url: "http://127.0.0.1:4174",
+      reuseExistingServer: !process.env.CI,
+    },
+  ],
 })

@@ -55,3 +55,12 @@ lowered to oklch(0.50 0 0) after axe measured the upstream pair at 4.34:1.
 The four light/dark mobile/desktop gallery scans now pass. Theme E2E verifies
 live OS changes, persisted overrides, returning to System, and pre-React paint.
 Gallery modules are compiled out of default production; the build asserts this.
+
+## Phase 4: shells and navigation
+
+CLI-installed Sidebar/Command/Dialog/Sheet compose the shells. sidebar-07's
+structure informed SidebarShell; its unrelated dashboard/team/account fixtures
+were not retained. A shared destination contract drives links and commands.
+Vite dependency prebundling includes installed Base UI entry points so first-run
+Vitest browser imports do not reload mid-test. Full application and explicit
+gallery builds passed six E2E cases; no gallery modules entered production.

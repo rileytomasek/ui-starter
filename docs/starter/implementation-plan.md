@@ -1,6 +1,6 @@
 # Implementation plan
 
-Status: in progress. Phases 1–3 verified; Phase 4 is next. Tasks are checked only
+Status: in progress. Phases 1–4 verified; Phase 5 is next. Tasks are checked only
 after implementation, documentation, and verification. Evidence is recorded per phase.
 
 [Scope and decisions](spec.md) owns confirmed requirements and implementation
@@ -125,27 +125,30 @@ See [UI guide](../ui.md) for real paths and examples.
 
 Depends on Phase 3. See [Layouts](layouts.md) and [Components](components.md).
 
-- [ ] Install required Sidebar, Command, dialog/navigation components, and the
+- [x] Install required Sidebar, Command, dialog/navigation components, and the
       selected available block via the CLI before composing the shells.
-- [ ] Implement routing and one shared definition for destinations, labels, icons,
+- [x] Implement routing and one shared definition for destinations, labels, icons,
       and active-state matching; support direct links and refresh behavior.
-- [ ] Build the no-sidebar fixed-header shell with mobile navigation, content
+- [x] Build the no-sidebar fixed-header shell with mobile navigation, content
       offsets, anchor spacing, and shared appearance controls.
-- [ ] Build the sidebar shell with desktop collapse persistence, independent
+- [x] Build the sidebar shell with desktop collapse persistence, independent
       mobile overlay state, accessible collapsed labels, and dismissal/focus behavior.
-- [ ] Integrate the command palette with real destinations/actions, Cmd/Ctrl+K,
+- [x] Integrate the command palette with real destinations/actions, Cmd/Ctrl+K,
       search/empty states, keyboard operation, and appropriate focus restoration.
-- [ ] Add small page header/content/section/toolbar pieces and provisional
+- [x] Add small page header/content/section/toolbar pieces and provisional
       collection, detail, settings, and reading compositions.
-- [ ] Implement landmarks, skip-to-content, route focus behavior, and responsive
+- [x] Implement landmarks, skip-to-content, route focus behavior, and responsive
       actions/overflow; demonstrate both shells through stable gallery URLs.
-- [ ] Add focused interaction and navigation tests, review keyboard/mobile use,
+- [x] Add focused interaction and navigation tests, review keyboard/mobile use,
       and document adding a route, destination, command action, and page layout.
 
 Exit: both shells navigate real routes and support accessible responsive use.
 Refine inner-page compositions with actual content in Phase 5.
 
-Evidence: pending.
+Evidence: `pnpm check` passed; six E2E cases passed, including both shells'
+navigation, commands, sidebar persistence, mobile sheets, and axe scans. Both
+shells were rendered and reviewed in light/dark desktop views; mobile behavior
+was exercised at 390px. See [shell guide](../layouts.md).
 
 ## Phase 5 — Substantial components and reference pages
 

@@ -1,5 +1,6 @@
 import { useState } from "react"
-import { NavLink, Route, Routes } from "react-router"
+import ShellExamples from "./ShellExamples"
+import { Link, useLocation, NavLink, Route, Routes } from "react-router"
 import Search from "~icons/carbon/search"
 import Add from "~icons/carbon/add"
 import Download from "~icons/carbon/download"
@@ -158,7 +159,17 @@ function Icons() {
   )
 }
 export default function Gallery() {
+  const { pathname } = useLocation()
   const [search, setSearch] = useState("")
+  if (
+    pathname.startsWith("/__gallery/layouts/header/") ||
+    pathname.startsWith("/__gallery/layouts/sidebar/")
+  )
+    return (
+      <Routes>
+        <Route path="layouts/*" element={<ShellExamples />} />
+      </Routes>
+    )
   return (
     <>
       <a className="skip-link" href="#gallery-content">
@@ -201,6 +212,31 @@ export default function Gallery() {
             <Route path="typography" element={<Typography />} />
             <Route path="components" element={<Components />} />
             <Route path="icons" element={<Icons />} />
+            <Route
+              path="layouts"
+              element={
+                <div className="space-y-4">
+                  <h2 className="text-base font-medium">Page shells</h2>
+                  <p className="text-sm text-muted-foreground">
+                    Inspect the same pages with either navigation structure.
+                  </p>
+                  <div className="flex gap-4 text-sm">
+                    <Link
+                      className="underline underline-offset-4"
+                      to="/__gallery/layouts/header/collection"
+                    >
+                      Fixed header
+                    </Link>
+                    <Link
+                      className="underline underline-offset-4"
+                      to="/__gallery/layouts/sidebar/collection"
+                    >
+                      Sidebar
+                    </Link>
+                  </div>
+                </div>
+              }
+            />
             <Route
               path="*"
               element={
