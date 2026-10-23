@@ -1,5 +1,6 @@
 import "@/index.css"
 import { expect, test, vi } from "vitest"
+import { userEvent } from "vitest/browser"
 import { render } from "vitest-browser-react"
 import { CodeDisplay } from "@/components/code-display"
 import { Markdown } from "@/components/markdown"
@@ -36,6 +37,16 @@ test("Markdown renders GFM and shared code with safe HTML and URL defaults", asy
 test("table filters, sorts, paginates, and preserves selection", async () => {
   const open = vi.fn(),
     s = await render(<ProjectTable rows={projects} onOpen={open} />)
+  await s.getByRole("button", { name: "Project", exact: true }).click()
+  await expect
+    .element(s.getByRole("columnheader", { name: /Project/ }))
+    .toHaveAttribute("aria-sort", "ascending")
+  await s.getByRole("button", { name: "Columns", exact: true }).click()
+  await s.getByRole("menuitemcheckbox", { name: "Owner", exact: true }).click()
+  await userEvent.keyboard("{Escape}")
+  await expect
+    .element(s.getByRole("columnheader", { name: "Owner", exact: true }))
+    .not.toBeInTheDocument()
   await s.getByRole("checkbox", { name: "Select this page" }).click()
   await expect.element(s.getByText(/6 selected across all pages/)).toBeVisible()
   await s.getByRole("button", { name: "Next", exact: true }).click()

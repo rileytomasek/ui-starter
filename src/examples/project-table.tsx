@@ -185,6 +185,7 @@ export function ProjectTable({
               {group.headers.map((header) => (
                 <TableHead
                   key={header.id}
+                  scope="col"
                   aria-sort={
                     header.column.getIsSorted() === "asc"
                       ? "ascending"

@@ -28,7 +28,7 @@ import {
   SidebarTrigger,
   useSidebar,
 } from "@/components/ui/sidebar"
-import type { Destination } from "@/app/navigation"
+import { flattenDestinations, type Destination } from "@/app/navigation"
 type Props = { name: string; destinations: Destination[]; children: ReactNode }
 function RouteFocus() {
   const { pathname } = useLocation(),
@@ -51,7 +51,7 @@ function Links({
 }) {
   return (
     <>
-      {destinations.map((item) => (
+      {flattenDestinations(destinations).map((item) => (
         <NavLink end className="nav-link" key={item.path} to={item.path} onClick={onNavigate}>
           <Icon as={item.icon} />
           {item.title}
@@ -140,6 +140,7 @@ function SideNav({ name, destinations }: Omit<Props, "children">) {
                             <SidebarMenuSubButton
                               render={<Link to={child.path} />}
                               isActive={pathname === child.path}
+                              aria-current={pathname === child.path ? "page" : undefined}
                               onClick={() => setOpenMobile(false)}
                             >
                               {child.title}

@@ -295,6 +295,10 @@ try {
     state.mutated = true
     writeFileSync(".starter/state.json", json(state))
   }
+  const pendingFormatter = JSON.parse(read(".oxfmtrc.json"))
+  if (!pendingFormatter.ignorePatterns.includes(".starter/state.json"))
+    pendingFormatter.ignorePatterns.push(".starter/state.json")
+  writeFileSync(".oxfmtrc.json", json(pendingFormatter))
   const pendingPackage = JSON.parse(read("package.json"))
   pendingPackage.scripts["setup:finalize"] = "node .starter/finalize.mjs"
   writeFileSync("package.json", json(pendingPackage))
@@ -325,7 +329,12 @@ try {
   for (const key of ["setup:finalize", "setup:baseline", "test:setup"])
     delete finalPackage.scripts[key]
   writeFileSync("package.json", json(finalPackage))
-  run("pnpm", ["exec", "oxfmt", "--write", "package.json"])
+  const finalFormatter = JSON.parse(read(".oxfmtrc.json"))
+  finalFormatter.ignorePatterns = finalFormatter.ignorePatterns.filter(
+    (p) => p !== ".starter/state.json",
+  )
+  writeFileSync(".oxfmtrc.json", json(finalFormatter))
+  run("pnpm", ["exec", "oxfmt", "--write", "package.json", ".oxfmtrc.json"])
   for (const p of [
     ...Object.keys(manifest).filter((p) => p.startsWith(".starter/")),
     ".starter/manifest.json",

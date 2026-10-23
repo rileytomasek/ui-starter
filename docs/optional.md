@@ -15,8 +15,44 @@ themes, empty/loading data, keyboard access, and narrow screens. Do not install 
 second charting library without a specific unmet requirement.
 
 [Official recipe](https://ui.shadcn.com/docs/components/chart) and
-[Recharts](https://recharts.org/en-US/guide/getting-started/). The final acceptance
-record tracks validation of this optional recipe; charts are absent by default.
+[Recharts](https://recharts.org/en-US/guide/getting-started/). Validated October 23, 2026 using shadcn 4.22.1 and Recharts 3.8.0: CLI installation,
+Carbon normalization, lint, strict typecheck, production build, and light/dark
+390px/1280px rendering. Charts are absent by default.
+
+A minimal composition (after CLI installation):
+
+```tsx
+import { Bar, BarChart, XAxis } from "recharts"
+import {
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent,
+  type ChartConfig,
+} from "@/components/ui/chart"
+
+const config = {
+  observations: { label: "Observations", color: "var(--chart-2)" },
+} satisfies ChartConfig
+const data = [
+  { week: "Oct 5", observations: 18 },
+  { week: "Oct 12", observations: 25 },
+]
+
+export function ActivityChart() {
+  return (
+    <ChartContainer config={config} className="min-h-64 w-full">
+      <BarChart accessibilityLayer data={data}>
+        <XAxis dataKey="week" tickLine={false} axisLine={false} />
+        <ChartTooltip content={<ChartTooltipContent />} />
+        <Bar dataKey="observations" fill="var(--color-observations)" />
+      </BarChart>
+    </ChartContainer>
+  )
+}
+```
+
+Add a prose summary/table beside the chart. The container must have nonzero dimensions;
+verify the rendered SVG and tooltip, not only a successful build.
 
 ## Forms, tables, and server data
 

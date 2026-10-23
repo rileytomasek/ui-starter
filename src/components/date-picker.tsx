@@ -1,4 +1,4 @@
-import { useState, type Ref } from "react"
+import { useState, useRef, type Ref } from "react"
 import CalendarIcon from "~icons/carbon/calendar"
 import { Calendar } from "@/components/ui/calendar"
 import { Button } from "@/components/ui/button"
@@ -27,6 +27,7 @@ export function DatePicker({
   min?: string
 }) {
   const [open, setOpen] = useState(false)
+  const popup = useRef<HTMLDivElement>(null)
   return (
     <div className="flex flex-wrap items-center gap-2">
       <Popover open={open} onOpenChange={setOpen}>
@@ -46,7 +47,15 @@ export function DatePicker({
           <Icon as={CalendarIcon} />
           {formatDate(value)}
         </PopoverTrigger>
-        <PopoverContent align="start">
+        <PopoverContent
+          align="start"
+          ref={popup}
+          initialFocus={() =>
+            popup.current?.querySelector<HTMLElement>(
+              '[data-slot="calendar"] button[data-selected-single="true"]:not(:disabled), [data-slot="calendar"] button[tabindex="0"]:not(:disabled)',
+            ) ?? true
+          }
+        >
           <PopoverTitle>Choose a date</PopoverTitle>
           <Calendar
             mode="single"

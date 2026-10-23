@@ -1,8 +1,8 @@
 # Code quality
 
 Use Oxlint for linting, Oxfmt for formatting, and TypeScript for strict type
-checking. These tools are selected; exact compatible versions and configuration
-are implementation work. Do not add ESLint or Prettier as parallel default
+checking. The pinned versions and actual configuration are recorded in the lockfile and
+[development guide](../development.md). Do not add ESLint or Prettier as parallel default
 toolchains.
 
 ## Oxlint and shadcn rules
@@ -57,23 +57,23 @@ one discoverable command contract to undocumented IDE-only actions.
 
 ## Required command contract
 
-The Phase 2 package manifest implements these commands with pnpm 11.14.0.
+The package manifest implements these commands with pnpm 11.14.0.
 [Development](../development.md) owns current prerequisites and lint exceptions.
-Gallery behavior is added in Phase 3; finalization is added in Phase 6.
+Gallery and finalization commands are implemented; see the getting-started guide.
 
-| Required command    | Responsibility                                                           |
-| ------------------- | ------------------------------------------------------------------------ |
-| `pnpm dev`          | Run the Vite development app and UI gallery                              |
-| `pnpm build`        | Produce the production app bundle                                        |
-| `pnpm preview`      | Serve the built app locally                                              |
-| `pnpm format`       | Apply Oxfmt formatting                                                   |
-| `pnpm format:check` | Check formatting without mutation                                        |
-| `pnpm lint`         | Run Oxlint and the configured shadcn rules                               |
-| `pnpm typecheck`    | Run strict TypeScript checks                                             |
-| `pnpm test`         | Run Vitest Node and browser component projects once                      |
-| `pnpm test:watch`   | Run the relevant Vitest projects interactively                           |
-| `pnpm test:e2e`     | Run the small Playwright application suite                               |
-| `pnpm check`        | Run formatting check, lint, types, Vitest projects, and production build |
+| Required command    | Responsibility                                                              |
+| ------------------- | --------------------------------------------------------------------------- |
+| `pnpm dev`          | Run the Vite development app and UI gallery                                 |
+| `pnpm build`        | Produce the production app bundle                                           |
+| `pnpm preview`      | Serve the built app locally                                                 |
+| `pnpm format`       | Apply Oxfmt formatting                                                      |
+| `pnpm format:check` | Check formatting without mutation                                           |
+| `pnpm lint`         | Run Oxlint and the configured shadcn rules                                  |
+| `pnpm typecheck`    | Run strict TypeScript checks                                                |
+| `pnpm test`         | Run Vitest Node and browser component projects once                         |
+| `pnpm test:watch`   | Run the relevant Vitest projects interactively                              |
+| `pnpm test:e2e`     | Run the small Playwright application suite                                  |
+| `pnpm check`        | Run formatting check, lint, docs links, types, Vitest, and production build |
 
 The required setup finalization command is specified in
 [Setup transition](setup-transition.md#finalization-command). It belongs to the

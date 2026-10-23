@@ -1,93 +1,66 @@
 # UI Starter
 
-A specification for a reusable Vite, React, and TypeScript UI starter for
-agent-authored apps, with Tailwind, shadcn/ui, deliberate information density,
-and clear customization.
+An agent-first Vite + React + TypeScript foundation for building restrained,
+information-rich apps with Tailwind, CLI-installed shadcn components, and IBM
+Carbon icons. Agents are the primary authors; reliable discovery, modification,
+and verification take priority over human developer convenience while preserving
+end-user usability and visual quality.
 
-Coding agents are the primary consumers of the starter. When authoring workflows
-conflict, prioritize reliable agent discovery, modification, and verification
-over human developer convenience. The resulting apps must still provide excellent
-interfaces for their users. [Scope and decisions](docs/starter/spec.md#authoring-priority)
-defines this priority.
+## Start a new application
 
-**Status: implementation in progress.** Phases 1–6 are verified. Both shells,
-the component gallery, substantial reference examples, and checks are available.
-Guided setup and finalization are implemented; final acceptance is next. Open `/__gallery/theme` in dev.
+Use this private GitHub template to create your own repository. Setup is not yet
+complete in a new copy: follow [Getting started](docs/starter/getting-started.md),
+record app choices in `.starter/config.json`, preview, then explicitly apply
+finalization. It replaces these instructions with app-specific guidance and
+removes temporary specs/tooling and unselected examples after checks pass.
 
-## Configure an application
+```sh
+pnpm install
+pnpm exec playwright install chromium firefox webkit
+pnpm dev
+```
 
-Setup is not complete in a new copy. Follow [Getting started](docs/starter/getting-started.md),
-record app choices in `.starter/config.json`, preview, then explicitly apply finalization.
+Use Node 24.10.0 and pnpm 11.14.0. Open `/__gallery/theme` in the dev server to
+browse the UI foundation. `pnpm check` runs format, lint, documentation links,
+strict types, Vitest, and production build; `pnpm test:e2e` runs browser flows.
 
-## Run and verify
+## Included
 
-Use Node 24.10.0 and pnpm 11.14.0. Run `pnpm install`,
-`pnpm exec playwright install chromium firefox webkit`, then `pnpm dev`.
-`pnpm check` runs the core checks; `pnpm test:e2e` runs application browser tests.
-See [Development](docs/development.md) for the source map and prerequisites.
+- Base UI Nova shadcn source installed by the CLI, with static Carbon SVG icons,
+  IBM Plex fonts, semantic tokens, Typeset, and Light/Dark/System appearance.
+- Shiki code display, safe GFM Markdown, a typed data table, complete forms,
+  single/multiple comboboxes, date-only picker, sidebar, and command palette.
+- Sidebar and fixed-header shells; collection, detail, settings, and reading pages.
+- Searchable development gallery, excluded from production by default.
+- Oxlint + shadcn rules, Oxfmt, Vitest Node/browser tests, Playwright, and CI.
+- Previewable, recoverable setup/finalization with explicit modified-file handling.
 
-## Read the spec
+Charts are optional: [shadcn/Recharts recipe](docs/optional.md). Backend, auth,
+deployment, server caching, and global state remain application decisions.
 
-| Document                                                    | Owns                                                                         |
-| ----------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| [Implementation plan](docs/starter/implementation-plan.md)  | Phased task checklists, completion criteria, and implementation progress     |
-| [Scope and decisions](docs/starter/spec.md)                 | Goals, confirmed stack, implementation boundaries, and deferred scope        |
-| [Setup transition](docs/starter/setup-transition.md)        | Initial app choices, finalization, and removal of temporary starter material |
-| [UI foundations](docs/starter/foundations.md)               | Tokens, themes, Typeset, icons, and design direction                         |
-| [Components](docs/starter/components.md)                    | The eight included components/examples and their behavior                    |
-| [Shells and page layouts](docs/starter/layouts.md)          | Both shells, shared navigation, and four inner-page patterns                 |
-| [Documentation requirements](docs/starter/documentation.md) | Required usage guides, extension recipes, and maintenance standards          |
-| [Customization](docs/starter/customization.md)              | How apps change the foundation and add capabilities                          |
-| [Code quality](docs/starter/quality.md)                     | Oxlint, Oxfmt, design rules, command contract, and CI responsibilities       |
-| [Testing](docs/starter/testing.md)                          | Vitest Node/browser, Playwright, accessibility, and visual review            |
-| [Agent guidance](docs/starter/agent-guidance.md)            | AGENTS.md, skill ownership, documentation upkeep, and provenance             |
-| [Acceptance](docs/starter/acceptance.md)                    | Observable criteria for a completed starter                                  |
-| [Sources](docs/sources.md)                                  | First-party references and pinned design-skill provenance                    |
+## Working guides
 
-The [interface-design skill](.agents/skills/interface-design/SKILL.md) supplies
-the design principles. Implementation details belong in the documents above.
+| Task                                               | Guide                                   |
+| -------------------------------------------------- | --------------------------------------- |
+| Understand ownership and providers                 | [Architecture](docs/architecture.md)    |
+| Run, test, and diagnose checks                     | [Development](docs/development.md)      |
+| Change tokens, fonts, variants, icons, or themes   | [UI customization](docs/ui.md)          |
+| Use and extend substantial components              | [Component recipes](docs/components.md) |
+| Add routes, navigation, commands, and page layouts | [Layouts](docs/layouts.md)              |
+| Add optional capabilities                          | [Integrations](docs/optional.md)        |
+| Review installation and design provenance          | [Sources](docs/sources.md)              |
 
-## Included foundations
+Read [AGENTS.md](AGENTS.md) for authoring conventions and the pinned
+[interface-design skill](.agents/skills/interface-design/SKILL.md) before UI work.
 
-- Vite + React + strict TypeScript, Tailwind, and a shadcn/create preset.
-- Actual shadcn/ui components installed through its CLI, with app-specific
-  composition rather than handwritten component replacements.
-- Light, dark, and system modes with live OS switching and persisted overrides.
-- IBM Carbon icons compiled through Iconify and unplugin-icons to React SVG
-  components.
-- shadcn Code Block with Shiki, Markdown with Typeset, a data table, a full
-  forms example, combobox, date picker, sidebar, and command palette.
-- A collapsible-sidebar shell and a no-sidebar shell with a fixed header.
-- Collection, detail, settings/form, and reading page examples.
-- Guided application setup and finalization that replaces starter instructions
-  with app-specific guidance and removes temporary material.
-- A searchable UI gallery, usage and extension guides in `docs/`, and
-  repository-local agent guidance.
-- Oxlint, Oxfmt, targeted shadcn design rules, Vitest component tests in a real
-  browser, and a small Playwright end-to-end suite.
+## Maintaining the upstream repository
 
-The initial implementation should be easy to understand and adapt. Applications
-own their copied code. Prefer small reusable pieces and realistic examples;
-introduce further abstraction only when repeated needs justify it.
+[Specification](docs/starter/spec.md), [implementation plan](docs/starter/implementation-plan.md),
+and [acceptance evidence](docs/starter/release.md) record requirements and verification.
+Run `pnpm test:setup` for the cleanup regression suite. After intentional release
+changes, run `pnpm setup:baseline` and commit the manifest with those changes;
+consuming apps must never refresh it to bypass modified-file conflicts.
 
-## Confirmed choices
-
-Use React Router with declarative routing, React Hook Form + Zod,
-react-markdown + remark-gfm, and pnpm. Use IBM Carbon icons, an MIT license,
-and GitHub template distribution. Run the main CI suites in Chromium with a
-small Firefox/WebKit smoke suite.
-
-The implementing agent selects and records compatible versions and the precise
-shadcn/create preset, primitive base, and fonts within the agreed design direction.
-These are implementation tasks, not unanswered product questions. See
-[Scope and decisions](docs/starter/spec.md#confirmed-implementation-decisions).
-
-## Repository setup
-
-The specification repository is named `ui-starter` and was created privately on
-GitHub. It uses the [MIT license](LICENSE); third-party components and assets
-retain their own licenses and notices. Keep the repository private during
-implementation; publication requires a user request. Production deployment is
-outside this starter's scope.
-
-Start future work with [AGENTS.md](AGENTS.md). Deployment is outside this repository task.
+Own source is MIT licensed; retain LICENSE and public/licenses notices for shadcn,
+Carbon (Apache-2.0), and IBM Plex (OFL). The GitHub repository is a private template.
+Publishing it or deploying an app requires separate authorization.

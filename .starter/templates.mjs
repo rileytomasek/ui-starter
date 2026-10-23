@@ -21,9 +21,24 @@ export function replacements(config, read) {
       .map(([k, v]) => `- ${k}: ${v}`)
       .join(
         "\n",
-      )}\n\n## Boundaries\n\nVite + React + strict TypeScript, Tailwind v4, Base UI Nova shadcn source,\nReact Router declarative routes, and static Carbon SVGs. src/main.tsx owns\nThemeProvider, TooltipProvider, and BrowserRouter. src/App.tsx composes routes;\nsrc/app owns identity and destinations shared with commands. Shared components\nnever import development fixtures. Use local React state until the app has a\nconcrete need for a server cache or shared state library.\n\nLight/Dark/System uses public/theme.js before paint and src/components/theme.tsx\nafter mount. Keep the shared storage key synchronized. Styles live in\nsrc/index.css and the official Typeset stylesheet. Component provenance is in\n[installation.json](installation.json); ongoing conventions are in [UI](ui.md).\n\n${config.retainExamples ? "Reference forms/tables and fixture pages are retained in src/examples for development. They simulate persistence and reset on reload; wire application services before reusing them in production. See [components](components.md)." : "No sample records or form-submission simulations are included in the application."}\n${config.retainGallery ? "The gallery in src/gallery is an explicitly retained development reference. The normal production bundle excludes it." : "The application has no gallery routes or gallery build command."}\n`,
+      )}\n\n## Boundaries\n\nVite + React + strict TypeScript, Tailwind v4, Base UI Nova shadcn source,\nReact Router declarative routes, and static Carbon SVGs. src/main.tsx owns\nThemeProvider, TooltipProvider, and BrowserRouter. src/App.tsx composes routes;\nsrc/app owns identity and destinations shared with commands. Shared components\nnever import development fixtures. Use local React state until the app has a\nconcrete need for a server cache or shared state library.\n\nLight/Dark/System uses public/theme.js before paint and src/components/theme.tsx\nafter mount. Keep the shared storage key synchronized. Styles live in\nsrc/index.css and the official Typeset stylesheet. Narrow installed-source adaptations retain Carbon icons, labelled combobox controls,\nclipboard-error feedback, high-contrast Shiki themes, and the Calendar day-button\nfocus ref needed for arrow-key navigation. Component provenance is in\n[installation.json](installation.json); ongoing conventions are in [UI](ui.md).\n\n${config.retainExamples ? "Reference forms/tables and fixture pages are retained in src/examples for development. They simulate persistence and reset on reload; wire application services before reusing them in production. See [components](components.md)." : "No sample records or form-submission simulations are included in the application."}\n${config.retainGallery ? "The gallery in src/gallery is an explicitly retained development reference. The normal production bundle excludes it." : "The application has no gallery routes or gallery build command."}\n`,
     "src/App.browser.test.tsx": `import "@/index.css"\nimport {expect,test} from "vitest"\nimport {render} from "vitest-browser-react"\nimport {MemoryRouter} from "react-router"\nimport {ThemeProvider} from "./components/theme"\nimport {TooltipProvider} from "./components/ui/tooltip"\nimport {appConfig} from "./app/config"\nimport App from "./App"\ntest("application home renders",async()=>{const s=await render(<ThemeProvider><TooltipProvider><MemoryRouter><App /></MemoryRouter></TooltipProvider></ThemeProvider>);await expect.element(s.getByRole("heading",{name:appConfig.routes[0].title,exact:true})).toBeVisible()})\n`,
     "tests/e2e/smoke.spec.ts": `import {test,expect} from "@playwright/test"\nimport {appConfig} from "../../src/app/config"\ntest("application routes render after direct navigation",async({page})=>{for(const route of appConfig.routes){await page.goto(route.path);await expect(page.getByRole("heading",{name:route.title,exact:true})).toBeVisible()}})\n`,
+  }
+  values[".github/workflows/check.yml"] = read(".github/workflows/check.yml").replace(
+    /      - name: Setup workflow tests\n        if:.*\n        run: pnpm test:setup\n/,
+    "",
+  )
+  const formatter = JSON.parse(read(".oxfmtrc.json"))
+  formatter.ignorePatterns = formatter.ignorePatterns.filter((p) => p !== ".starter/state.json")
+  values[".oxfmtrc.json"] = json(formatter)
+  values[".gitignore"] = read(".gitignore").replace(/^\.starter\/state\.json\n/gm, "")
+  if (!config.retainExamples) {
+    const lint = JSON.parse(read(".oxlintrc.json"))
+    lint.overrides = lint.overrides.filter(
+      (o) => !o.files.every((p) => p.startsWith("src/examples/")),
+    )
+    values[".oxlintrc.json"] = json(lint)
   }
   values["index.html"] = read("index.html").replace(
     /<title>[^<]*<\/title>/,

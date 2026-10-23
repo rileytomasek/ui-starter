@@ -14,6 +14,9 @@ jobs:
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm exec playwright install --with-deps chromium firefox webkit
+      - name: Setup workflow tests
+        if: hashFiles('.starter/finalize.test.mjs') != ''
+        run: pnpm test:setup
       - run: pnpm check
       - run: pnpm test:e2e
       - uses: actions/upload-artifact@v4
@@ -23,3 +26,4 @@ jobs:
           path: |
             test-results/
             playwright-report/
+            .vitest/attachments/

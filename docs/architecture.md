@@ -18,6 +18,7 @@ after mount. Keep the storage key synchronized. See [UI](ui.md) for customizatio
 
 CLI installation receipt: [installation.json](installation.json). Installed source
 has narrow Carbon import substitutions, accessible names on icon-only Combobox
-controls, clipboard-error feedback, and high-contrast Shiki themes. The selected
+controls, clipboard-error feedback, high-contrast Shiki themes, and attaching the generated
+CalendarDayButton focus ref so arrow-key navigation actually moves focus. The selected
 lint exceptions are documented in [Development](development.md). The source and
 interface design skill provenance is retained in [Sources](sources.md).

@@ -4,7 +4,7 @@ Use Node 24.10.0 (the Node 24 LTS line) and pnpm 11.14.0. Run `pnpm install`, th
 `pnpm exec playwright install chromium firefox webkit`. Linux CI also needs
 `--with-deps`. Run `pnpm dev` and open the printed local URL.
 
-`pnpm check` runs format, lint, strict TypeScript, Vitest, and production build.
+`pnpm check` runs format, lint, local documentation links, strict TypeScript, Vitest, and production build.
 `pnpm test:e2e` runs the production application smoke suite in three browsers.
 `pnpm test` is finite; `pnpm test:watch` explicitly watches. Build output is in
 dist; `pnpm preview` serves it. Browser launch or missing browser binaries are
@@ -46,3 +46,20 @@ app does not enable React Compiler. Revisit that integration before enabling it.
 
 Markdown table regions are keyboard-focusable so wide content can be scrolled.
 The exact Markdown file permits tabindex on that labelled region.
+
+## Choose the verification layer
+
+Use Node tests for owned pure logic (date-only conversion is the current example).
+Use `*.browser.test.tsx` with vitest-browser-react for component integration: import
+the real stylesheet, render the relevant providers, and interact by accessible
+roles/names. Browser files are separate from Node tests in vitest.config.ts.
+Use Playwright for assembled routing, appearance, and page flows; gallery cases
+run against the explicit preview on port 4174, production cases on 4173.
+Do not start another server on those ports while testing. Chromium is primary;
+Firefox/WebKit smoke cover navigation and theme; the reference suite also covers
+a representative form when examples are retained.
+
+`pnpm docs:check` checks local file links (not external availability or fragment IDs).
+Rendered review is still required: automated axe checks do not establish full
+accessibility conformance. Review focus, overlays, long content, loading/empty/error
+states, mobile/intermediate/desktop widths, and reduced motion in both themes.

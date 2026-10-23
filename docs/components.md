@@ -47,7 +47,7 @@ superseded requests and also compare a request ID before accepting results; keep
 selected options available while results change. Do not conflate loading with no results.
 
 DatePicker accepts an optional date-only `YYYY-MM-DD` string, empty string for no date,
-and `min` for disabled earlier days. Use parseDateOnly/dateOnly helpers; never serialize
+and `min` for disabled earlier days. Use dateFromValue/dateToValue helpers; never serialize
 these values through UTC/ISO timestamps. Store a date-only field on the server. A
 separate time or time-zone selection needs an explicit product contract.
 

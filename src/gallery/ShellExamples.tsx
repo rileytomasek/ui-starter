@@ -12,8 +12,12 @@ export default function ShellExamples() {
     base = `/__gallery/layouts/${kind}`,
     Shell = kind === "sidebar" ? SidebarShell : HeaderShell
   const destinations: Destination[] = [
-    { title: "Projects", path: `${base}/collection`, icon: Table },
-    { title: "Project details", path: `${base}/detail`, icon: Document },
+    {
+      title: "Projects",
+      path: `${base}/collection`,
+      icon: Table,
+      children: [{ title: "Project details", path: `${base}/detail`, icon: Document }],
+    },
     { title: "Settings", path: `${base}/settings`, icon: Settings },
     { title: "Guide", path: `${base}/reading`, icon: Book },
   ]

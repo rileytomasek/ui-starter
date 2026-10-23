@@ -9,6 +9,10 @@ export function files(dir) {
   })
 }
 export const transformed = [
+  ".github/workflows/check.yml",
+  ".oxlintrc.json",
+  ".oxfmtrc.json",
+  ".gitignore",
   "README.md",
   "AGENTS.md",
   "package.json",

@@ -1,6 +1,6 @@
 # Implementation plan
 
-Status: in progress. Phases 1–6 verified; Phase 7 is next. Tasks are checked only
+Status: in progress. Phases 1–6 verified; Phase 7 local acceptance is complete and hosted CI is running. Tasks are checked only
 after implementation, documentation, and verification. Evidence is recorded per phase.
 
 [Scope and decisions](spec.md) owns confirmed requirements and implementation
@@ -242,22 +242,22 @@ app repairs. The upstream `pnpm check` passed. See [Getting started](getting-sta
 Depends on all earlier phases. See [Acceptance](acceptance.md) for the complete
 release checklist; this phase closes gaps rather than starting documentation.
 
-- [ ] Complete the retained setup-independent usage/architecture/customization
+- [x] Complete the retained setup-independent usage/architecture/customization
       guides and verify their exact paths, imports, examples, commands, and links.
-- [ ] Validate the optional shadcn/Recharts recipe in a disposable copy; keep
+- [x] Validate the optional shadcn/Recharts recipe in a disposable copy; keep
       charts out of the default dependencies and distinguish optional app-specific
       choices.
-- [ ] Run an agent with no prior conversation context through a consuming copy's
+- [x] Run an agent with no prior conversation context through a consuming copy's
       setup/finalization, then use a fresh task to extend the finalized app from its
       retained instructions; fix problems and recheck the affected steps.
-- [ ] Complete end-to-end navigation/theme/form coverage, accessibility scans,
+- [x] Complete end-to-end navigation/theme/form coverage, accessibility scans,
       manual keyboard/focus review, both-theme responsive review, and browser checks
       for the selected support matrix; add only useful stable visual baselines.
 - [ ] Verify a clean install, CI, production build, and setup-tool/gallery removal
       behavior; confirm retained skill provenance and required attribution.
-- [ ] Reconcile every acceptance item with evidence; record limitations honestly,
+- [x] Reconcile every acceptance item with evidence; record limitations honestly,
       resolve stale guidance, and leave unverified requirements unchecked.
-- [ ] Prepare the GitHub template copy workflow and verify MIT metadata and all
+- [x] Prepare the GitHub template copy workflow and verify MIT metadata and all
       required third-party notices, including Carbon assets. Enable template status
       for release; retain private visibility unless the user requests publication.
 - [ ] Record the completed revision, validation results, and remaining issues;
@@ -267,7 +267,9 @@ Exit: an agent can produce and maintain a coherent app using the repository
 alone, all required acceptance is verified, and any deferred release actions are
 clearly distinguished from implementation completion.
 
-Evidence: pending.
+Evidence: [final acceptance record](release.md). Both fresh-agent exercises passed.
+Ten Vitest tests, eleven E2E cases, four setup regression cases, the full responsive
+review, and the optional chart recipe passed locally. Hosted CI remains pending.
 
 ## Milestones
 

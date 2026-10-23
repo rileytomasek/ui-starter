@@ -19,7 +19,22 @@ import {
 } from "@/components/ui/code-block"
 import { SelectCombobox, MultiCombobox } from "@/components/select-combobox"
 import { Badge } from "@/components/ui/badge"
-const sections = ["Theme", "Typography", "Components", "Patterns", "Layouts", "Icons"]
+const sections = [
+  { title: "Theme", keywords: "colors tokens radius density shadows", path: "theme" },
+  { title: "Typography", keywords: "typeset fonts prose", path: "typography" },
+  { title: "Components", keywords: "button input disabled combobox", path: "components" },
+  {
+    title: "Patterns",
+    keywords: "forms data table markdown code date picker dialog confirmation",
+    path: "patterns",
+  },
+  {
+    title: "Layouts",
+    keywords: "sidebar header collection detail settings reading command palette",
+    path: "layouts",
+  },
+  { title: "Icons", keywords: "carbon svg iconify", path: "icons" },
+]
 const usage =
   'import { Button } from "@/components/ui/button"\n\n<Button size="sm" variant="outline">Save changes</Button>'
 function Usage() {
@@ -60,6 +75,10 @@ function Theme() {
             { name: "Muted", style: "bg-muted text-muted-foreground" },
             { name: "Primary", style: "bg-primary text-primary-foreground" },
             { name: "Accent", style: "bg-accent text-accent-foreground" },
+            { name: "Card", style: "bg-card text-card-foreground" },
+            { name: "Popover", style: "bg-popover text-popover-foreground" },
+            { name: "Secondary", style: "bg-secondary text-secondary-foreground" },
+            { name: "Destructive", style: "bg-background text-destructive" },
           ].map((token) => (
             <div key={token.name}>
               <div className={token.style}>
@@ -68,6 +87,25 @@ function Theme() {
               <p className="mt-2 text-sm">{token.name}</p>
             </div>
           ))}
+        </div>
+      </Example>
+      <Example title="Scale and shape">
+        <div className="flex flex-wrap items-center gap-4">
+          <Button size="xs" variant="outline">
+            Extra small
+          </Button>
+          <Button size="sm" variant="outline">
+            Small
+          </Button>
+          <Button variant="outline">Default</Button>
+          <Button size="lg" variant="outline">
+            Large
+          </Button>
+        </div>
+        <div className="flex flex-wrap gap-4 text-xs">
+          <span className="rounded-sm border p-4">Small radius</span>
+          <span className="rounded-lg border p-4">Base radius</span>
+          <span className="rounded-xl border p-4 shadow-sm">Raised surface</span>
         </div>
       </Example>
       <Example title="Controls and surfaces">
@@ -214,16 +252,19 @@ export default function Gallery() {
           />
           <nav aria-label="UI examples" className="flex flex-wrap gap-1 md:flex-col">
             {sections
-              .filter((s) => s.toLowerCase().includes(search.toLowerCase()))
+              .filter((s) =>
+                `${s.title} ${s.keywords}`.toLowerCase().includes(search.toLowerCase()),
+              )
               .map((s) => (
-                <NavLink className="nav-link" key={s} to={`/__gallery/${s.toLowerCase()}`}>
-                  {s}
+                <NavLink className="nav-link" key={s.path} to={`/__gallery/${s.path}`}>
+                  {s.title}
                 </NavLink>
               ))}
           </nav>
-          {search && !sections.some((s) => s.toLowerCase().includes(search.toLowerCase())) && (
-            <p className="text-sm text-muted-foreground">No examples found.</p>
-          )}
+          {search &&
+            !sections.some((s) =>
+              `${s.title} ${s.keywords}`.toLowerCase().includes(search.toLowerCase()),
+            ) && <p className="text-sm text-muted-foreground">No examples found.</p>}
         </aside>
         <main id="gallery-content" className="min-w-0 space-y-8 md:col-span-4">
           <div>
@@ -299,12 +340,7 @@ export default function Gallery() {
           </Routes>
           <Usage />
           <footer className="border-t pt-4 text-xs text-muted-foreground">
-            <a
-              className="underline underline-offset-4"
-              href="https://github.com/rileytomasek/ui-starter/blob/main/docs/development.md"
-            >
-              Usage and source map
-            </a>
+            Usage and source map: docs/development.md; component recipes: docs/components.md
           </footer>
         </main>
       </div>

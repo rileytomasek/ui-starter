@@ -44,6 +44,7 @@ export function SelectCombobox({
     >
       <ComboboxInput
         id={id}
+        disabled={disabled}
         ref={inputRef}
         onBlur={onBlur}
         aria-invalid={invalid}
@@ -102,6 +103,7 @@ export function MultiCombobox({
         </ComboboxValue>
         <ComboboxChipsInput
           id={id}
+          disabled={disabled}
           ref={inputRef}
           onBlur={onBlur}
           aria-invalid={invalid}

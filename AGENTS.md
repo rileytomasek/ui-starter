@@ -1,6 +1,6 @@
 # UI Starter
 
-Implementation is in progress. Consult the phase evidence before claiming behavior.
+Implementation and local acceptance are complete; consult [acceptance evidence](docs/starter/release.md) for verification scope.
 For a new consuming copy, setup is incomplete: follow [Getting started](docs/starter/getting-started.md).
 Read [README.md](README.md) and [Scope and decisions](docs/starter/spec.md) first.
 Use [Development](docs/development.md) for actual commands and source locations.

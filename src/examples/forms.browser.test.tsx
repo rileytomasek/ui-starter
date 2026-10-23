@@ -3,6 +3,7 @@ import { expect, test, vi } from "vitest"
 import { userEvent } from "vitest/browser"
 import { render } from "vitest-browser-react"
 import { ProjectForm } from "./project-form"
+import { SelectCombobox } from "@/components/select-combobox"
 import { DatePicker } from "@/components/date-picker"
 import { useState } from "react"
 test("form validates, preserves input after failure, and retries", async () => {
@@ -64,8 +65,25 @@ test("date picker disables earlier dates and clears", async () => {
   const s = await render(<DateExample />)
   await s.getByRole("button", { name: "Nov 12, 2026" }).click()
   await expect.element(s.getByRole("button", { name: /November 11/ })).toBeDisabled()
-  await s.getByRole("button", { name: /November 13/ }).click()
+  await expect.element(s.getByRole("button", { name: /November 12/ })).toHaveFocus()
+  await userEvent.keyboard("{ArrowRight}{Enter}")
   await expect.element(s.getByRole("status")).toHaveTextContent("2026-11-13")
   await s.getByRole("button", { name: "Clear date" }).click()
   await expect.element(s.getByRole("status")).toHaveTextContent("")
+})
+
+test("disabled combobox cannot accept input", async () => {
+  const s = await render(
+    <>
+      <label htmlFor="locked">Owner</label>
+      <SelectCombobox
+        id="locked"
+        options={[{ value: "maya", label: "Maya Chen" }]}
+        value="maya"
+        onChange={() => {}}
+        disabled
+      />
+    </>,
+  )
+  await expect.element(s.getByRole("combobox", { name: "Owner" })).toBeDisabled()
 })
