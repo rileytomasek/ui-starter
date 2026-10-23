@@ -1,8 +1,7 @@
 # Implementation plan
 
-Status: not started. This is the implementation task checklist for the upstream
-starter. All boxes below are intentionally unchecked. Creating this plan does
-not mean app implementation or verification has begun.
+Status: in progress. Phase 1 verified; Phase 2 is next. Tasks are checked only
+after implementation, documentation, and verification. Evidence is recorded per phase.
 
 [Scope and decisions](spec.md) owns confirmed requirements and implementation
 boundaries;
@@ -33,30 +32,32 @@ instead of treating this checklist as a replacement for them.
 Goal: establish a reproducible foundation before committing to integrations.
 See [Scope](spec.md), [Customization](customization.md), and [Sources](sources.md).
 
-- [ ] Pin pnpm, a supported Node LTS version, React Router declarative routing,
+- [x] Pin pnpm, a supported Node LTS version, React Router declarative routing,
   and compatible core versions; use the confirmed stack without reopening choices.
-- [ ] Select the shadcn/create preset, primitive base, and fonts within the design
+- [x] Select the shadcn/create preset, primitive base, and fonts within the design
   direction, using IBM Carbon icons; record generation and customization details.
-- [ ] Verify compatible React Hook Form/Zod and react-markdown/remark-gfm
+- [x] Verify compatible React Hook Form/Zod and react-markdown/remark-gfm
   versions before their feature work.
-- [ ] Verify CLI availability for required shadcn components/blocks under the
+- [x] Verify CLI availability for required shadcn components/blocks under the
   selected preset/base; resolve gaps without handwritten substitutes.
-- [ ] Prove CLI-installed shadcn Code Block, Shiki, and Typeset work together
+- [x] Prove CLI-installed shadcn Code Block, Shiki, and Typeset work together
   in a minimal spike.
-- [ ] Prove static IBM Carbon imports via @iconify-json/carbon and unplugin-icons,
+- [x] Prove static IBM Carbon imports via @iconify-json/carbon and unplugin-icons,
   custom SVG support, and narrow icon adaptations to CLI-installed components.
-- [ ] Verify Oxlint with the chosen shadcn rules and Oxfmt Tailwind sorting;
+- [x] Verify Oxlint with the chosen shadcn rules and Oxfmt Tailwind sorting;
   record supported versions and any narrowly justified exceptions.
-- [ ] Configure Chromium as the main browser target with Firefox/WebKit smoke
+- [x] Configure Chromium as the main browser target with Firefox/WebKit smoke
   coverage; distinguish app choices from the confirmed reusable stack defaults.
-- [ ] Record verified versions and parameters, resolve compatibility blockers,
+- [x] Record verified versions and parameters, resolve compatibility blockers,
   and identify required third-party notices under the MIT-licensed starter.
 
 Exit: initialization is reproducible and the unusual integrations have been
 executed successfully. Spikes can be reused or removed after their evidence is
 captured; they must not leave a second app/toolchain in the starter.
 
-Evidence: pending.
+Evidence: see [implementation decisions](implementation.md) and the
+[CLI installation receipt](installation.json). Compatibility app passed typecheck,
+build, design lint, formatting, and Chromium/Firefox/WebKit rendering probes.
 
 ## Phase 2 — Runnable repository and verification workflow
 

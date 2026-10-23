@@ -10,11 +10,9 @@ over human developer convenience. The resulting apps must still provide excellen
 interfaces for their users. [Scope and decisions](docs/spec.md#authoring-priority)
 defines this priority.
 
-**Status: specification only.** This repository captures the design discussion
-through October 23, 2026. It contains Markdown specifications and the reviewed
-interface-design skill. There is no app, package manifest, installed toolchain,
-CI workflow, or implemented component yet. Commands in the spec are required future
-interfaces, not commands that work in this checkout.
+**Status: implementation in progress.** Phase 1 compatibility checks passed in a
+disposable app. See [implementation evidence](docs/implementation.md). Application
+source and working commands land in Phase 2; runtime acceptance remains pending.
 
 ## Read the spec
 

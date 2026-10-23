@@ -1,6 +1,6 @@
 # UI Starter
 
-This repository currently contains a specification, not an implemented app.
+Implementation is in progress. Consult the phase evidence before claiming behavior.
 Read [README.md](README.md) and [Scope and decisions](docs/spec.md) first.
 Do not claim that planned commands, components, or checks already exist.
 
@@ -45,8 +45,8 @@ Do not claim that planned commands, components, or checks already exist.
 
 ## Current verification
 
-For this Markdown-only stage, check local links, consistency with the decision
-record, source provenance, and coverage of the agreed scope. Runtime acceptance
+Phase 1 compatibility evidence is in docs/implementation.md. Continue checking
+links, decision consistency, source provenance, and phase-specific behavior. Runtime acceptance
 in [docs/acceptance.md](docs/acceptance.md) remains pending until implementation.
 
 The upstream design skill is pinned. Review its diff before updating it and
