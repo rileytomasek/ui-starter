@@ -1,6 +1,7 @@
 # UI Starter
 
 Implementation is in progress. Consult the phase evidence before claiming behavior.
+For a new consuming copy, setup is incomplete: follow [Getting started](docs/starter/getting-started.md).
 Read [README.md](README.md) and [Scope and decisions](docs/starter/spec.md) first.
 Use [Development](docs/development.md) for actual commands and source locations.
 Read the design skill at every UI phase and before rendered review.

@@ -1,0 +1,18 @@
+{
+  "name": "",
+  "purpose": "",
+  "users": "",
+  "packageName": "",
+  "shell": "header",
+  "visual": {
+    "colors": "Neutral semantic tokens in src/index.css",
+    "fonts": "IBM Plex Sans and Mono",
+    "density": "Compact controls; purposeful section spacing",
+    "radius": "0.625rem base radius",
+    "icons": "IBM Carbon via static Iconify imports"
+  },
+  "routes": [],
+  "retainGallery": false,
+  "retainExamples": false,
+  "resolutions": {}
+}

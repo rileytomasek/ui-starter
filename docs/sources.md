@@ -1,9 +1,7 @@
 # Sources and provenance
 
-References consulted for the specification, recorded October 23, 2026. They
-explain upstream capabilities and integration direction; they do not establish
-that the future starter has been built or validated. Recheck compatibility and
-commands against selected releases during implementation.
+Upstream references and provenance, verified October 23, 2026. The local lockfile
+pins installed versions; review upstream changes before migrations.
 
 ## Pinned design skill
 
@@ -13,7 +11,7 @@ commands against selected releases during implementation.
 - Local copy: [.agents/skills/interface-design/SKILL.md](../.agents/skills/interface-design/SKILL.md).
 - Content SHA-256: `9d66d87a1dd8c7dd20bd630a4dac178a9777a3c434faf04f91cd467f7079bad0`.
 - Status: exact content copied from the versioned GitHub API response, without
-  local edits. Updates follow [Agent guidance](starter/agent-guidance.md).
+  local edits. Review upstream changes before updating this file and the pinned skill together.
 
 ## Foundations and components
 

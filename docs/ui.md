@@ -10,7 +10,7 @@ The CLI generates Lucide imports; ui:icons replaces known equivalents with stati
 Carbon imports and fails on unmapped names. Add a deliberate mapping to
 scripts/carbon-icons.mjs, inspect the icon, and remove lucide-react if no longer
 used after installation. Never handwrite replacement primitives. Preserve the
-installed APIs and record narrow local changes in [implementation](implementation.md).
+installed APIs and record narrow local changes in [architecture](architecture.md).
 
 ## Theme and typography
 
@@ -56,5 +56,4 @@ section entry for a new example, using real components and deterministic states.
 
 After changes run `pnpm check`, relevant browser tests, and inspect both themes
 at desktop and mobile widths. Verify keyboard focus, long content, and reduced
-motion. Shared source must never import gallery fixtures. Finalization decides
-whether to retain the gallery; it removes setup-only docs separately.
+motion. Shared source must never import gallery fixtures. The gallery is a development reference; keep its fixture imports outside production.

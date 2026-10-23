@@ -10,9 +10,14 @@ over human developer convenience. The resulting apps must still provide excellen
 interfaces for their users. [Scope and decisions](docs/starter/spec.md#authoring-priority)
 defines this priority.
 
-**Status: implementation in progress.** Phases 1–5 are verified. Both shells,
+**Status: implementation in progress.** Phases 1–6 are verified. Both shells,
 the component gallery, substantial reference examples, and checks are available.
-Setup/finalization and final acceptance are next. Open `/__gallery/theme` in dev.
+Guided setup and finalization are implemented; final acceptance is next. Open `/__gallery/theme` in dev.
+
+## Configure an application
+
+Setup is not complete in a new copy. Follow [Getting started](docs/starter/getting-started.md),
+record app choices in `.starter/config.json`, preview, then explicitly apply finalization.
 
 ## Run and verify
 

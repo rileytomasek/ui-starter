@@ -1,6 +1,6 @@
 # Implementation plan
 
-Status: in progress. Phases 1–5 verified; Phase 6 is next. Tasks are checked only
+Status: in progress. Phases 1–6 verified; Phase 7 is next. Tasks are checked only
 after implementation, documentation, and verification. Evidence is recorded per phase.
 
 [Scope and decisions](spec.md) owns confirmed requirements and implementation
@@ -210,27 +210,32 @@ and wide-content behavior were refined. See [component recipes](../components.md
 Depends on Phases 2–5; directory ownership was established in Phase 2. See
 [Setup transition](setup-transition.md) for the full behavioral contract.
 
-- [ ] Implement the temporary setup entry point and explicit configuration record
+- [x] Implement the temporary setup entry point and explicit configuration record
       covering app identity, visual choices, shell/navigation, and example retention.
-- [ ] Separate temporary guides/specs from retained app guides; preserve design
+- [x] Separate temporary guides/specs from retained app guides; preserve design
       skill provenance, source attribution, and enduring conventions before cleanup.
-- [ ] Define an explicit bounded cleanup manifest and baseline comparison for
+- [x] Define an explicit bounded cleanup manifest and baseline comparison for
       modified examples/instructions; support keep/migrate/remove resolutions.
-- [ ] Implement non-mutating preview and non-interactive apply, configuration
+- [x] Implement non-mutating preview and non-interactive apply, configuration
       validation, path constraints, and exact reporting of proposed changes.
-- [ ] Produce app-specific README/AGENTS.md and reconcile routes/imports/scripts,
+- [x] Produce app-specific README/AGENTS.md and reconcile routes/imports/scripts,
       dependencies/lockfile, retained gallery/docs, and obsolete links.
-- [ ] Implement recoverable failure/retry behavior and completion checks; remove
+- [x] Implement recoverable failure/retry behavior and completion checks; remove
       one-off tooling only after success and document its command lifecycle.
-- [ ] Test disposable repositories for missing configuration, preview, successful
+- [x] Test disposable repositories for missing configuration, preview, successful
       cleanup, modified-file conflicts, retention, unrelated work, and failed retries.
-- [ ] Run setup/finalization on a real consuming copy; verify the app still works,
+- [x] Run setup/finalization on a real consuming copy; verify the app still works,
       production exclusions hold, and no active starter instructions remain.
 
 Exit: configuration ends in a verified application repository with clear app
 identity and recoverable changes. The upstream starter remains intact.
 
-Evidence: pending.
+Evidence: four disposable-repository setup tests passed: configuration/preview,
+modified-file conflicts and unrelated work, retained examples with failed-check
+retry, and migration/path safety. A clean real consuming copy passed install,
+format/lint/type/browser/unit/build checks and four application E2E cases before
+removing setup tooling. A separate failed real run recovered without overwriting
+app repairs. The upstream `pnpm check` passed. See [Getting started](getting-started.md).
 
 ## Phase 7 — Agent acceptance, hardening, and handoff
 

@@ -31,7 +31,7 @@ Typeset and the pinned design skill are excluded from formatting to preserve
 upstream provenance; the pnpm lockfile is managed by pnpm.
 
 See [Components](components.md) and [Layouts](layouts.md) for reference features.
-The implementation plan records setup/finalization progress.
+[Architecture](architecture.md) records current boundaries and app choices.
 
 Additional exact-path lint exceptions preserve upstream behavior: InputGroup and
 Calendar pass runtime classes through public APIs; Label associates controls at

@@ -5,10 +5,8 @@ an application repository. After setup, a fresh coding agent should understand
 and work on the application without encountering instructions to configure a
 starter again. This is required product behavior, not a manual cleanup suggestion.
 
-This document specifies future tooling and documentation. No setup or cleanup
-command exists yet. The current specification repository retains its planning
-material; cleanup applies to consuming application copies, not the upstream
-starter repository.
+The implemented command and configuration are documented in [Getting started](getting-started.md).
+This file owns the behavioral contract. Cleanup applies to consuming copies only.
 
 ## Setup entry point
 
