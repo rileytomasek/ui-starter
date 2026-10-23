@@ -20,6 +20,9 @@ Do not claim that planned commands, components, or checks already exist.
   [.agents/skills/interface-design/SKILL.md](.agents/skills/interface-design/SKILL.md).
 - Follow [Customization](docs/customization.md). Reuse the shared tokens,
   components, variants, icon conventions, and layouts before adding alternatives.
+- Install UI components through the shadcn CLI; do not handwrite replacements
+  or recreate them from memory. Follow the
+  [component source contract](docs/components.md#component-source-and-installation).
 - Keep components understandable and their familiar APIs available. Add shared
   abstractions when a concrete repeated need warrants them.
 - Keep examples realistic, functional, and easy for a consuming app to remove.

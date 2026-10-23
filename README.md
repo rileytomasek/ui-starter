@@ -40,6 +40,8 @@ the design principles. Implementation details belong in the documents above.
 ## What the starter will contain
 
 - Vite + React + strict TypeScript, Tailwind, and a shadcn/create preset.
+- Actual shadcn/ui components installed through its CLI, with app-specific
+  composition rather than handwritten component replacements.
 - Light, dark, and system modes with live OS switching and persisted overrides.
 - Iconify collections compiled to React SVG components through unplugin-icons.
 - shadcn Code Block with Shiki, Markdown with Typeset, a data table, a full

@@ -19,6 +19,15 @@ does not restyle already copied components. The actual CSS tokens and component
 source govern the existing UI. Document any integration changes needed to use
 Iconify through unplugin-icons consistently with generated components.
 
+## Install before composing
+
+Follow the [component source contract](components.md#component-source-and-installation).
+Use the configured shadcn CLI to add components and selected available blocks,
+then build application examples from that installed source. Record the actual
+commands, tool versions, registry sources, and any narrow local adaptations.
+Do not substitute handwritten source or manual documentation copying. Keep these
+installation instructions in the retained app docs after setup finalization.
+
 ## Required recipes
 
 Each recipe must identify the real files to edit, show one small example, and

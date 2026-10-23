@@ -1,9 +1,37 @@
 # Components and reference examples
 
-The eight entries below are included in v1. Use the actual shadcn components
-and familiar APIs as the foundation. Add a convenience component only when it
-encodes a useful repeated composition. Shared visual rules live in
+The eight entries below are included in v1. Shared visual rules live in
 [Foundations](foundations.md); verification lives in [Testing](testing.md).
+
+## Component source and installation
+
+UI components must be the actual shadcn/ui components installed using the shadcn
+CLI with this repository's configured preset and primitive base. Do not handwrite
+lookalikes, reconstruct components from memory, or manually copy source from
+documentation as a substitute for CLI installation. Installing a primitive
+library directly and writing a replacement wrapper is not equivalent to using
+the shadcn component.
+
+Install required components and available selected blocks before composing the
+examples. Commit the CLI-produced source and record the command, CLI version,
+and registry item/source used in the implementation documentation. Verify that
+each required integration is available for the selected configuration. If an item
+cannot be installed, report the compatibility gap and resolve it explicitly;
+do not quietly replace it with a custom implementation.
+
+Custom code is for application composition and integration: routes, page layouts,
+form schemas and submission, table column definitions, Markdown mappings, data
+adapters, and small convenience helpers around installed components. For example,
+IconButton must compose the installed Button, and a date field must compose the
+installed relevant shadcn controls. Preserve their familiar APIs and accessible
+interaction behavior instead of reimplementing them.
+
+Configure appearance through shared tokens and supported variants. Necessary
+local integration changes, such as the agreed Iconify imports, must be narrow,
+reviewable changes to installed source, with their reason documented. Source
+ownership permits these adaptations; it does not permit replacing the installed
+component with a handwritten substitute. This rule remains in the finalized
+application's guidance after starter setup is removed.
 
 ## 1. Code block
 

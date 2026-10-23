@@ -30,8 +30,9 @@ The ownership table above describes this upstream specification. Implement the
 points to the temporary setup guide; finalized AGENTS.md describes the actual
 app and links only to retained guidance. Do not leave instructions to read an
 upstream spec that cleanup has removed, or tell a fresh agent to repeat setup.
-Carry forward the authoring priority, applicable conventions, design skill,
-provenance, and verification expectations into app-specific documentation.
+Carry forward the authoring priority, CLI-installed shadcn component requirement,
+applicable conventions, design skill, provenance, and verification expectations
+into app-specific documentation.
 
 ## Design-skill provenance
 

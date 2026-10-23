@@ -50,7 +50,7 @@ choices using this criterion and record consequential tradeoffs in this document
 | Area | Decision |
 | --- | --- |
 | Application | Vite + React + TypeScript, with strict checking |
-| Styling | Tailwind CSS and shadcn/ui; use shadcn/create for the starting preset |
+| Styling | Tailwind CSS and shadcn/ui; use shadcn/create for the preset and the shadcn CLI to install components |
 | Typography | shadcn Typeset for rendered prose, with compact and reading presets |
 | Theme | Light / Dark / System; System default; live OS updates and persisted override |
 | Icons | Iconify collections through unplugin-icons; compiled React SVG components |
@@ -71,7 +71,10 @@ lockfile. Documentation consulted during planning is not live integration proof.
 
 The [component spec](components.md) defines code display, Markdown, data table,
 forms, combobox, date picker, sidebar, and command palette. Shared interaction
-states and small helpers support these examples. The forms coverage includes
+states and small helpers support these examples. Components must be installed
+through the shadcn CLI, not handwritten replacements; the
+[component source contract](components.md#component-source-and-installation)
+defines the boundary between installed UI and custom app composition. The forms coverage includes
 a dialog composition and destructive-action confirmation example where useful
 to demonstrate pending state, recovery, and focus behavior.
 

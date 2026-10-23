@@ -36,7 +36,10 @@ See [Scope](spec.md), [Customization](customization.md), and [Sources](sources.m
 - [ ] Select the shadcn/create preset, primitive base, fonts, and icon family;
   record the preset, generation command, and customization boundaries.
 - [ ] Confirm forms/validation and Markdown libraries before their feature work.
-- [ ] Prove shadcn Code Block, Shiki, and Typeset work together in a minimal spike.
+- [ ] Verify CLI availability for required shadcn components/blocks under the
+  selected preset/base; resolve gaps without handwritten substitutes.
+- [ ] Prove CLI-installed shadcn Code Block, Shiki, and Typeset work together
+  in a minimal spike.
 - [ ] Prove static Iconify/unplugin-icons React imports and custom SVG support.
 - [ ] Verify Oxlint with the chosen shadcn rules and Oxfmt Tailwind sorting;
   record supported versions and any narrowly justified exceptions.
@@ -81,8 +84,9 @@ Evidence: pending.
 Depends on Phase 2. See [Foundations](foundations.md) and
 [Documentation requirements](documentation.md).
 
-- [ ] Implement semantic tokens, typography, density, radii, surfaces, layering,
-  and the primitive controls needed by subsequent features.
+- [ ] Install the required shadcn controls through the CLI and record commands,
+  versions, and sources; implement shared tokens, typography, density, radii,
+  surfaces, and layering around the installed components.
 - [ ] Implement Light/Dark/System mode, persisted choices, live OS updates,
   first-paint initialization, and native-control color-scheme behavior.
 - [ ] Add compact/reading Typeset presets and the configured font loading/fallbacks.
@@ -108,6 +112,8 @@ Evidence: pending.
 
 Depends on Phase 3. See [Layouts](layouts.md) and [Components](components.md).
 
+- [ ] Install required Sidebar, Command, dialog/navigation components, and the
+  selected available block via the CLI before composing the shells.
 - [ ] Implement routing and one shared definition for destinations, labels, icons,
   and active-state matching; support direct links and refresh behavior.
 - [ ] Build the no-sidebar fixed-header shell with mobile navigation, content
@@ -132,6 +138,9 @@ Evidence: pending.
 
 Depends on Phase 4. Build each chain in the order below. See
 [Components](components.md), [Layouts](layouts.md), and [Testing](testing.md).
+
+- [ ] Install remaining required shadcn components through the CLI before their
+  feature work; review custom code as composition/integration, not replacement UI.
 
 ### Code, Markdown, and reading/detail pages
 

@@ -75,6 +75,14 @@ documents own behavior; this file provides observable acceptance checks.
 
 ## Components and examples
 
+- [ ] UI components originate from shadcn CLI installation with the configured
+  preset/base; installation commands and sources are recorded and no handwritten
+  replacements or manually reconstructed primitives are used.
+- [ ] Custom code composes the installed components; any local source adaptations
+  are narrow, documented, and preserve their interaction/accessibility behavior.
+- [ ] Finalized app instructions retain the CLI-installation requirement and
+  working component-addition recipe.
+
 - [ ] Code Block uses shadcn's Shiki integration with language handling, faithful
   copy behavior and feedback, appropriate overflow, and a plain-text fallback.
 - [ ] Markdown renders the documented GFM content using Typeset and shared code
